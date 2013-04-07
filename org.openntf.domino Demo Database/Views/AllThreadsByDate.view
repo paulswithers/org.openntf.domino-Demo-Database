@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'>
+<noteinfo noteid='eb2' unid='8F45DC39A786F5B080257B420041B073' sequence='1'>
+<created><datetime dst='true'>20130403T125730,11+01</datetime></created>
+<modified><datetime dst='true'>20130403T125730,30+01</datetime></modified>
+<revised><datetime dst='true'>20130403T125730,29+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20130403T125730,30+01</datetime></lastaccessed>
+<addedtofile><datetime dst='true'>20130403T125730,30+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
+<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
+<item name='$FormulaClass' sign='true'><text>1</text></item>
+<item name='$TITLE' sign='true'><text>AllThreadsByDate</text></item>
+<item name='$Index' sign='true'><text/></item>
+<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
+hAACABgABgBUb3RhbHMAAAAAAAAAAPA/AwAFADgANAAGAAQABQAIAAYACQAEAERhdGVUaXRsZUFi
+c3RyYWN0VG90YWxzJENvbmZsaWN0JFJFRgQABAAAACIABQAEAEZvcm0BAAoARGlzY3Vzc2lvbgoC
+BAAEAAMABwAMAAUACTNTNFMA
+</formula></item>
+<item name='$Collation' summary='true'>
+<rawitemdata type='2'>
+EQABAABEiWYHAAAEAERhdGU=
+</rawitemdata></item>
+<item name='$Totals' sign='true'><textlist><text>0</text><text>0</text><text
+>0</text><text>1</text></textlist></item>
+<item name='$ViewFormat' summary='true' sign='true'>
+<rawitemdata type='5'>
+AQAEAAYACAAAAFZDBwAEAAQAAAAAAJYAAQAACgABAAAAAAAAAAACAAAAVkMAAAUABQAAAAAAXQEB
+AAAKAAAAAAAAAAAAAgIAAABWQwAACAAIAAAAAADwAAEAAAoAAAAAAAAAAAACAgAAAFZDIAAGAAAA
+GgAAABoAAQAACgQAAAAAAAAAAAICAAAARGF0ZURhdGVUaXRsZVRpdGxlQWJzdHJhY3RBYnN0cmFj
+dFRvdGFscxoAAgAYAAYAVG90YWxzAAAAAAAAAADwPwMAJgABAAAAAQEACQEAAAoBAQ4KAAABAK0r
+AQABAAEAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAADEAAAAAAD//wAAAAAAAAAAAAAA
+AAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAA
+AAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAA
+AAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAQgAAAAAAAQD///8ABQD///8AAQAAAAAAAAAAAAAA
+AAABAP///wABAP///wAAAAEAAAAAAAEAAAAAAAEAAAAAAAAACAAAAAAAAQBYQwAIgAIAAAAAAAEC
+AgIBAQEBBwQDAAAAAAAAAAAgLy86WUMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAA==
+</rawitemdata></item>
+<item name='$Comment' sign='true'><text/></item>
+<item name='$Flags'><text>PY</text></item>
+<item name='$WebFlags'><text>A</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$SelQuery' sign='true'>
+<rawitemdata type='f'>
+gQYAAAAAif8WAAAAAAABAAoARGlzY3Vzc2lvbg==
+</rawitemdata></item></note>
+
