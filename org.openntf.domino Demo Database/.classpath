@@ -4,7 +4,6 @@
   <classpathentry kind="src" path="WebContent/WEB-INF/src"/>
   <classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
   <classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
-  <classpathentry kind="lib"
-    path="WebContent/WEB-INF/lib/org.openntf.domino.jar" sourcepath="X:/org.openntf.domino"/>
+  <classpathentry kind="lib" path="WebContent/WEB-INF/lib/org.openntf.domino.jar"/>
   <classpathentry kind="output" path="WebContent/WEB-INF/classes"/>
 </classpath>
