@@ -6,6 +6,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Vector;
 
+import javax.faces.context.FacesContext;
+
 import org.openntf.domino.Database;
 import org.openntf.domino.DateRange;
 import org.openntf.domino.DateTime;
@@ -14,11 +16,11 @@ import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
 import org.openntf.domino.ViewEntryCollection;
-import org.openntf.domino.utils.XSPUtil;
 
 import com.ibm.commons.util.StringUtil;
+import com.ibm.xsp.extlib.util.ExtLibUtil;
 
-public class DataInitializer {
+public class DataInitializerOpenNTF {
 
 	// Delete?
 	boolean deleteAllDoc;
@@ -39,7 +41,7 @@ public class DataInitializer {
 	// All types
 	boolean createAllTypes;
 
-	public DataInitializer() {
+	public DataInitializerOpenNTF() {
 	}
 
 	// ===================================================================
@@ -47,21 +49,25 @@ public class DataInitializer {
 	// ===================================================================
 
 	public void run() throws IOException {
-		Database db = XSPUtil.getCurrentDatabase();
-		if (deleteAllDoc) {
-			deleteAllDocuments(db);
-		}
-		if (createUsers) {
-			createUsers(db);
-		}
-		if (createStates) {
-			createStates(db);
-		}
-		if (createDiscussionDocuments) {
-			createDiscussionDocuments(db);
-		}
-		if (createAllTypes) {
-			createAllTypes(db);
+		try {
+			Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opendatabase");
+			if (deleteAllDoc) {
+				deleteAllDocuments(db);
+			}
+			if (createUsers) {
+				createUsers(db);
+			}
+			if (createStates) {
+				createStates(db);
+			}
+			if (createDiscussionDocuments) {
+				createDiscussionDocuments(db);
+			}
+			if (createAllTypes) {
+				createAllTypes(db);
+			}
+		} catch (Exception ee) {
+			System.out.println(ee.getMessage());
 		}
 	}
 
