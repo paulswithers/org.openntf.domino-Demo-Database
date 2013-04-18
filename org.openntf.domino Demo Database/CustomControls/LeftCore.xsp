@@ -20,6 +20,9 @@
 			</xe:pageTreeNode>
 
 			<xe:separatorTreeNode></xe:separatorTreeNode>
+			<xe:pageTreeNode label="DateTime" page="/DateTime.xsp">
+				<xe:this.selected><![CDATA[${compositeData.selected=="dateTime"}]]></xe:this.selected>
+			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
 </xp:view>

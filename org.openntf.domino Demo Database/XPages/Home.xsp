@@ -21,59 +21,30 @@
 			<xp:div xp:key="facet_1" style="text-align:center" id="panel1">
 				<xp:text value="org.openntf.domino Demo Database" styleClass="mainTitle"></xp:text>
 				<xp:div styleClass="lotusInfoBox" style="clear:right;text-align:left;">
+					<xp:text escape="false">
+					<xp:this.value><![CDATA[
 					This application is intended to demonstrate how to use the
 					org.openntf.domino API.
-					<br />
-					<br />
-					If the jar file has been added to jvm/lib/ext and the OSGi plugin deployed
-					via the Update Site
+					<br /><br />
+					If the jar file has been added to jvm/lib/ext and the OSGi plugin deployed via the Update Site
 					database to automatically contribute the library, there is an additional settings
-					that can be added
-					to the xsp.properties on the server.
-					<b>org.openntf.domino.xsp=godmode</b>
-					will override the XPages
+					that can be added to the xsp.properties on the server.
+					<b>org.openntf.domino.xsp=godmode</b> will override the XPages
 					session and database global objects, using the relevant org.openntf.domino classes
-					instead. Note, you
-					should check pre-existing XPages applications to ensure there are no unforeseen
-					implications. By default
-					godmode is not enabled.
-					<br />
-					<br />
-					In Java code, use the org.openntf.domino classes.
-					<br />
-					<br />
-					From SSJS the org.openntf.domino classes can be used via the
-					<i>opensession</i>
-					and
-					<i>opendatabase</i>
-					objects, where godmode has not been enabled. If godmode has been enabled,
-					<i>session</i>
-					will map to
-					<i>opensession</i>
-					and
-					<i>database</i>
-					to
-					<i>opendatabase</i>
-					.
-					<b>Important:</b>
-					If you have enabled godmode
-					on the server, run Search and Replace in Domino Designer to replace all
-					instances of
-					<i>opensession</i>
-					with
-					<i>session</i>
-					and
-					<i>opendatabase</i>
-					with
-					<i>database</i>
-					.
-					<br />
-					<br />
-					To load the data, use the Administration button. This opens a page based on
-					the Extension Library demo
-					database. The import uses the org.openntf.domino API to load content
-					(extLib.DataInitializerOpenNTF class).
-					The extlib.DataInitializer class has been left for comparison.
+					instead. Note, you should check pre-existing XPages applications to ensure there are no unforeseen
+					implications. By default godmode is not enabled.<br /><br />
+					In Java code, use the org.openntf.domino classes.<br /><br />
+					From SSJS the org.openntf.domino classes can be used via the <i>opensession</i>
+					and <i>opendatabase</i> objects, where godmode has not been enabled. If godmode has been enabled,
+					<i>session</i> will map to <i>opensession</i> and <i>database</i> to <i>opendatabase</i>.
+					<b>Important:</b> If you have enabled godmode
+					on the server, run Search and Replace in Domino Designer to replace all instances of
+					<i>opensession</i> with <i>session</i> and <i>opendatabase</i> with <i>database</i>.
+					<br /><br />To load the data, use the Administration button. This opens a page based on
+					the Extension Library demo database. The import uses the org.openntf.domino API to load content
+					(extLib.DataInitializerOpenNTF class). The extlib.DataInitializer class has been left for comparison.
+					]]></xp:this.value>
+					</xp:text>
 					<br />
 					<br />
 					<xp:button value="Administration" id="button1">
