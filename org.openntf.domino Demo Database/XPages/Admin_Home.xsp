@@ -20,6 +20,7 @@
 	</xp:this.resources>
 	<xc:ccLayoutOneUI selected="home">
 		<xp:this.facets>
+			<xc:LeftAdmin xp:key="LeftColumn" selected="admin"></xc:LeftAdmin>
 			<xp:panel id="panel6" xp:key="facet_1">
 				<xp:button value="Return to Home" id="button8">
 					<xp:eventHandler event="onclick" submit="true" refreshMode="complete">

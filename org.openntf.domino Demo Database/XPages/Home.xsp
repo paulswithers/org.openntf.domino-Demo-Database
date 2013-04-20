@@ -50,7 +50,7 @@
 					<xp:button value="Administration" id="button1">
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="complete">
-							<xp:this.action><![CDATA[#{javascript:context.redirectToPage("AdminHome.xsp")}]]></xp:this.action>
+							<xp:this.action><![CDATA[#{javascript:context.redirectToPage("Admin_Home.xsp")}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>
 				</xp:div>

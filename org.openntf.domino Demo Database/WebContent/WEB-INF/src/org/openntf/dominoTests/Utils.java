@@ -53,8 +53,8 @@ public class Utils {
 	}
 
 	public static String runComparison(String s1, String s2) {
-		s1 = s1.replace("<br/>", "");
-		s2 = s2.replace("<br/>", "");
+		s1 = s1.replace("<br/>", "\n");
+		s2 = s2.replace("<br/>", "\n");
 		diff_match_patch dmp = new diff_match_patch();
 		LinkedList<Diff> ll = dmp.diff_main(s1, s2);
 		return dmp.diff_prettyHtml(ll);

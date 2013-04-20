@@ -64,7 +64,10 @@
 							<xp:br></xp:br>
 							<xp:text id="datesBefore" value="#{viewScope.datesTest}" escape="false">
 							</xp:text>
-						</xp:div>
+							<xp:text escape="true" id="computedField2">
+								<xp:this.value><![CDATA[#{javascript:importPackage(org.openntf.dominoTests);
+Utils.getMethodText();}]]></xp:this.value>
+							</xp:text></xp:div>
 					</xe:djTabPane>
 					<xe:djTabPane id="java" title="Java">
 						<xp:div id="JavaDiv">

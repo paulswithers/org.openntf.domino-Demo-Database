@@ -2,3 +2,11 @@
 	font-weight:	bold;
 	font-size:		3em;
 }
+
+table {
+	width:			100%;
+}
+
+table td{
+	vertical-align:	top;
+}

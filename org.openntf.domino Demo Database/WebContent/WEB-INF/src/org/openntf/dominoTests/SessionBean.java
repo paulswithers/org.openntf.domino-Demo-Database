@@ -3,26 +3,25 @@ package org.openntf.dominoTests;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.faces.context.FacesContext;
-
 import org.openntf.domino.DateTime;
 import org.openntf.domino.Session;
+import org.openntf.domino.utils.Factory;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
-public class sessionBean implements Serializable {
+public class SessionBean implements Serializable {
 
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public sessionBean() {
+	public SessionBean() {
 
 	}
 
 	public void runDateTimes() {
-		Session s = (Session) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opensession");
+		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Date d = new Date();
 		DateTime dt = s.createDateTime(d);
 		DateTime dt2 = s.createDateTime(d);
