@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
-	
-
+	<xp:this.dataContexts>
+		<xp:dataContext var="lotusClassName" value="oldSessionBean">
+		</xp:dataContext>
+		<xp:dataContext var="ourClassName" value="sessionBean">
+		</xp:dataContext>
+	</xp:this.dataContexts>
+	<xp:table id="table1" styleClass="lotusFormTable">
+		<xp:tr style="background-color:#E8FAEE">
+			<xp:td style="width:50%;text-align:left;">
+				<xp:section header="Ext Lib Code">
+					<xp:text id="compar1" escape="false" value="#{dataComparator.lotusMethodText}">
+					</xp:text>
+				</xp:section>
+			</xp:td>
+			<xp:td style="width:50%;text-align:left;">
+				<xp:section header="OpenNTF Domino Code">
+					<xp:text id="compar2" escape="false" value="#{dataComparator.ourMethodText}">
+					</xp:text>
+				</xp:section>
+			</xp:td>
+		</xp:tr>
+		<xp:tr>
+			<xp:td colspan="2" style="padding-left:20px;background-color:#F8F8F8">
+				<xp:text tagName="h2" value="Domino/OpenNTF Comparison"></xp:text>
+				<xp:text escape="false">
+					<xp:this.value><![CDATA[#{javascript:importPackage(org.openntf.dominoTests);
+Utils.runComparison(getComponent("compar1").getValue(),getComponent("compar2").getValue());}]]></xp:this.value>
+				</xp:text>
+			</xp:td>
+		</xp:tr>
+	</xp:table>
 </xp:view>

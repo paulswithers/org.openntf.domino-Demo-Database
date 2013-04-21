@@ -57,6 +57,7 @@ public class Utils {
 		s2 = s2.replace("<br/>", "\n");
 		diff_match_patch dmp = new diff_match_patch();
 		LinkedList<Diff> ll = dmp.diff_main(s1, s2);
+		dmp.diff_cleanupEfficiency(ll);
 		return dmp.diff_prettyHtml(ll);
 	}
 

@@ -8,6 +8,8 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 
+import javax.faces.context.FacesContext;
+
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
 public class DataInitializerComparator implements Serializable {
@@ -41,7 +43,8 @@ public class DataInitializerComparator implements Serializable {
 	public String getLotusMethodText() {
 		String retVal_ = "";
 		try {
-			InputStream in = Utils.class.getResourceAsStream("DataInitializer");
+			InputStream in = Utils.class.getResourceAsStream((String) ExtLibUtil.resolveVariable(FacesContext
+					.getCurrentInstance(), "lotusClassName"));
 			CompilationUnit cu;
 			cu = JavaParser.parse(in);
 			// visit and print the methods names
@@ -50,7 +53,6 @@ public class DataInitializerComparator implements Serializable {
 			dv.visit(cu, null);
 			retVal_ = dv.getSource();
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return retVal_;
@@ -59,7 +61,8 @@ public class DataInitializerComparator implements Serializable {
 	public String getOurMethodText() {
 		String retVal_ = "";
 		try {
-			InputStream in = Utils.class.getResourceAsStream("DataInitializerOpenNTF");
+			InputStream in = Utils.class.getResourceAsStream((String) ExtLibUtil.resolveVariable(FacesContext
+					.getCurrentInstance(), "ourClassName"));
 			CompilationUnit cu;
 			cu = JavaParser.parse(in);
 			// visit and print the methods names
@@ -68,7 +71,6 @@ public class DataInitializerComparator implements Serializable {
 			dv.visit(cu, null);
 			retVal_ = dv.getSource();
 		} catch (Throwable e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return retVal_;

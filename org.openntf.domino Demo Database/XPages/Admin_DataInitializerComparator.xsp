@@ -21,6 +21,14 @@
 		<xp:this.facets>
 			<xc:LeftAdmin xp:key="LeftColumn" selected="adminCompar"></xc:LeftAdmin>
 			<xp:panel xp:key="facet_1" id="mainPanel">
+				<xp:this.dataContexts>
+					<xp:dataContext var="lotusClassName"
+						value="DataInitializer">
+					</xp:dataContext>
+					<xp:dataContext var="ourClassName"
+						value="DataInitializerOpenNTF">
+					</xp:dataContext>
+				</xp:this.dataContexts>
 				<xp:text tagName="h1" value="DataInitializer Class"></xp:text>
 				<xp:label value="Select Method: "></xp:label>
 				<xp:comboBox id="comboBox1" value="#{viewScope.methodName}">
@@ -29,7 +37,7 @@
 					</xp:selectItems>
 					<xp:eventHandler event="onchange" submit="true"
 						refreshMode="partial" refreshId="mainPanel">
-						<xp:this.script><![CDATA[XSP.animateLoading('#{id:mainPanel}')]]></xp:this.script>
+						<xp:this.script><![CDATA[XSP.animateLoading('#{id:mainPanel}','Retrieving Method and Comparing...')]]></xp:this.script>
 					</xp:eventHandler>
 				</xp:comboBox>
 				<xp:br />
@@ -46,14 +54,18 @@
 							</xp:td>
 							<xp:td style="width:50%">
 								<xp:section header="OpenNTF Domino Code">
-									<xp:text id="compar2" escape="false" value="#{dataComparator.ourMethodText}">
+									<xp:text id="compar2" escape="false"
+										value="#{dataComparator.ourMethodText}">
 									</xp:text>
 								</xp:section>
 							</xp:td>
 						</xp:tr>
 						<xp:tr>
-							<xp:td colspan="2" style="padding-left:20px;background-color:#F8F8F8">
-								<xp:text tagName="h2" value="Domino/OpenNTF Comparison"></xp:text>
+							<xp:td colspan="2"
+								style="padding-left:20px;background-color:#F8F8F8">
+								<xp:text tagName="h2"
+									value="Domino/OpenNTF Comparison">
+								</xp:text>
 								<xp:text escape="false">
 									<xp:this.value><![CDATA[#{javascript:importPackage(org.openntf.dominoTests);
 Utils.runComparison(getComponent("compar1").getValue(),getComponent("compar2").getValue());}]]></xp:this.value>
