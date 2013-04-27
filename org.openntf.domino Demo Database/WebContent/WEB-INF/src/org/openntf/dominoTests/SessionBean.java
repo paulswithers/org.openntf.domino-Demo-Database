@@ -53,13 +53,15 @@ public class SessionBean implements Serializable {
 		Database currDb = s.getCurrentDatabase();
 		View threadsByDate = currDb.getView("AllThreadsByDate");
 		ViewNavigator vNav = threadsByDate.createViewNav();
+		vNav.setBufferMaxEntries(35);
+		vNav.setEntryOptions(org.openntf.domino.ViewNavigator.VN_ENTRYOPT_NOCOLUMNVALUES);
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(30);
+		int randomInt = randomGenerator.nextInt(35);
 		ViewEntry firstEnt = vNav.getNth(randomInt);
 		while (!firstEnt.isDocument()) {
 			firstEnt = vNav.getNext();
 		}
-		randomInt = randomGenerator.nextInt(30);
+		randomInt = randomGenerator.nextInt(35);
 		ViewEntry secondEnt = vNav.getNth(randomInt);
 		while (!secondEnt.isDocument()) {
 			secondEnt = vNav.getNext();

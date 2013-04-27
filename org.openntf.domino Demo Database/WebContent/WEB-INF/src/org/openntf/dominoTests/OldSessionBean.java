@@ -37,16 +37,19 @@ public class OldSessionBean implements Serializable {
 			Session s = ExtLibUtil.getCurrentSession();
 			Database currDb = s.getCurrentDatabase();
 			threadsByDate = currDb.getView("AllThreadsByDate");
+			threadsByDate.setAutoUpdate(false);
 			ViewNavigator vNav = threadsByDate.createViewNav();
+			vNav.setBufferMaxEntries(35);
+			vNav.setEntryOptions(lotus.domino.ViewNavigator.VN_ENTRYOPT_NOCOLUMNVALUES);
 			Random randomGenerator = new Random();
-			int randomInt = randomGenerator.nextInt(30);
+			int randomInt = randomGenerator.nextInt(35);
 			ViewEntry firstEnt = vNav.getNth(randomInt);
 			while (!firstEnt.isDocument()) {
 				ViewEntry tmpEnt = vNav.getNext();
 				firstEnt.recycle();
 				firstEnt = tmpEnt;
 			}
-			randomInt = randomGenerator.nextInt(30);
+			randomInt = randomGenerator.nextInt(35);
 			ViewEntry secondEnt = vNav.getNth(randomInt);
 			while (!secondEnt.isDocument()) {
 				ViewEntry tmpEnt = vNav.getNext();

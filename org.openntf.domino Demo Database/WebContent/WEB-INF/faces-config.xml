@@ -20,6 +20,11 @@
     <managed-bean-scope>session</managed-bean-scope>
   </managed-bean>
   <managed-bean>
+    <managed-bean-name>dominoBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.OldSessionBean</managed-bean-class>
+    <managed-bean-scope>session</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
     <managed-bean-name>dataComparator</managed-bean-name>
     <managed-bean-class>org.openntf.dominoTests.DataInitializerComparator</managed-bean-class>
     <managed-bean-scope>view</managed-bean-scope>
