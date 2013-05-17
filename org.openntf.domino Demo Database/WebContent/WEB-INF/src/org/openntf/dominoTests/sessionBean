@@ -22,8 +22,6 @@ public class SessionBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	private String dateTimeIsBeforeTest;
-
 	public SessionBean() {
 
 	}
@@ -53,13 +51,14 @@ public class SessionBean implements Serializable {
 		Database currDb = s.getCurrentDatabase();
 		View threadsByDate = currDb.getView("AllThreadsByDate");
 		ViewNavigator vNav = threadsByDate.createViewNav();
+		vNav.setEntryOptions(org.openntf.domino.ViewNavigator.VN_ENTRYOPT_NOCOLUMNVALUES);
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(30);
+		int randomInt = randomGenerator.nextInt(35);
 		ViewEntry firstEnt = vNav.getNth(randomInt);
 		while (!firstEnt.isDocument()) {
 			firstEnt = vNav.getNext();
 		}
-		randomInt = randomGenerator.nextInt(30);
+		randomInt = randomGenerator.nextInt(35);
 		ViewEntry secondEnt = vNav.getNth(randomInt);
 		while (!secondEnt.isDocument()) {
 			secondEnt = vNav.getNext();
@@ -71,7 +70,7 @@ public class SessionBean implements Serializable {
 		DateTime firstDate = s.createDateTime(firstDt);
 		DateTime secondDate = s.createDateTime(secondDt);
 		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-				+ secondDoc.getUniversalID() + ")...";
+				+ secondDoc.getUniversalID() + ")...\n";
 		if (firstDate.isBefore(secondDate)) {
 			retVal_ += "first before second";
 		} else {
@@ -80,82 +79,108 @@ public class SessionBean implements Serializable {
 		return retVal_;
 	}
 
-	public boolean dateTimeIsAfterTest() {
-		boolean retVal_ = false;
+	public String getDateTimeIsAfterTest() {
+		String retVal_ = "";
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
 		View threadsByDate = currDb.getView("AllThreadsByDate");
 		ViewNavigator vNav = threadsByDate.createViewNav();
+		vNav.setEntryOptions(org.openntf.domino.ViewNavigator.VN_ENTRYOPT_NOCOLUMNVALUES);
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(threadsByDate.getEntryCount());
+		int randomInt = randomGenerator.nextInt(35);
 		ViewEntry firstEnt = vNav.getNth(randomInt);
-		ViewEntry secondEnt = vNav.getNext(firstEnt);
+		while (!firstEnt.isDocument()) {
+			firstEnt = vNav.getNext();
+		}
+		randomInt = randomGenerator.nextInt(35);
+		ViewEntry secondEnt = vNav.getNth(randomInt);
+		while (!secondEnt.isDocument()) {
+			secondEnt = vNav.getNext();
+		}
 		Document firstDoc = firstEnt.getDocument();
 		Document secondDoc = secondEnt.getDocument();
-		DateTime firstDate = s.createDateTime(firstDoc.getFirstItem("Date").getText());
-		DateTime secondDate = s.createDateTime(secondDoc.getFirstItem("Date").getText());
+		String firstDt = firstDoc.getFirstItem("Date").getText();
+		String secondDt = secondDoc.getFirstItem("Date").getText();
+		DateTime firstDate = s.createDateTime(firstDt);
+		DateTime secondDate = s.createDateTime(secondDt);
+		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...\n";
 		if (firstDate.isAfter(secondDate)) {
-			retVal_ = true;
+			retVal_ += "first after second";
+		} else {
+			retVal_ += "first NOT after second";
 		}
 		return retVal_;
 	}
 
-	public boolean dateTimeEqualsTest() {
-		boolean retVal_ = false;
+	public String getDateTimeEqualsTest() {
+		String retVal_ = "";
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
-		View threadsByDate = currDb.getView("AllThreadsByDate");
-		ViewNavigator vNav = threadsByDate.createViewNav();
+		View threads = currDb.getView("AllThreads");
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(threadsByDate.getEntryCount());
-		ViewEntry firstEnt = vNav.getNth(randomInt);
-		ViewEntry secondEnt = vNav.getNext(firstEnt);
-		Document firstDoc = firstEnt.getDocument();
-		Document secondDoc = secondEnt.getDocument();
-		DateTime firstDate = s.createDateTime(firstDoc.getFirstItem("Date").getText());
-		DateTime secondDate = s.createDateTime(secondDoc.getFirstItem("Date").getText());
+		int randomInt = randomGenerator.nextInt(100);
+		Document firstDoc = threads.getNthDocument(randomInt);
+		randomInt = randomGenerator.nextInt(100);
+		Document secondDoc = threads.getNthDocument(randomInt);
+		String firstDt = firstDoc.getFirstItem("Date").getText();
+		String secondDt = secondDoc.getFirstItem("Date").getText();
+		DateTime firstDate = s.createDateTime(firstDt);
+		DateTime secondDate = s.createDateTime(secondDt);
+		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...\n";
 		if (firstDate.equals(secondDate)) {
-			retVal_ = true;
+			retVal_ += "first is the same date/time as second";
+		} else {
+			retVal_ += "first is NOT the same date/time as second";
 		}
 		return retVal_;
 	}
 
-	public boolean dateTimeEqualsIgnoreDateTest() {
-		boolean retVal_ = false;
+	public String getDateTimeEqualsIgnoreDateTest() {
+		String retVal_ = "";
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
-		View threadsByDate = currDb.getView("AllThreadsByDate");
-		ViewNavigator vNav = threadsByDate.createViewNav();
+		View threads = currDb.getView("AllThreads");
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(threadsByDate.getEntryCount());
-		ViewEntry firstEnt = vNav.getNth(randomInt);
-		ViewEntry secondEnt = vNav.getNext(firstEnt);
-		Document firstDoc = firstEnt.getDocument();
-		Document secondDoc = secondEnt.getDocument();
-		DateTime firstDate = s.createDateTime(firstDoc.getFirstItem("Date").getText());
-		DateTime secondDate = s.createDateTime(secondDoc.getFirstItem("Date").getText());
+		int randomInt = randomGenerator.nextInt(100);
+		Document firstDoc = threads.getNthDocument(randomInt);
+		randomInt = randomGenerator.nextInt(100);
+		Document secondDoc = threads.getNthDocument(randomInt);
+		String firstDt = firstDoc.getFirstItem("Date").getText();
+		String secondDt = secondDoc.getFirstItem("Date").getText();
+		DateTime firstDate = s.createDateTime(firstDt);
+		DateTime secondDate = s.createDateTime(secondDt);
+		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...\n";
 		if (firstDate.equalsIgnoreDate(secondDate)) {
-			retVal_ = true;
+			retVal_ += "first is the same time as second";
+		} else {
+			retVal_ += "first is NOT the same time as second";
 		}
 		return retVal_;
 	}
 
-	public boolean dateTimeEqualsIgnoreTimeTest() {
-		boolean retVal_ = false;
+	public String getDateTimeEqualsIgnoreTimeTest() {
+		String retVal_ = "";
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
-		View threadsByDate = currDb.getView("AllThreadsByDate");
-		ViewNavigator vNav = threadsByDate.createViewNav();
+		View threads = currDb.getView("AllThreads");
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(threadsByDate.getEntryCount());
-		ViewEntry firstEnt = vNav.getNth(randomInt);
-		ViewEntry secondEnt = vNav.getNext(firstEnt);
-		Document firstDoc = firstEnt.getDocument();
-		Document secondDoc = secondEnt.getDocument();
-		DateTime firstDate = s.createDateTime(firstDoc.getFirstItem("Date").getText());
-		DateTime secondDate = s.createDateTime(secondDoc.getFirstItem("Date").getText());
+		int randomInt = randomGenerator.nextInt(100);
+		Document firstDoc = threads.getNthDocument(randomInt);
+		randomInt = randomGenerator.nextInt(100);
+		Document secondDoc = threads.getNthDocument(randomInt);
+		String firstDt = firstDoc.getFirstItem("Date").getText();
+		String secondDt = secondDoc.getFirstItem("Date").getText();
+		DateTime firstDate = s.createDateTime(firstDt);
+		DateTime secondDate = s.createDateTime(secondDt);
+		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...\n";
 		if (firstDate.equalsIgnoreTime(secondDate)) {
-			retVal_ = true;
+			retVal_ += "first is the same date as second";
+		} else {
+			retVal_ += "first is NOT the same date as second";
 		}
 		return retVal_;
 	}

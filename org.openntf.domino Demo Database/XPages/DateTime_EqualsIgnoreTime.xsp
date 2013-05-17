@@ -15,6 +15,7 @@
 	-->
 
 
+	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.put("methodName","getDateTimeEqualsIgnoreTimeTest");}]]></xp:this.beforePageLoad>
 	<xc:ccLayoutOneUI selected="dateTime">
 		<xp:this.facets>
 			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
@@ -24,7 +25,7 @@
 				<hr></hr>
 				<xp:div styleClass="lotusInfoBox">
 					<xp:text escape="false">
-						<xp:this.value><![CDATA[Demonstrates new methods on DateTime class]]>
+						<xp:this.value><![CDATA[Demonstrates DateTime.equalsIgnoreTime(DateTime) - i.e. take two dates and check if the DATES are the same, ignoring the TIME portion]]>
 						</xp:this.value>
 					</xp:text>
 				</xp:div>
@@ -40,27 +41,11 @@
 	var now = new java.util.Date();
 	var date1 = opensession.createDateTime(now);
 	var date2 = opensession.createDateTime(now);
-	date2.adjustDay(1);
-	var retVal;
-	retVal = "Running SSJS date1.isBefore(date2)<br/>";
+	retVal = "Running SSJS date1.equalsIgnoreTime(date2)<br/>";
 	if (date1.isBefore(date2)) {
-		retVal += @Text(date1) + " is before " + @Text(date2) + "<br/>";
+		retVal += @Text(date1) + " is the same as " + @Text(date2) + "<br/>";
 	} else {
-		retVal += @Text(date1) + " is NOT before " + @Text(date2) + "<br/>";
-	}
-	retVal += "Running SSJS date1.equalsIgnoreDate(date2)<br/>";
-	if (date1.equalsIgnoreDate(date2)) {
-		retVal += @Text(date1) + " is same time as " + @Text(date2) + "<br/>";
-	} else {
-		retVal += @Text(date1) + " is NOT same time as " + @Text(date2) + "<br/>";
-	}
-
-	date2.adjustHour(-29);
-	retVal += "Running SSJS date1.equalsIgnoreTime(date2)<br/>";
-	if (date1.equalsIgnoreTime(date2)) {
-		retVal += @Text(date1) + " is same day as " + @Text(date2);
-	} else {
-		retVal += @Text(date1) + " is NOT same day as " + @Text(date2);
+		retVal += @Text(date1) + " is NOT the same as " + @Text(date2) + "<br/>";
 	}
 	viewScope.put("datesTest",retVal);
 } catch (e) {
@@ -75,19 +60,13 @@
 					</xe:djTabPane>
 					<xe:djTabPane id="java" title="Java">
 						<xp:div id="JavaDiv">
-							<xp:button value="Run Java Tests" id="button3">
-								<xp:eventHandler event="onclick" submit="true"
-									refreshMode="partial" refreshId="JavaDiv" action="#{openNTFDominoBean.runDateTimes}">
-								</xp:eventHandler>
-							</xp:button>
-							<xp:br></xp:br>
-							<xp:text id="computedField1" value="#{viewScope.datesTestJava}"
+							<xp:text id="computedField1" value="#{openNTFDominoBean.dateTimeEqualsIgnoreTimeTest}"
 								escape="false">
 							</xp:text>
 						</xp:div>
 					</xe:djTabPane>
 					<xe:djTabPane id="javaCompare" title="Java Comparator">
-						
+						<xc:MethodComparator></xc:MethodComparator>
 					</xe:djTabPane>
 				</xe:djTabContainer>
 			</xp:div>

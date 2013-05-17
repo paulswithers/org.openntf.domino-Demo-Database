@@ -32,6 +32,12 @@
 			<xe:pageTreeNode label="Equals" page="/DateTime_Equals.xsp">
 				<xe:this.selected><![CDATA[${compositeData.selected=="dateTime"}]]></xe:this.selected>
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Equals Ignore Date" page="/DateTime_EqualsIgnoreDate.xsp">
+				<xe:this.selected><![CDATA[${compositeData.selected=="dateTime"}]]></xe:this.selected>
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Equals Ignore Time" page="/DateTime_EqualsIgnoreTime.xsp">
+				<xe:this.selected><![CDATA[${compositeData.selected=="dateTime"}]]></xe:this.selected>
+			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
 </xp:view>
