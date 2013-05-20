@@ -20,7 +20,13 @@
 	</xp:this.resources>
 	<xc:ccLayoutOneUI selected="home">
 		<xp:this.facets>
+			<xc:LeftAdmin xp:key="LeftColumn" selected="admin"></xc:LeftAdmin>
 			<xp:panel id="panel6" xp:key="facet_1">
+				<xp:button value="Return to Home" id="button8">
+					<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
+						<xp:this.action><![CDATA[#{javascript:context.redirectToPage("Home.xsp")}]]></xp:this.action>
+					</xp:eventHandler>
+				</xp:button>
 				<hr></hr>
 				<xp:label
 					value="Create a sample dataset to experiment the application features (users, states, discussion threads...)"
@@ -44,16 +50,16 @@
 							<xp:button value="Create Sample Data Set" id="button5">
 								<xp:eventHandler event="onclick" submit="true"
 									refreshMode="complete">
-									<xp:this.action><![CDATA[#{javascript:var d = new extlib.DataInitializer()
-d.initDeleteDocuments()
-d.initUsers(200)
-d.initDiscussionDocuments(100, 10, 5)
-d.initStates()
-d.initAllTypes()
-d.run()
+									<xp:this.action><![CDATA[#{javascript:var d = new extlib.DataInitializerOpenNTF();
+d.initDeleteDocuments();
+d.initUsers(200);
+d.initDiscussionDocuments(100, 10, 5);
+d.initStates();
+d.initAllTypes();
+d.run();
 
 var msg = "Created Sample Data Set";
-@WarningMessage(msg)
+@WarningMessage(msg);
 }]]></xp:this.action>
 									<xp:this.script><![CDATA[XSP.animateLoading('#{id:panel6}')]]></xp:this.script>
 								</xp:eventHandler>

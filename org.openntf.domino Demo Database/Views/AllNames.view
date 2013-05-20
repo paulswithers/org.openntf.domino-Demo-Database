@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'>
-<noteinfo noteid='ea2' unid='C32D534E66A4AF3780257B420041B06F' sequence='1'>
+<noteinfo noteid='ea2' unid='C32D534E66A4AF3780257B420041B06F' sequence='3'>
 <created><datetime dst='true'>20130403T125730,07+01</datetime></created>
-<modified><datetime dst='true'>20130403T125730,22+01</datetime></modified>
-<revised><datetime dst='true'>20130403T125730,21+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20130403T125730,22+01</datetime></lastaccessed>
+<modified><datetime dst='true'>20130407T201430,57+01</datetime></modified>
+<revised><datetime dst='true'>20130407T201430,56+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20130421T213954,62+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125730,22+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Simon/O=dubMob</name><name>CN=admin/O=Intec-PW</name></updatedby>
+<updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
 <item name='$FormulaClass' sign='true'><text>1</text></item>
 <item name='$TITLE' sign='true'><text>AllNames</text></item>

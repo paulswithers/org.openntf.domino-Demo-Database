@@ -1,10 +1,25 @@
 package extlib;
 
+/*
+	Copyright 2013 Paul Withers Licensed under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with the
+License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
+or agreed to in writing, software distributed under the License is distributed
+on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+express or implied. See the License for the specific language governing
+permissions and limitations under the License
+
+*/
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Vector;
+
+import javax.faces.context.FacesContext;
 
 import org.openntf.domino.Database;
 import org.openntf.domino.DateRange;
@@ -14,12 +29,11 @@ import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
 import org.openntf.domino.ViewEntryCollection;
-import org.openntf.domino.utils.Factory;
-import org.openntf.domino.utils.XSPUtil;
 
 import com.ibm.commons.util.StringUtil;
+import com.ibm.xsp.extlib.util.ExtLibUtil;
 
-public class DataInitializer {
+public class DataInitializerOpenNTF {
 
 	// Delete?
 	boolean deleteAllDoc;
@@ -40,8 +54,7 @@ public class DataInitializer {
 	// All types
 	boolean createAllTypes;
 
-	public DataInitializer() {
-		Factory.setSession(XSPUtil.getCurrentSession());
+	public DataInitializerOpenNTF() {
 	}
 
 	// ===================================================================
@@ -49,23 +62,25 @@ public class DataInitializer {
 	// ===================================================================
 
 	public void run() throws IOException {
-		Database db = XSPUtil.getCurrentDatabase();
-		System.out.println(db.getFilePath());
-
-		if (deleteAllDoc) {
-			deleteAllDocuments(db);
-		}
-		if (createUsers) {
-			createUsers(db);
-		}
-		if (createStates) {
-			createStates(db);
-		}
-		if (createDiscussionDocuments) {
-			createDiscussionDocuments(db);
-		}
-		if (createAllTypes) {
-			createAllTypes(db);
+		try {
+			Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opendatabase");
+			if (deleteAllDoc) {
+				deleteAllDocuments(db);
+			}
+			if (createUsers) {
+				createUsers(db);
+			}
+			if (createStates) {
+				createStates(db);
+			}
+			if (createDiscussionDocuments) {
+				createDiscussionDocuments(db);
+			}
+			if (createAllTypes) {
+				createAllTypes(db);
+			}
+		} catch (Exception ee) {
+			System.out.println(ee.getMessage());
 		}
 	}
 
@@ -82,8 +97,7 @@ public class DataInitializer {
 		this.createStates = true;
 	}
 
-	public void initDiscussionDocuments(int rootDocs, int maxResponse,
-			int maxDepth) {
+	public void initDiscussionDocuments(int rootDocs, int maxResponse, int maxDepth) {
 		this.createDiscussionDocuments = true;
 		this.disc_rootDocs = rootDocs;
 		this.disc_maxResponse = maxResponse;
@@ -125,8 +139,7 @@ public class DataInitializer {
 				String city = SampleDataUtil.cityName(fullcity);
 				String state = SampleDataUtil.cityState(fullcity);
 				String email = createEmail(firstName, lastName, city);
-				String id = "CN=" + firstName + " " + lastName
-						+ "/O=renovations";
+				String id = "CN=" + firstName + " " + lastName + "/O=renovations";
 
 				// If user already there, then reject and continue
 				// Else, create it...
@@ -143,8 +156,7 @@ public class DataInitializer {
 
 	}
 
-	void createUser(Database db, String id, String firstName, String lastName,
-			String city, String state, String email) {
+	void createUser(Database db, String id, String firstName, String lastName, String city, String state, String email) {
 		Document doc = db.createDocument();
 		doc.replaceItemValue("Form", "Contact");
 		doc.replaceItemValue("Id", id);
@@ -207,10 +219,8 @@ public class DataInitializer {
 
 	void createDiscussionDocuments(Database db) throws IOException {
 		// Construct a list of authors
-		// As we want the tag cloud to render differences between the authors,
-		// we give
-		// as different weight to each author by adding it a random # of times
-		// in the list
+		// As we want the tag cloud to render differences between the authors, we give
+		// as different weight to each author by adding it a random # of times in the list
 		// We read the author names from the database
 		ArrayList<String> users = new ArrayList<String>();
 		View authorView = db.getView("AllContacts");
@@ -238,12 +248,11 @@ public class DataInitializer {
 
 		View w = db.getView("AllThreads");
 		w.getAllEntries().removeAll(true);
-		createDiscussionDocument(db, null, users, new int[] { 0 },
-				disc_rootDocs);
+		createDiscussionDocument(db, null, users, new int[] { 0 }, disc_rootDocs);
 	}
 
-	void createDiscussionDocument(Database db, Document parent,
-			ArrayList<String> users, int[] pos, int nDoc) throws IOException {
+	void createDiscussionDocument(Database db, Document parent, ArrayList<String> users, int[] pos, int nDoc)
+			throws IOException {
 		DateTime date = db.getParent().createDateTime(new Date());
 		String[] loremIpsum = SampleDataUtil.readLoremIpsum();
 		for (int j = 0; j < nDoc; j++) {
@@ -271,8 +280,7 @@ public class DataInitializer {
 			String title = body.substring(0, Math.min(dot, coma));
 
 			// Get a random author
-			int x = Math.min((int) (Math.random() * (users.size())), users
-					.size());
+			int x = Math.min((int) (Math.random() * (users.size())), users.size());
 			String author = users.get(x);
 
 			doc.replaceItemValue("Title", title);
@@ -327,10 +335,8 @@ public class DataInitializer {
 		doc.replaceItemValue("fldNumber", index * 100);
 		doc.replaceItemValue("fldDate", createDate(session, 2010, 1, index));
 		doc.replaceItemValue("fldTime", createTime(session, 5, 1, index));
-		doc.replaceItemValue("fldDateTime", createDateTime(session, 2011, 2,
-				index, 8, 9, index));
-		doc.replaceItemValue("fldDateTimeRange", createDateTimeRange(session,
-				2012, 3, index, 8, 9, index));
+		doc.replaceItemValue("fldDateTime", createDateTime(session, 2011, 2, index, 8, 9, index));
+		doc.replaceItemValue("fldDateTimeRange", createDateTimeRange(session, 2012, 3, index, 8, 9, index));
 		doc.replaceItemValue("fldDialogList", "dlg_" + sIndex);
 
 		Vector<Object> mx = new Vector<Object>();
@@ -386,29 +392,24 @@ public class DataInitializer {
 		return d;
 	}
 
-	protected DateTime createTime(Session session, int hour, int minute,
-			int second) {
+	protected DateTime createTime(Session session, int hour, int minute, int second) {
 		DateTime d = session.createDateTime(new Date());
 		d.setLocalTime(hour, minute, second, 0);
 		return d;
 	}
 
-	protected DateTime createDateTime(Session session, int year, int month,
-			int day, int hour, int minute, int second) {
+	protected DateTime createDateTime(Session session, int year, int month, int day, int hour, int minute, int second) {
 		DateTime d = session.createDateTime(new Date());
 		d.setLocalDate(year, month, day);
 		d.setLocalTime(hour, minute, second, 0);
 		return d;
 	}
 
-	protected DateRange createDateTimeRange(Session session, int year,
-			int month, int day, int hour, int minute, int second) {
-		DateRange r = (DateRange) session.createDateRange(new Date(),
-				new Date());
-		r.setStartDateTime(createDateTime(session, year, month, day, hour,
-				minute, second));
-		r.setEndDateTime(createDateTime(session, year + 1, month, day,
-				hour + 1, minute, second));
+	protected DateRange createDateTimeRange(Session session, int year, int month, int day, int hour, int minute,
+			int second) {
+		DateRange r = (DateRange) session.createDateRange(new Date(), new Date());
+		r.setStartDateTime(createDateTime(session, year, month, day, hour, minute, second));
+		r.setEndDateTime(createDateTime(session, year + 1, month, day, hour + 1, minute, second));
 		return r;
 	}
 }
