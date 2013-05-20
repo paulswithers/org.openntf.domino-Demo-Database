@@ -39,34 +39,34 @@
 									refreshMode="partial" refreshId="SSJSDiv">
 									<xp:this.action><![CDATA[#{javascript:try {
 	var now = new java.util.Date();
-	var date1 = opensession.createDateTime(now);
-	var date2 = opensession.createDateTime(now);
+	var date1:org.openntf.domino.DateTime = opensession.createDateTime(now);
+	var date2:org.openntf.domino.DateTime = opensession.createDateTime(now);
 	retVal = "Running SSJS date1.equals(date2)<br/>";
-	if (date1.isBefore(date2)) {
+	if (date1.equals(date2)) {
 		retVal += @Text(date1) + " is the same as " + @Text(date2) + "<br/>";
 	} else {
 		retVal += @Text(date1) + " is NOT the same as " + @Text(date2) + "<br/>";
 	}
-	viewScope.put("datesTest",retVal);
+	viewScope.put("SSJSTest",retVal);
 } catch (e) {
-	viewScope.put("datesTest",e.toString());
+	@ErrorMessage(e.toString());
 }}]]></xp:this.action>
 								</xp:eventHandler>
 							</xp:button>
 							<xp:br></xp:br>
-							<xp:text id="datesBefore" value="#{viewScope.datesTest}" escape="false">
+							<xp:text id="SSJS_Response" value="#{SSJSTest}" escape="false">
 							</xp:text>
 						</xp:div>
 					</xe:djTabPane>
 					<xe:djTabPane id="java" title="Java">
 						<xp:div id="JavaDiv">
-							<xp:text id="computedField1" value="#{openNTFDominoBean.dateTimeEqualsTest}"
+							<xp:text id="computedField1" value="#{openNTFDateTimeBean.dateTimeEqualsTest}"
 								escape="false">
 							</xp:text>
 						</xp:div>
 					</xe:djTabPane>
 					<xe:djTabPane id="javaCompare" title="Java Comparator">
-						<xc:MethodComparator></xc:MethodComparator>
+						<xc:MethodComparator objectName="DateTime"></xc:MethodComparator>
 					</xe:djTabPane>
 				</xe:djTabContainer>
 			</xp:div>

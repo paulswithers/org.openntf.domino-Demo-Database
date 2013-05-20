@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xp:view xmlns:xp="http://www.ibm.com/xsp/core">
 	<xp:this.dataContexts>
-		<xp:dataContext var="lotusClassName" value="oldSessionBean">
+		<xp:dataContext var="lotusClassName" value="Old${compositeData.objectName}Bean">
 		</xp:dataContext>
-		<xp:dataContext var="ourClassName" value="sessionBean">
+		<xp:dataContext var="ourClassName" value="${compositeData.objectName}Bean">
 		</xp:dataContext>
 	</xp:this.dataContexts>
 	<xp:table id="table1" styleClass="lotusFormTable">

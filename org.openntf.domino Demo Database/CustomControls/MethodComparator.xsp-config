@@ -13,5 +13,12 @@
         <in-palette>true</in-palette>
       </designer-extension>
     </composite-extension>
+    <property>
+      <property-name>objectName</property-name>
+      <property-class>string</property-class>
+      <property-extension>
+        <required>true</required>
+      </property-extension>
+    </property>
   </composite-component>
 </faces-config>

@@ -38,8 +38,8 @@
 									refreshMode="partial" refreshId="SSJSDiv">
 									<xp:this.action><![CDATA[#{javascript:try {
 	var now = new java.util.Date();
-	var date1 = opensession.createDateTime(now);
-	var date2 = opensession.createDateTime(now);
+	var date1:org.openntf.domino.DateTime = opensession.createDateTime(now);
+	var date2:org.openntf.domino.DateTime = opensession.createDateTime(now);
 	date2.adjustDay(1);
 	var retVal;
 	retVal = "Running SSJS date1.isBefore(date2)<br/>";
@@ -62,14 +62,14 @@
 	} else {
 		retVal += @Text(date1) + " is NOT same day as " + @Text(date2);
 	}
-	viewScope.put("datesTest",retVal);
+	viewScope.put("SSJSTest",retVal);
 } catch (e) {
-	viewScope.put("datesTest",e.toString());
+	@ErrorMessage(e.toString());
 }}]]></xp:this.action>
 								</xp:eventHandler>
 							</xp:button>
 							<xp:br></xp:br>
-							<xp:text id="datesBefore" value="#{viewScope.datesTest}" escape="false">
+							<xp:text id="SSJS_Response" value="#{SSJSTest}" escape="false">
 							</xp:text>
 						</xp:div>
 					</xe:djTabPane>
@@ -77,7 +77,7 @@
 						<xp:div id="JavaDiv">
 							<xp:button value="Run Java Tests" id="button3">
 								<xp:eventHandler event="onclick" submit="true"
-									refreshMode="partial" refreshId="JavaDiv" action="#{openNTFDominoBean.runDateTimes}">
+									refreshMode="partial" refreshId="JavaDiv" action="#{openNTFDateTimeBean.runDateTimes}">
 								</xp:eventHandler>
 							</xp:button>
 							<xp:br></xp:br>

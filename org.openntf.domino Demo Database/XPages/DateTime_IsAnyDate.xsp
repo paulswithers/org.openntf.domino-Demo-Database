@@ -14,8 +14,8 @@
 		permissions and limitations under the License
 	-->
 
-
-	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.put("methodName","getDateTimeEqualsIgnoreTimeTest");}]]></xp:this.beforePageLoad>
+	<!-- TODO -->
+	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.put("methodName","getDateTimeIsAnyDateTest");}]]></xp:this.beforePageLoad>
 	<xc:ccLayoutOneUI selected="dateTime">
 		<xp:this.facets>
 			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
@@ -25,7 +25,7 @@
 				<hr></hr>
 				<xp:div styleClass="lotusInfoBox">
 					<xp:text escape="false">
-						<xp:this.value><![CDATA[Demonstrates DateTime.equalsIgnoreTime(DateTime) - i.e. take two dates and check if the DATES are the same, ignoring the TIME portion]]>
+						<xp:this.value><![CDATA[Not sure how to isAnyDate can be used. DateTime always seems to have both date and time portions.]]>
 						</xp:this.value>
 					</xp:text>
 				</xp:div>
@@ -37,28 +37,6 @@
 							<xp:button value="Run SSJS Tests" id="button2">
 								<xp:eventHandler event="onclick" submit="true"
 									refreshMode="partial" refreshId="SSJSDiv">
-									<xp:this.action><![CDATA[#{javascript:try {
-	var now = new java.util.Date();
-	var date1:org.openntf.domino.DateTime = opensession.createDateTime(now);
-	var date2:org.openntf.domino.DateTime = opensession.createDateTime(now);
-	date1.adjustMinute(2);
-	retVal = "Running SSJS date1.equalsIgnoreTime(date2)<br/>";
-	if (date1.equalsIgnoreTime(date2)) {
-		retVal += @Text(date1) + " is the same DATE as " + @Text(date2) + "<br/>";
-	} else {
-		retVal += @Text(date1) + " is NOT the same DATE as " + @Text(date2) + "<br/>";
-	}
-	date1.adjustDay(1);
-	retVal += "<br/><br/>Running SSJS date1.equalsIgnoreTime(date2)<br/>";
-	if (date1.equalsIgnoreTime(date2)) {
-		retVal += @Text(date1) + " is the same DATE as " + @Text(date2) + "<br/>";
-	} else {
-		retVal += @Text(date1) + " is NOT the same DATE as " + @Text(date2) + "<br/>";
-	}
-	viewScope.put("SSJSTest",retVal);
-} catch (e) {
-	@ErrorMessage(e.toString());
-}}]]></xp:this.action>
 								</xp:eventHandler>
 							</xp:button>
 							<xp:br></xp:br>
@@ -68,7 +46,7 @@
 					</xe:djTabPane>
 					<xe:djTabPane id="java" title="Java">
 						<xp:div id="JavaDiv">
-							<xp:text id="computedField1" value="#{openNTFDateTimeBean.dateTimeEqualsIgnoreTimeTest}"
+							<xp:text id="computedField1" value="#{openNTFDateTimeBean.dateTimeIsBeforeTest}"
 								escape="false">
 							</xp:text>
 						</xp:div>

@@ -1,5 +1,9 @@
 package extlib;
 
+/*
+ * Copied from Extension Library Demo database
+ */
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;

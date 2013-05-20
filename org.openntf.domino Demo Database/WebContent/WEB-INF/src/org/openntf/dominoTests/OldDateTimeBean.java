@@ -1,5 +1,18 @@
 package org.openntf.dominoTests;
 
+/*
+ 	Copyright 2013 Paul Withers Licensed under the Apache License, Version 2.0
+	(the "License"); you may not use this file except in compliance with the
+	License. You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
+	or agreed to in writing, software distributed under the License is distributed
+	on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+	express or implied. See the License for the specific language governing
+	permissions and limitations under the License
+	
+*/
+
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
@@ -17,14 +30,14 @@ import lotus.domino.ViewNavigator;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
-public class OldSessionBean implements Serializable {
+public class OldDateTimeBean implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public OldSessionBean() {
+	public OldDateTimeBean() {
 
 	}
 
@@ -33,6 +46,8 @@ public class OldSessionBean implements Serializable {
 		View threadsByDate = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
+		DateTime firstDate = null;
+		DateTime secondDate = null;
 		try {
 			Session s = ExtLibUtil.getCurrentSession();
 			Database currDb = s.getCurrentDatabase();
@@ -59,16 +74,24 @@ public class OldSessionBean implements Serializable {
 			secondDoc = secondEnt.getDocument();
 			String firstDt = firstDoc.getFirstItem("Date").getText();
 			String secondDt = secondDoc.getFirstItem("Date").getText();
-			DateTime firstDate = s.createDateTime(firstDt);
-			DateTime secondDate = s.createDateTime(secondDt);
+			firstDate = s.createDateTime(firstDt);
+			secondDate = s.createDateTime(secondDt);
 			Date firstDateJ = firstDate.toJavaDate();
 			Date secondDateJ = secondDate.toJavaDate();
 			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...\n";
+					+ secondDoc.getUniversalID() + ")...";
 			if (firstDateJ.before(secondDateJ)) {
 				retVal_ += "first before second";
 			} else {
 				retVal_ += "first NOT before second";
+			}
+			retVal_ += "..........................................................................................";
+			retVal_ += "Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
+					+ firstDoc.getUniversalID() + ")...";
+			if (secondDateJ.before(firstDateJ)) {
+				retVal_ += "second before first";
+			} else {
+				retVal_ += "second NOT before first";
 			}
 		} catch (NotesException e) {
 			// doSomething
@@ -77,6 +100,8 @@ public class OldSessionBean implements Serializable {
 				threadsByDate.recycle();
 				firstDoc.recycle();
 				secondDoc.recycle();
+				firstDate.recycle();
+				secondDate.recycle();
 			} catch (NotesException e) {
 				// doSomething
 			}
@@ -89,6 +114,8 @@ public class OldSessionBean implements Serializable {
 		View threadsByDate = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
+		DateTime firstDate = null;
+		DateTime secondDate = null;
 		try {
 			Session s = ExtLibUtil.getCurrentSession();
 			Database currDb = s.getCurrentDatabase();
@@ -115,16 +142,24 @@ public class OldSessionBean implements Serializable {
 			secondDoc = secondEnt.getDocument();
 			String firstDt = firstDoc.getFirstItem("Date").getText();
 			String secondDt = secondDoc.getFirstItem("Date").getText();
-			DateTime firstDate = s.createDateTime(firstDt);
-			DateTime secondDate = s.createDateTime(secondDt);
+			firstDate = s.createDateTime(firstDt);
+			secondDate = s.createDateTime(secondDt);
 			Date firstDateJ = firstDate.toJavaDate();
 			Date secondDateJ = secondDate.toJavaDate();
 			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...\n";
+					+ secondDoc.getUniversalID() + ")...";
 			if (firstDateJ.after(secondDateJ)) {
 				retVal_ += "first after second";
 			} else {
 				retVal_ += "first NOT after second";
+			}
+			retVal_ += "..........................................................................................";
+			retVal_ += "Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
+					+ firstDoc.getUniversalID() + ")...";
+			if (secondDateJ.after(firstDateJ)) {
+				retVal_ += "second after first";
+			} else {
+				retVal_ += "second NOT after first";
 			}
 		} catch (NotesException e) {
 			// doSomething
@@ -133,6 +168,8 @@ public class OldSessionBean implements Serializable {
 				threadsByDate.recycle();
 				firstDoc.recycle();
 				secondDoc.recycle();
+				firstDate.recycle();
+				secondDate.recycle();
 			} catch (NotesException e) {
 				// doSomething
 			}
@@ -145,6 +182,8 @@ public class OldSessionBean implements Serializable {
 		View threads = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
+		DateTime firstDate = null;
+		DateTime secondDate = null;
 		try {
 			Session s = ExtLibUtil.getCurrentSession();
 			Database currDb = s.getCurrentDatabase();
@@ -156,12 +195,12 @@ public class OldSessionBean implements Serializable {
 			secondDoc = threads.getNthDocument(randomInt);
 			String firstDt = firstDoc.getFirstItem("Date").getText();
 			String secondDt = secondDoc.getFirstItem("Date").getText();
-			DateTime firstDate = s.createDateTime(firstDt);
-			DateTime secondDate = s.createDateTime(secondDt);
+			firstDate = s.createDateTime(firstDt);
+			secondDate = s.createDateTime(secondDt);
 			Date firstDateJ = firstDate.toJavaDate();
 			Date secondDateJ = secondDate.toJavaDate();
 			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...\n";
+					+ secondDoc.getUniversalID() + ")...";
 			if (firstDateJ.equals(secondDateJ)) {
 				retVal_ += "first is the same date/time as second";
 			} else {
@@ -174,6 +213,8 @@ public class OldSessionBean implements Serializable {
 				threads.recycle();
 				firstDoc.recycle();
 				secondDoc.recycle();
+				firstDate.recycle();
+				secondDate.recycle();
 			} catch (NotesException e) {
 				// doSomething
 			}
@@ -186,6 +227,8 @@ public class OldSessionBean implements Serializable {
 		View threads = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
+		DateTime firstDate = null;
+		DateTime secondDate = null;
 		try {
 			Session s = ExtLibUtil.getCurrentSession();
 			Database currDb = s.getCurrentDatabase();
@@ -197,8 +240,8 @@ public class OldSessionBean implements Serializable {
 			secondDoc = threads.getNthDocument(randomInt);
 			String firstDt = firstDoc.getFirstItem("Date").getText();
 			String secondDt = secondDoc.getFirstItem("Date").getText();
-			DateTime firstDate = s.createDateTime(firstDt);
-			DateTime secondDate = s.createDateTime(secondDt);
+			firstDate = s.createDateTime(firstDt);
+			secondDate = s.createDateTime(secondDt);
 			Calendar c1 = GregorianCalendar.getInstance();
 			Calendar c2 = GregorianCalendar.getInstance();
 			c1.setTime(firstDate.toJavaDate());
@@ -210,7 +253,7 @@ public class OldSessionBean implements Serializable {
 			c2.set(Calendar.MONTH, 0);
 			c2.set(Calendar.YEAR, 2000);
 			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...\n";
+					+ secondDoc.getUniversalID() + ")...";
 			if (c1.equals(c2)) {
 				retVal_ += "first is the same time as second";
 			} else {
@@ -223,6 +266,8 @@ public class OldSessionBean implements Serializable {
 				threads.recycle();
 				firstDoc.recycle();
 				secondDoc.recycle();
+				firstDate.recycle();
+				secondDate.recycle();
 			} catch (NotesException e) {
 				// doSomething
 			}
@@ -235,6 +280,8 @@ public class OldSessionBean implements Serializable {
 		View threads = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
+		DateTime firstDate = null;
+		DateTime secondDate = null;
 		try {
 			Session s = ExtLibUtil.getCurrentSession();
 			Database currDb = s.getCurrentDatabase();
@@ -246,8 +293,8 @@ public class OldSessionBean implements Serializable {
 			secondDoc = threads.getNthDocument(randomInt);
 			String firstDt = firstDoc.getFirstItem("Date").getText();
 			String secondDt = secondDoc.getFirstItem("Date").getText();
-			DateTime firstDate = s.createDateTime(firstDt);
-			DateTime secondDate = s.createDateTime(secondDt);
+			firstDate = s.createDateTime(firstDt);
+			secondDate = s.createDateTime(secondDt);
 			Calendar c1 = GregorianCalendar.getInstance();
 			Calendar c2 = GregorianCalendar.getInstance();
 			c1.setTime(firstDate.toJavaDate());
@@ -261,7 +308,7 @@ public class OldSessionBean implements Serializable {
 			c2.set(Calendar.SECOND, 0);
 			c2.set(Calendar.MILLISECOND, 0);
 			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...\n";
+					+ secondDoc.getUniversalID() + ")...";
 			if (c1.equals(c2)) {
 				retVal_ += "first is the same date as second";
 			} else {
@@ -274,6 +321,8 @@ public class OldSessionBean implements Serializable {
 				threads.recycle();
 				firstDoc.recycle();
 				secondDoc.recycle();
+				firstDate.recycle();
+				secondDate.recycle();
 			} catch (NotesException e) {
 				// doSomething
 			}

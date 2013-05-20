@@ -15,14 +15,14 @@
  -->
   <!-- org.openntf.domino SessionScope Managed Bean -->
   <managed-bean>
-    <managed-bean-name>openNTFDominoBean</managed-bean-name>
-    <managed-bean-class>org.openntf.dominoTests.SessionBean</managed-bean-class>
-    <managed-bean-scope>session</managed-bean-scope>
+    <managed-bean-name>openNTFDateTimeBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.DateTimeBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
   <managed-bean>
-    <managed-bean-name>dominoBean</managed-bean-name>
-    <managed-bean-class>org.openntf.dominoTests.OldSessionBean</managed-bean-class>
-    <managed-bean-scope>session</managed-bean-scope>
+    <managed-bean-name>dateTimeBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.OldDateTimeBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
   <managed-bean>
     <managed-bean-name>dataComparator</managed-bean-name>

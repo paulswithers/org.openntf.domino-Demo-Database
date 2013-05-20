@@ -1,5 +1,19 @@
 package org.openntf.dominoTests;
 
+/*
+ 	Copyright 2013 Paul Withers Licensed under the Apache License, Version 2.0
+	(the "License"); you may not use this file except in compliance with the
+	License. You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
+	or agreed to in writing, software distributed under the License is distributed
+	on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+	express or implied. See the License for the specific language governing
+	permissions and limitations under the License
+	
+*/
+
+import java.util.Date;
 import java.util.LinkedList;
 
 import javax.faces.application.FacesMessage;
@@ -8,7 +22,13 @@ import javax.faces.context.FacesContext;
 import name.fraser.neil.plaintext.diff_match_patch;
 import name.fraser.neil.plaintext.diff_match_patch.Diff;
 
+import org.openntf.domino.Database;
 import org.openntf.domino.DateTime;
+import org.openntf.domino.Document;
+import org.openntf.domino.Session;
+import org.openntf.domino.View;
+
+import com.ibm.xsp.extlib.util.ExtLibUtil;
 
 public class Utils {
 
@@ -65,4 +85,40 @@ public class Utils {
 		FacesContext.getCurrentInstance().addMessage("", new FacesMessage(e.getLocalizedMessage()));
 	}
 
+	public static void performanceTest() {
+		try {
+			String retVal = "";
+			Date date = new Date();
+			retVal += "<br/>Starting standard version..." + date.toString();
+			lotus.domino.View origContactsView = ExtLibUtil.getCurrentDatabase().getView("AllContacts");
+			lotus.domino.Document contact = origContactsView.getFirstDocument();
+			while (contact != null) {
+				lotus.domino.DateTime dt = ExtLibUtil.getCurrentSession().createDateTime("Today");
+				contact.replaceItemValue("testDate", dt);
+				contact.save(true, false);
+				dt.recycle();
+				lotus.domino.Document nextContact = origContactsView.getNextDocument(contact);
+				contact.recycle();
+				contact = nextContact;
+			}
+			date = new Date();
+			retVal += "<br/>Finished standard version..." + date.toString();
+			date = new Date();
+			retVal += "<br/>Starting OpenNTF version..." + date.toString();
+			Session currSess = (Session) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opensession");
+			Database currDb = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opendatabase");
+			View contactsView = currDb.getView("AllContacts");
+			for (Document doc : contactsView.getAllDocuments()) {
+				DateTime dt = currSess.createDateTime(new Date());
+				doc.replaceItemValue("testDate", dt);
+				doc.save(true, false);
+			}
+			date = new Date();
+			retVal += "<br/>Finished OpenNTF version..." + date.toString();
+			ExtLibUtil.getViewScope().put("SSJSTest", retVal);
+		} catch (Exception e) {
+			e.printStackTrace();
+			handleException(e);
+		}
+	}
 }
