@@ -27,6 +27,7 @@ import org.openntf.domino.DateTime;
 import org.openntf.domino.Document;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
+import org.openntf.domino.ViewEntry;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
@@ -108,8 +109,9 @@ public class Utils {
 			Session currSess = (Session) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opensession");
 			Database currDb = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opendatabase");
 			View contactsView = currDb.getView("AllContacts");
-			for (Document doc : contactsView.getAllDocuments()) {
+			for (ViewEntry ent : contactsView.getAllEntries()) {
 				DateTime dt = currSess.createDateTime(new Date());
+				Document doc = ent.getDocument();
 				doc.replaceItemValue("testDate", dt);
 				doc.save(true, false);
 			}

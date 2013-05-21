@@ -11,6 +11,9 @@ package org.openntf.dominoTests;
 	express or implied. See the License for the specific language governing
 	permissions and limitations under the License
 	
+	Extended from examples in the JavaParser classes in the Google japa project
+	http://code.google.com/p/javaparser/source/browse/trunk/JavaParser/src/japa/parser/ast/visitor/?r=93
+	
 */
 
 import japa.parser.ast.body.MethodDeclaration;

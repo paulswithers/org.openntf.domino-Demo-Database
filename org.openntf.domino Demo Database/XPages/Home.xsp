@@ -58,7 +58,7 @@
 							<xp:this.action><![CDATA[#{javascript:context.redirectToPage("Admin_Home.xsp")}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>
-					<xp:button value="Performance Test" id="button2">
+					<xp:button value="Performance Test SSJS" id="button2">
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="partial" refreshId="panel1">
 							<xp:this.action><![CDATA[#{javascript:try {
@@ -84,8 +84,9 @@
 	var dt = date.getHour().toString() + ":" + date.getMinute().toString() + ":" + date.getSecond().toString() + ":" + date.getMilliseconds().toString();
 	retVal += "<br/>Starting OpenNTF version..." + dt;
 	var contactsView:org.openntf.domino.View = opendatabase.getView("AllContacts");
-	for (doc in contactsView.getAllDocuments()) {
+	for (ent in contactsView.getAllEntries()) {
 		var dt = opensession.createDateTime(new Date());
+		var doc = ent.getDocument();
 		doc.replaceItemValue("testDate", dt);
 		doc.save(true,false);
 	}
@@ -96,7 +97,7 @@
 } catch(e) {
 	@ErrorMessage(e.toString());
 }}]]></xp:this.action>
-							<xp:this.script><![CDATA[XSP.animateLoading('#{id:panel1}')]]></xp:this.script>
+							<xp:this.script><![CDATA[XSP.submitLatency=20000;XSP.animateLoading('#{id:panel1}')]]></xp:this.script>
 						</xp:eventHandler>
 					</xp:button>
 					<xp:button value="Performance Test Java" id="button3">
@@ -108,7 +109,7 @@
 } catch(e) {
 	@ErrorMessage(e.toString());
 }}]]></xp:this.action>
-						<xp:this.script><![CDATA[XSP.animateLoading('#{id:panel1}')]]></xp:this.script>
+						<xp:this.script><![CDATA[XSP.submitLatency=20000;XSP.animateLoading('#{id:panel1}')]]></xp:this.script>
 					</xp:eventHandler></xp:button>
 				</xp:div>
 				<xp:messages id="messages1"></xp:messages>
