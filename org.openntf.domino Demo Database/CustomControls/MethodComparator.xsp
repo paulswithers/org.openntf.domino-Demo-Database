@@ -3,7 +3,7 @@
 	<xp:this.dataContexts>
 		<xp:dataContext var="lotusClassName" value="Old${compositeData.objectName}Bean">
 		</xp:dataContext>
-		<xp:dataContext var="ourClassName" value="${compositeData.objectName}Bean">
+		<xp:dataContext var="ourClassName" value="New${compositeData.objectName}Bean">
 		</xp:dataContext>
 	</xp:this.dataContexts>
 	<xp:table id="table1" styleClass="lotusFormTable">

@@ -15,6 +15,7 @@
 	-->
 
 
+	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.put("methodName","getProcessedDate");}]]></xp:this.beforePageLoad>
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
@@ -24,7 +25,7 @@
 				<hr></hr>
 				<xp:div styleClass="lotusInfoBox">
 					<xp:text escape="false">
-						<xp:this.value><![CDATA[Demonstrates new methods on DateTime class]]>
+						<xp:this.value><![CDATA[Demonstrates Getting a DateTime from a document. WARNING: Here (used to) be dragons!]]>
 						</xp:this.value>
 					</xp:text>
 				</xp:div>
@@ -37,31 +38,9 @@
 								<xp:eventHandler event="onclick" submit="true"
 									refreshMode="partial" refreshId="SSJSDiv">
 									<xp:this.action><![CDATA[#{javascript:try {
-	var now = new java.util.Date();
-	var date1:org.openntf.domino.DateTime = opensession.createDateTime(now);
-	var date2:org.openntf.domino.DateTime = opensession.createDateTime(now);
-	date2.adjustDay(1);
-	var retVal;
-	retVal = "Running SSJS date1.isBefore(date2)<br/>";
-	if (date1.isBefore(date2)) {
-		retVal += @Text(date1) + " is before " + @Text(date2) + "<br/>";
-	} else {
-		retVal += @Text(date1) + " is NOT before " + @Text(date2) + "<br/>";
-	}
-	retVal += "Running SSJS date1.equalsIgnoreDate(date2)<br/>";
-	if (date1.equalsIgnoreDate(date2)) {
-		retVal += @Text(date1) + " is same time as " + @Text(date2) + "<br/>";
-	} else {
-		retVal += @Text(date1) + " is NOT same time as " + @Text(date2) + "<br/>";
-	}
-
-	date2.adjustHour(-29);
-	retVal += "Running SSJS date1.equalsIgnoreTime(date2)<br/>";
-	if (date1.equalsIgnoreTime(date2)) {
-		retVal += @Text(date1) + " is same day as " + @Text(date2);
-	} else {
-		retVal += @Text(date1) + " is NOT same day as " + @Text(date2);
-	}
+	var threads:org.openntf.domino.View = opendatabase.getView("AllContacts");
+	var doc:org.openntf.domino.Document = threads.getFirstDocument();
+	var retVal = doc.get("testDate");
 	viewScope.put("SSJSTest",retVal);
 } catch (e) {
 	@ErrorMessage(e.toString());
@@ -75,19 +54,13 @@
 					</xe:djTabPane>
 					<xe:djTabPane id="java" title="Java">
 						<xp:div id="JavaDiv">
-							<xp:button value="Run Java Tests" id="button3">
-								<xp:eventHandler event="onclick" submit="true"
-									refreshMode="partial" refreshId="JavaDiv" action="#{openNTFDateTimeBean.runDateTimes}">
-								</xp:eventHandler>
-							</xp:button>
-							<xp:br></xp:br>
-							<xp:text id="computedField1" value="#{viewScope.datesTestJava}"
+							<xp:text id="computedField1" value="#{openNTFDateTimeBean.processedDate}"
 								escape="false">
 							</xp:text>
 						</xp:div>
 					</xe:djTabPane>
 					<xe:djTabPane id="javaCompare" title="Java Comparator">
-						
+						<xc:MethodComparator objectName="DateTime"></xc:MethodComparator>
 					</xe:djTabPane>
 				</xe:djTabContainer>
 			</xp:div>

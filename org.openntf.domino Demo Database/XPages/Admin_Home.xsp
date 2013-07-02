@@ -18,9 +18,9 @@
 	<xp:this.resources>
 		<xp:dojoModule name="extlib.dijit.Loading"></xp:dojoModule>
 	</xp:this.resources>
-	<xc:ccLayoutOneUI selected="home">
+	<xc:ccLayoutOneUI>
 		<xp:this.facets>
-			<xc:LeftAdmin xp:key="LeftColumn" selected="admin"></xc:LeftAdmin>
+			<xc:LeftAdmin xp:key="LeftColumn"></xc:LeftAdmin>
 			<xp:panel id="panel6" xp:key="facet_1">
 				<xp:button value="Return to Home" id="button8">
 					<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
@@ -55,7 +55,7 @@ d.initDeleteDocuments();
 d.initUsers(200);
 d.initDiscussionDocuments(100, 10, 5);
 d.initStates();
-d.initAllTypes();
+//d.initAllTypes();
 d.run();
 
 var msg = "Created Sample Data Set";
@@ -74,12 +74,12 @@ var msg = "Created Sample Data Set";
 							<xp:button value="Create Bigger Data Set" id="button7">
 								<xp:eventHandler event="onclick" submit="true"
 									refreshMode="complete">
-									<xp:this.action><![CDATA[#{javascript:var d = new extlib.DataInitializer()
+									<xp:this.action><![CDATA[#{javascript:var d = new extlib.DataInitializerOpenNTF()
 d.initDeleteDocuments()
 d.initUsers(10000)
 d.initDiscussionDocuments(1000, 10, 5)
 d.initStates()
-d.initAllTypes()
+//d.initAllTypes()
 d.run()
 
 var msg = "Created Sample Data Set";

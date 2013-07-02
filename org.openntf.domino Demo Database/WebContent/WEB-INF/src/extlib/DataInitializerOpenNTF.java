@@ -15,7 +15,9 @@ permissions and limitations under the License
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import java.util.Vector;
 
@@ -333,51 +335,51 @@ public class DataInitializerOpenNTF {
 		doc.replaceItemValue("fldIcon", index);
 		doc.replaceItemValue("fldText", "text_" + sIndex);
 		doc.replaceItemValue("fldNumber", index * 100);
-		doc.replaceItemValue("fldDate", createDate(session, 2010, 1, index));
+		doc.replaceItemValue("fldDate", createDate(2010, Calendar.JANUARY, index));
 		doc.replaceItemValue("fldTime", createTime(session, 5, 1, index));
-		doc.replaceItemValue("fldDateTime", createDateTime(session, 2011, 2, index, 8, 9, index));
+		doc.replaceItemValue("fldDateTime", createDateTime(2011, 2, index, 8, 9, index));
 		doc.replaceItemValue("fldDateTimeRange", createDateTimeRange(session, 2012, 3, index, 8, 9, index));
 		doc.replaceItemValue("fldDialogList", "dlg_" + sIndex);
 
-		Vector<Object> mx = new Vector<Object>();
+		ArrayList<String> mx = new ArrayList<String>();
 		mx.add("text_" + sIndex + "_1");
 		mx.add("text_" + sIndex + "_2");
 		mx.add("text_" + sIndex + "_3");
 		doc.replaceItemValue("fldText2", mx);
 
-		Vector<Object> mn = new Vector<Object>();
+		ArrayList<Object> mn = new ArrayList<Object>();
 		mn.add(index * 100 + 1);
 		mn.add(index * 100 + 2);
 		mn.add(index * 100 + 3);
 		doc.replaceItemValue("fldNumber2", mn);
 
-		Vector<Object> md = new Vector<Object>();
-		md.add(createDate(session, 2010, 1, index));
-		md.add(createDate(session, 2010, 2, index));
-		md.add(createDate(session, 2010, 3, index));
+		ArrayList<Date> md = new ArrayList<Date>();
+		md.add(createDate(2010, Calendar.JANUARY, index));
+		md.add(createDate(2010, Calendar.FEBRUARY, index));
+		md.add(createDate(2010, Calendar.MARCH, index));
 		doc.replaceItemValue("fldDate2", md);
 
-		Vector<Object> mt = new Vector<Object>();
+		Vector<Date> mt = new Vector<Date>();
 		mt.add(createTime(session, 6, 1, index));
 		mt.add(createTime(session, 6, 2, index));
 		mt.add(createTime(session, 6, 3, index));
 		doc.replaceItemValue("fldTime2", mt);
 
-		Vector<Object> mdt = new Vector<Object>();
-		mdt.add(createDateTime(session, 2011, 1, index, 6, 1, index));
-		mdt.add(createDateTime(session, 2011, 2, index, 6, 2, index));
-		mdt.add(createDateTime(session, 2011, 3, index, 6, 3, index));
+		Vector<Date> mdt = new Vector<Date>();
+		mdt.add(createDateTime(2011, 1, index, 6, 1, index));
+		mdt.add(createDateTime(2011, 2, index, 6, 2, index));
+		mdt.add(createDateTime(2011, 3, index, 6, 3, index));
 		doc.replaceItemValue("fldDateTime2", mdt);
 
 		if (false) { // DateTime range do not work with multiple values?
-			Vector<Object> mrg = new Vector<Object>();
+			Vector<DateRange> mrg = new Vector<DateRange>();
 			mrg.add(createDateTimeRange(session, 2012, 2, index, 4, 1, index));
 			mrg.add(createDateTimeRange(session, 2012, 3, index, 5, 1, index));
 			mrg.add(createDateTimeRange(session, 2012, 4, index, 6, 1, index));
 			doc.replaceItemValue("fldDateTimeRange2", mrg);
 		}
 
-		Vector<Object> mdg = new Vector<Object>();
+		ArrayList<Object> mdg = new ArrayList<Object>();
 		mdg.add("dlgx_" + sIndex + "_1");
 		mdg.add("dlgx_" + sIndex + "_1");
 		mdg.add("dlgx_" + sIndex + "_1");
@@ -386,30 +388,34 @@ public class DataInitializerOpenNTF {
 		doc.save();
 	}
 
-	protected DateTime createDate(Session session, int year, int month, int day) {
-		DateTime d = session.createDateTime(new Date());
-		d.setLocalDate(year, month, day);
+	protected Date createDate(int year, int month, int day) {
+		Calendar c1 = GregorianCalendar.getInstance();
+		c1.set(year, month, day);
+		Date d = c1.getTime();
 		return d;
 	}
 
-	protected DateTime createTime(Session session, int hour, int minute, int second) {
-		DateTime d = session.createDateTime(new Date());
-		d.setLocalTime(hour, minute, second, 0);
+	protected Date createTime(Session session, int hour, int minute, int second) {
+		Calendar c1 = GregorianCalendar.getInstance();
+		c1.set(Calendar.HOUR_OF_DAY, hour);
+		c1.set(Calendar.MINUTE, minute);
+		c1.set(Calendar.SECOND, second);
+		Date d = c1.getTime();
 		return d;
 	}
 
-	protected DateTime createDateTime(Session session, int year, int month, int day, int hour, int minute, int second) {
-		DateTime d = session.createDateTime(new Date());
-		d.setLocalDate(year, month, day);
-		d.setLocalTime(hour, minute, second, 0);
+	protected Date createDateTime(int year, int month, int day, int hour, int minute, int second) {
+		Calendar c1 = GregorianCalendar.getInstance();
+		c1.set(year, month, day, hour, minute, second);
+		Date d = c1.getTime();
 		return d;
 	}
 
 	protected DateRange createDateTimeRange(Session session, int year, int month, int day, int hour, int minute,
 			int second) {
 		DateRange r = (DateRange) session.createDateRange(new Date(), new Date());
-		r.setStartDateTime(createDateTime(session, year, month, day, hour, minute, second));
-		r.setEndDateTime(createDateTime(session, year + 1, month, day, hour + 1, minute, second));
+		r.setStartDateTime(session.createDateTime(createDateTime(year, month, day, hour, minute, second)));
+		r.setEndDateTime(session.createDateTime(createDateTime(year + 1, month, day, hour + 1, minute, second)));
 		return r;
 	}
 }

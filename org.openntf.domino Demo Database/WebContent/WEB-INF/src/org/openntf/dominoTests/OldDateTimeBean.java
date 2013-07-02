@@ -329,4 +329,45 @@ public class OldDateTimeBean implements Serializable {
 		}
 		return retVal_;
 	}
+
+	public java.util.Date getProcessedDate() {
+		java.util.Date result = null;
+		View threads = null;
+		try {
+			Session s = ExtLibUtil.getCurrentSession();
+			Database currDb = s.getCurrentDatabase();
+			threads = currDb.getView("AllContacts");
+			Document doc = threads.getFirstDocument();
+			if (doc.hasItem("testDate")) {
+				java.util.Vector<?> vector = doc.getItemValue("testDate");
+				if (vector != null && !vector.isEmpty()) {
+					Object o = vector.get(0);
+					if (o != null) {
+						if (o instanceof lotus.domino.DateTime) {
+							lotus.domino.DateTime datetime = (lotus.domino.DateTime) o;
+							try {
+								result = datetime.toJavaDate();
+							} catch (lotus.domino.NotesException ne1) {
+								ne1.printStackTrace();
+							} finally {
+								datetime.recycle(); // You still have to recycle even if the conversion to java date failed!
+							}
+						} else {
+							// Deal with having gotten something besides a Date, like a DateRange or a Number or a String
+						}
+					} else {
+						// Deal with the vector having null entries
+					}
+				} else {
+					// Deal with having gotten an empty vector (yes, it's possible)
+				}
+			} else {
+				// Deal with the absence of a processDate field
+				doc.getItemValue("testDate"); // This will return a Vector with a String of "" if the item isn't present.
+			}
+		} catch (lotus.domino.NotesException ne) {
+			ne.printStackTrace(); // Again, probably not what you actually want to do
+		}
+		return result;
+	}
 }

@@ -16,7 +16,7 @@
 
 
 	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.put("methodName","getDateTimeEqualsTest");}]]></xp:this.beforePageLoad>
-	<xc:ccLayoutOneUI selected="dateTime">
+	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
 			

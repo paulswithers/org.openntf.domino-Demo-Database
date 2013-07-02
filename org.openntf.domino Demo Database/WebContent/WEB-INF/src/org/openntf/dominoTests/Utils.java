@@ -28,6 +28,7 @@ import org.openntf.domino.Document;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
+import org.openntf.domino.utils.Factory;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
@@ -77,6 +78,7 @@ public class Utils {
 		s1 = s1.replace("<br/>", "\n");
 		s2 = s2.replace("<br/>", "\n");
 		diff_match_patch dmp = new diff_match_patch();
+		dmp.Diff_EditCost = 10;
 		LinkedList<Diff> ll = dmp.diff_main(s1, s2);
 		dmp.diff_cleanupEfficiency(ll);
 		return dmp.diff_prettyHtml(ll);
@@ -122,5 +124,9 @@ public class Utils {
 			e.printStackTrace();
 			handleException(e);
 		}
+	}
+
+	public static String getVersion() {
+		return Factory.VERSION;
 	}
 }

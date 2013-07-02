@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'>
-<noteinfo noteid='ebe' unid='D05E686C3EE6E4F680257B420041B076' sequence='3'>
+<noteinfo noteid='ebe' unid='D05E686C3EE6E4F680257B420041B076' sequence='5'>
 <created><datetime dst='true'>20130403T125730,14+01</datetime></created>
-<modified><datetime dst='true'>20130407T201430,28+01</datetime></modified>
-<revised><datetime dst='true'>20130407T201430,27+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20130407T201430,28+01</datetime></lastaccessed>
+<modified><datetime dst='true'>20130520T222313,92+01</datetime></modified>
+<revised><datetime dst='true'>20130520T222313,91+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20130520T222313,92+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125730,36+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>

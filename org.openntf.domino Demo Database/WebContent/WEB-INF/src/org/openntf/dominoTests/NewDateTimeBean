@@ -28,14 +28,14 @@ import org.openntf.domino.utils.Factory;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
-public class DateTimeBean implements Serializable {
+public class NewDateTimeBean implements Serializable {
 
 	/**
 	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
-	public DateTimeBean() {
+	public NewDateTimeBean() {
 
 	}
 
@@ -212,5 +212,13 @@ public class DateTimeBean implements Serializable {
 			retVal_ += "first is NOT the same date as second";
 		}
 		return retVal_;
+	}
+
+	public java.util.Date getProcessedDate() {
+		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
+		Database currDb = s.getCurrentDatabase();
+		View threads = currDb.getView("AllContacts");
+		Document doc = threads.getFirstDocument();
+		return doc.getItemValue("testDate", java.util.Date.class);
 	}
 }

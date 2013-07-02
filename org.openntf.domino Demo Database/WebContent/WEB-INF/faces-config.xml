@@ -16,12 +16,12 @@
   <!-- org.openntf.domino SessionScope Managed Bean -->
   <managed-bean>
     <managed-bean-name>openNTFDateTimeBean</managed-bean-name>
-    <managed-bean-class>org.openntf.dominoTests.DateTimeBean</managed-bean-class>
+    <managed-bean-class>org.openntf.dominoTests.NewDateTimeBean</managed-bean-class>
     <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
   <managed-bean>
-    <managed-bean-name>dateTimeBean</managed-bean-name>
-    <managed-bean-class>org.openntf.dominoTests.OldDateTimeBean</managed-bean-class>
+    <managed-bean-name>openNTFViewBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.NewViewBean</managed-bean-class>
     <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
   <managed-bean>

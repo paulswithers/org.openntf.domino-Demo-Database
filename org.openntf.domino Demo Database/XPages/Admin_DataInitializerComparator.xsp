@@ -19,7 +19,7 @@
 
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
-			<xc:LeftAdmin xp:key="LeftColumn" selected="adminCompar"></xc:LeftAdmin>
+			<xc:LeftAdmin xp:key="LeftColumn"></xc:LeftAdmin>
 			<xp:panel xp:key="facet_1" id="mainPanel">
 				<xp:this.dataContexts>
 					<xp:dataContext var="lotusClassName"
