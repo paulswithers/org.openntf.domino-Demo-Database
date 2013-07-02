@@ -26,6 +26,7 @@ public class OldViewBean implements Serializable {
 		try {
 			db = ExtLibUtil.getCurrentDatabase();
 			view = db.getView("allStates");
+			view.setAutoUpdate(false);
 			collection = view.getAllEntries();
 			currentEntry = collection.getFirstEntry();
 			while (currentEntry != null) {

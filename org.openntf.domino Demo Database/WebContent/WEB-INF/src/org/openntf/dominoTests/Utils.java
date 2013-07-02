@@ -78,7 +78,7 @@ public class Utils {
 		s1 = s1.replace("<br/>", "\n");
 		s2 = s2.replace("<br/>", "\n");
 		diff_match_patch dmp = new diff_match_patch();
-		dmp.Diff_EditCost = 10;
+		dmp.Diff_EditCost = 30;
 		LinkedList<Diff> ll = dmp.diff_main(s1, s2);
 		dmp.diff_cleanupEfficiency(ll);
 		return dmp.diff_prettyHtml(ll);

@@ -21,8 +21,8 @@ public class NewViewBean implements Serializable {
 		StringBuilder sb = new StringBuilder();
 		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opendatabase");
 		View view = db.getView("allStates");
-		for (ViewEntry entry : view.getAllEntries()) {
-			sb.append(entry.getNoteID() + "<br/>"); // Do whatever it is you actually want to get done
+		for (ViewEntry currentEntry : view.getAllEntries()) {
+			sb.append(currentEntry.getNoteID() + "<br/>"); // Do whatever it is you actually want to get done
 		}
 		return sb.toString();
 	}

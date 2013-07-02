@@ -9,7 +9,7 @@
 	<xp:table id="table1" styleClass="lotusFormTable">
 		<xp:tr style="background-color:#E8FAEE">
 			<xp:td style="width:50%;text-align:left;">
-				<xp:section header="Ext Lib Code">
+				<xp:section header="Standard Code">
 					<xp:text id="compar1" escape="false" value="#{dataComparator.lotusMethodText}">
 					</xp:text>
 				</xp:section>
