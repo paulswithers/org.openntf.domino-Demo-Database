@@ -28,6 +28,7 @@ import org.openntf.domino.Document;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
+import org.openntf.domino.utils.DominoUtils;
 import org.openntf.domino.utils.Factory;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
@@ -108,8 +109,8 @@ public class Utils {
 			retVal += "<br/>Finished standard version..." + date.toString();
 			date = new Date();
 			retVal += "<br/>Starting OpenNTF version..." + date.toString();
-			Session currSess = (Session) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opensession");
-			Database currDb = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opendatabase");
+			Session currSess = (Session) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "session");
+			Database currDb = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
 			View contactsView = currDb.getView("AllContacts");
 			for (ViewEntry ent : contactsView.getAllEntries()) {
 				DateTime dt = currSess.createDateTime(new Date());
@@ -124,6 +125,10 @@ public class Utils {
 			e.printStackTrace();
 			handleException(e);
 		}
+	}
+
+	public static void exceptionTest() {
+		DominoUtils.handleException(new Throwable("Here is a Java error"));
 	}
 
 	public static String getVersion() {

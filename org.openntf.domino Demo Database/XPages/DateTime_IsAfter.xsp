@@ -14,32 +14,23 @@
 		permissions and limitations under the License
 	-->
 
-
-	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.put("methodName","getDateTimeIsAfterTest");}]]></xp:this.beforePageLoad>
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
 			
-			<xp:div xp:key="facet_1" style="text-align:center" id="panel1">
-				<xp:text tagName="h1" value="DateTime"></xp:text>
-				<hr></hr>
-				<xp:div styleClass="lotusInfoBox">
-					<xp:text escape="false" value="Demonstrates DateTime.isAfter(DateTime)">
-						
-					</xp:text>
-				</xp:div>
-				<xe:djTabContainer id="djTabContainer1" style="width:100%;height:700px"
-					doLayout="true" tabStrip="true">
-					<xe:djTabPane id="ssjs" title="SSJS">
-						<xp:div id="SSJSDiv">
-							<xp:messages id="messages1"></xp:messages>
-							<xp:button value="Run SSJS Tests" id="button2">
-								<xp:eventHandler event="onclick" submit="true"
-									refreshMode="partial" refreshId="SSJSDiv">
+			<xc:mainArea xp:key="facet_1" title="DateTime" javaMethodName="dateTimeIsAfterTest">
+				<xc:this.description>
+					<![CDATA[Demonstrates DateTime.isAfter(DateTime)]]>
+				</xc:this.description>
+				<xp:this.facets>
+					<xp:button value="Run SSJS Tests" id="button1"
+						xp:key="SSJSButton">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="SSJSDiv">
 									<xp:this.action><![CDATA[#{javascript:try {
 	var now = new java.util.Date();
-	var date1:org.openntf.domino.DateTime = opensession.createDateTime(now);
-	var date2:org.openntf.domino.DateTime = opensession.createDateTime(now);
+	var date1:org.openntf.domino.DateTime = session.createDateTime(now);
+	var date2:org.openntf.domino.DateTime = session.createDateTime(now);
 	date1.adjustDay(1);
 	retVal = "Running SSJS date1.isAfter(date2)<br/>";
 	if (date1.isAfter(date2)) {
@@ -57,26 +48,17 @@
 } catch (e) {
 	@ErrorMessage(e.toString());
 }}]]></xp:this.action>
-								</xp:eventHandler>
-							</xp:button>
-							<xp:br></xp:br>
-							<xp:text id="SSJS_Response" value="#{SSJSTest}" escape="false">
-							</xp:text>
-						</xp:div>
-					</xe:djTabPane>
-					<xe:djTabPane id="java" title="Java">
-						<xp:div id="JavaDiv">
-							<xp:text id="computedField1" value="#{openNTFDateTimeBean.dateTimeIsAfterTest}"
-								escape="false">
-							</xp:text>
-						</xp:div>
-					</xe:djTabPane>
-					<xe:djTabPane id="javaCompare" title="Java Comparator">
-						<xc:MethodComparator objectName="DateTime"></xc:MethodComparator>
-					</xe:djTabPane>
-				</xe:djTabContainer>
-			</xp:div>
-
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="Run Java Tests" id="button3"
+						xp:key="javaButton">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="JavaDiv"
+							action="#{javascript:openNTFDateTimeBean.dateTimeIsAfterTest()}">
+						</xp:eventHandler>
+					</xp:button>
+				</xp:this.facets>
+			</xc:mainArea>
 		</xp:this.facets>
 	</xc:ccLayoutOneUI>
 </xp:view>

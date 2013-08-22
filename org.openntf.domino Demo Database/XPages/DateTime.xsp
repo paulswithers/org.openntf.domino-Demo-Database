@@ -18,28 +18,17 @@
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
-			
-			<xp:div xp:key="facet_1" style="text-align:center" id="panel1">
-				<xp:text tagName="h1" value="DateTime"></xp:text>
-				<hr></hr>
-				<xp:div styleClass="lotusInfoBox">
-					<xp:text escape="false">
-						<xp:this.value><![CDATA[Demonstrates new methods on DateTime class]]>
-						</xp:this.value>
-					</xp:text>
-				</xp:div>
-				<xe:djTabContainer id="djTabContainer1" style="width:100%;height:700px"
-					doLayout="true" tabStrip="true">
-					<xe:djTabPane id="ssjs" title="SSJS">
-						<xp:div id="SSJSDiv">
-							<xp:messages id="messages1"></xp:messages>
-							<xp:button value="Run SSJS Tests" id="button2">
-								<xp:eventHandler event="onclick" submit="true"
-									refreshMode="partial" refreshId="SSJSDiv">
-									<xp:this.action><![CDATA[#{javascript:try {
+			<xc:mainArea xp:key="facet_1" title="DateTime" javaMethodName="">
+				<xp:this.description><![CDATA[Demonstrates new methods on DateTime class]]>
+						</xp:this.description>
+				<xp:this.facets>
+					<xp:button id="button2" xp:key="SSJSButton" value="Run SSJS Tests">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="SSJSDiv">
+							<xp:this.action><![CDATA[#{javascript:try {
 	var now = new java.util.Date();
-	var date1:org.openntf.domino.DateTime = opensession.createDateTime(now);
-	var date2:org.openntf.domino.DateTime = opensession.createDateTime(now);
+	var date1:org.openntf.domino.DateTime = session.createDateTime(now);
+	var date2:org.openntf.domino.DateTime = session.createDateTime(now);
 	date2.adjustDay(1);
 	var retVal;
 	retVal = "Running SSJS date1.isBefore(date2)<br/>";
@@ -66,32 +55,15 @@
 } catch (e) {
 	@ErrorMessage(e.toString());
 }}]]></xp:this.action>
-								</xp:eventHandler>
-							</xp:button>
-							<xp:br></xp:br>
-							<xp:text id="SSJS_Response" value="#{SSJSTest}" escape="false">
-							</xp:text>
-						</xp:div>
-					</xe:djTabPane>
-					<xe:djTabPane id="java" title="Java">
-						<xp:div id="JavaDiv">
-							<xp:button value="Run Java Tests" id="button3">
-								<xp:eventHandler event="onclick" submit="true"
-									refreshMode="partial" refreshId="JavaDiv" action="#{openNTFDateTimeBean.runDateTimes}">
-								</xp:eventHandler>
-							</xp:button>
-							<xp:br></xp:br>
-							<xp:text id="computedField1" value="#{viewScope.datesTestJava}"
-								escape="false">
-							</xp:text>
-						</xp:div>
-					</xe:djTabPane>
-					<xe:djTabPane id="javaCompare" title="Java Comparator">
-						
-					</xe:djTabPane>
-				</xe:djTabContainer>
-			</xp:div>
-
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="Run Java Tests" id="button1" xp:key="javaButton">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="JavaDiv" action="#{openNTFDateTimeBean.runDateTimes}">
+						</xp:eventHandler>
+					</xp:button>
+				</xp:this.facets>
+			</xc:mainArea>
 		</xp:this.facets>
 	</xc:ccLayoutOneUI>
 </xp:view>

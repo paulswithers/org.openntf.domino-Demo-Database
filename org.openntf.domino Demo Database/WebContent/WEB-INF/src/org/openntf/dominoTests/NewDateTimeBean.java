@@ -55,11 +55,11 @@ public class NewDateTimeBean implements Serializable {
 		sb.append("<br/><br/>");
 		dt.adjustHour(-1);
 		sb.append(Utils.doChecks(dt, dt2));
-		ExtLibUtil.getViewScope().put("datesTestJava", sb.toString());
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeIsBeforeTest() {
-		String retVal_ = "";
+	public void dateTimeIsBeforeTest() {
+		StringBuilder sb = new StringBuilder();
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
 		View threadsByDate = currDb.getView("AllThreadsByDate");
@@ -82,26 +82,26 @@ public class NewDateTimeBean implements Serializable {
 		String secondDt = secondDoc.getFirstItem("Date").getText();
 		DateTime firstDate = s.createDateTime(firstDt);
 		DateTime secondDate = s.createDateTime(secondDt);
-		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-				+ secondDoc.getUniversalID() + ")...";
+		sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...");
 		if (firstDate.isBefore(secondDate)) {
-			retVal_ += "first before second";
+			sb.append("first before second");
 		} else {
-			retVal_ += "first NOT before second";
+			sb.append("first NOT before second");
 		}
-		retVal_ += "..........................................................................................";
-		retVal_ += "Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
-				+ firstDoc.getUniversalID() + ")...";
+		sb.append("..........................................................................................");
+		sb.append("Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
+				+ firstDoc.getUniversalID() + ")...");
 		if (secondDate.isBefore(firstDate)) {
-			retVal_ += "second before first";
+			sb.append("second before first");
 		} else {
-			retVal_ += "second NOT before first";
+			sb.append("second NOT before first");
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeIsAfterTest() {
-		String retVal_ = "";
+	public void dateTimeIsAfterTest() {
+		StringBuilder sb = new StringBuilder();
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
 		View threadsByDate = currDb.getView("AllThreadsByDate");
@@ -124,26 +124,26 @@ public class NewDateTimeBean implements Serializable {
 		String secondDt = secondDoc.getFirstItem("Date").getText();
 		DateTime firstDate = s.createDateTime(firstDt);
 		DateTime secondDate = s.createDateTime(secondDt);
-		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-				+ secondDoc.getUniversalID() + ")...";
+		sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...");
 		if (firstDate.isAfter(secondDate)) {
-			retVal_ += "first after second";
+			sb.append("first after second");
 		} else {
-			retVal_ += "first NOT after second";
+			sb.append("first NOT after second");
 		}
-		retVal_ += "..........................................................................................";
-		retVal_ += "Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
-				+ firstDoc.getUniversalID() + ")...";
+		sb.append("..........................................................................................");
+		sb.append("Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
+				+ firstDoc.getUniversalID() + ")...");
 		if (secondDate.isAfter(firstDate)) {
-			retVal_ += "second after first";
+			sb.append("second after first");
 		} else {
-			retVal_ += "second NOT after first";
+			sb.append("second NOT after first");
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeEqualsTest() {
-		String retVal_ = "";
+	public void dateTimeEqualsTest() {
+		StringBuilder sb = new StringBuilder();
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
 		View threads = currDb.getView("AllThreads");
@@ -156,18 +156,18 @@ public class NewDateTimeBean implements Serializable {
 		String secondDt = secondDoc.getFirstItem("Date").getText();
 		DateTime firstDate = s.createDateTime(firstDt);
 		DateTime secondDate = s.createDateTime(secondDt);
-		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-				+ secondDoc.getUniversalID() + ")...";
+		sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...");
 		if (firstDate.equals(secondDate)) {
-			retVal_ += "first is the same date/time as second";
+			sb.append("first is the same date/time as second");
 		} else {
-			retVal_ += "first is NOT the same date/time as second";
+			sb.append("first is NOT the same date/time as second");
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeEqualsIgnoreDateTest() {
-		String retVal_ = "";
+	public void dateTimeEqualsIgnoreDateTest() {
+		StringBuilder sb = new StringBuilder();
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
 		View threads = currDb.getView("AllThreads");
@@ -180,18 +180,18 @@ public class NewDateTimeBean implements Serializable {
 		String secondDt = secondDoc.getFirstItem("Date").getText();
 		DateTime firstDate = s.createDateTime(firstDt);
 		DateTime secondDate = s.createDateTime(secondDt);
-		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-				+ secondDoc.getUniversalID() + ")...";
+		sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...");
 		if (firstDate.equalsIgnoreDate(secondDate)) {
-			retVal_ += "first is the same time as second";
+			sb.append("first is the same time as second");
 		} else {
-			retVal_ += "first is NOT the same time as second";
+			sb.append("first is NOT the same time as second");
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeEqualsIgnoreTimeTest() {
-		String retVal_ = "";
+	public void dateTimeEqualsIgnoreTimeTest() {
+		StringBuilder sb = new StringBuilder();
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
 		View threads = currDb.getView("AllThreads");
@@ -204,21 +204,21 @@ public class NewDateTimeBean implements Serializable {
 		String secondDt = secondDoc.getFirstItem("Date").getText();
 		DateTime firstDate = s.createDateTime(firstDt);
 		DateTime secondDate = s.createDateTime(secondDt);
-		retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-				+ secondDoc.getUniversalID() + ")...";
+		sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+				+ secondDoc.getUniversalID() + ")...");
 		if (firstDate.equalsIgnoreTime(secondDate)) {
-			retVal_ += "first is the same date as second";
+			sb.append("first is the same date as second");
 		} else {
-			retVal_ += "first is NOT the same date as second";
+			sb.append("first is NOT the same date as second");
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public java.util.Date getProcessedDate() {
+	public void getProcessedDate() {
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
 		View threads = currDb.getView("AllContacts");
 		Document doc = threads.getFirstDocument();
-		return doc.getItemValue("testDate", java.util.Date.class);
+		ExtLibUtil.getViewScope().put("javaTest", doc.get("testDate"));
 	}
 }

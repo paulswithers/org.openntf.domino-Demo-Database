@@ -87,9 +87,9 @@
 	var date = new Date();
 	var dt = date.getHour().toString() + ":" + date.getMinute().toString() + ":" + date.getSecond().toString() + ":" + date.getMilliseconds().toString();
 	retVal += "<br/>Starting OpenNTF version..." + dt;
-	var contactsView:org.openntf.domino.View = opendatabase.getView("AllContacts");
+	var contactsView:org.openntf.domino.View = database.getView("AllContacts");
 	for (ent in contactsView.getAllEntries()) {
-		var dt = opensession.createDateTime(new Date());
+		var dt = session.createDateTime(new Date());
 		var doc = ent.getDocument();
 		doc.replaceItemValue("testDate", dt);
 		doc.save(true,false);

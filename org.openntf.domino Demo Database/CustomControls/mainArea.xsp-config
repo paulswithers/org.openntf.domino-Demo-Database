@@ -5,23 +5,24 @@
     <default-prefix>xc</default-prefix>
   </faces-config-extension>
   <composite-component>
-    <component-type>MethodComparator</component-type>
-    <composite-name>MethodComparator</composite-name>
-    <composite-file>/MethodComparator.xsp</composite-file>
+    <component-type>mainArea</component-type>
+    <composite-name>mainArea</composite-name>
+    <composite-file>/mainArea.xsp</composite-file>
     <composite-extension>
       <designer-extension>
         <in-palette>true</in-palette>
       </designer-extension>
     </composite-extension>
     <property>
-      <property-name>objectName</property-name>
+      <property-name>title</property-name>
       <property-class>string</property-class>
-      <property-extension>
-        <required>true</required>
-      </property-extension>
     </property>
     <property>
-      <property-name>methodName</property-name>
+      <property-name>description</property-name>
+      <property-class>string</property-class>
+    </property>
+    <property>
+      <property-name>javaMethodName</property-name>
       <property-class>string</property-class>
     </property>
   </composite-component>

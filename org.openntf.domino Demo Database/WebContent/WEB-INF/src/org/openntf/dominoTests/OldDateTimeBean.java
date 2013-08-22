@@ -41,8 +41,8 @@ public class OldDateTimeBean implements Serializable {
 
 	}
 
-	public String getDateTimeIsBeforeTest() {
-		String retVal_ = "";
+	public void dateTimeIsBeforeTest() {
+		StringBuilder sb = new StringBuilder();
 		View threadsByDate = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
@@ -78,20 +78,20 @@ public class OldDateTimeBean implements Serializable {
 			secondDate = s.createDateTime(secondDt);
 			Date firstDateJ = firstDate.toJavaDate();
 			Date secondDateJ = secondDate.toJavaDate();
-			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...";
+			sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+					+ secondDoc.getUniversalID() + ")...");
 			if (firstDateJ.before(secondDateJ)) {
-				retVal_ += "first before second";
+				sb.append("first before second");
 			} else {
-				retVal_ += "first NOT before second";
+				sb.append("first NOT before second");
 			}
-			retVal_ += "..........................................................................................";
-			retVal_ += "Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
-					+ firstDoc.getUniversalID() + ")...";
+			sb.append("..........................................................................................");
+			sb.append("Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
+					+ firstDoc.getUniversalID() + ")...");
 			if (secondDateJ.before(firstDateJ)) {
-				retVal_ += "second before first";
+				sb.append("second before first");
 			} else {
-				retVal_ += "second NOT before first";
+				sb.append("second NOT before first");
 			}
 		} catch (NotesException e) {
 			// doSomething
@@ -106,11 +106,11 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeIsAfterTest() {
-		String retVal_ = "";
+	public void dateTimeIsAfterTest() {
+		StringBuilder sb = new StringBuilder();
 		View threadsByDate = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
@@ -146,20 +146,20 @@ public class OldDateTimeBean implements Serializable {
 			secondDate = s.createDateTime(secondDt);
 			Date firstDateJ = firstDate.toJavaDate();
 			Date secondDateJ = secondDate.toJavaDate();
-			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...";
+			sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+					+ secondDoc.getUniversalID() + ")...");
 			if (firstDateJ.after(secondDateJ)) {
-				retVal_ += "first after second";
+				sb.append("first after second");
 			} else {
-				retVal_ += "first NOT after second";
+				sb.append("first NOT after second");
 			}
-			retVal_ += "..........................................................................................";
-			retVal_ += "Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
-					+ firstDoc.getUniversalID() + ")...";
+			sb.append("..........................................................................................");
+			sb.append("Comparing " + secondDt + " (" + secondDoc.getUniversalID() + ") with " + firstDt + " ("
+					+ firstDoc.getUniversalID() + ")...");
 			if (secondDateJ.after(firstDateJ)) {
-				retVal_ += "second after first";
+				sb.append("second after first");
 			} else {
-				retVal_ += "second NOT after first";
+				sb.append("second NOT after first");
 			}
 		} catch (NotesException e) {
 			// doSomething
@@ -174,11 +174,11 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeEqualsTest() {
-		String retVal_ = "";
+	public void dateTimeEqualsTest() {
+		StringBuilder sb = new StringBuilder();
 		View threads = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
@@ -199,12 +199,12 @@ public class OldDateTimeBean implements Serializable {
 			secondDate = s.createDateTime(secondDt);
 			Date firstDateJ = firstDate.toJavaDate();
 			Date secondDateJ = secondDate.toJavaDate();
-			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...";
+			sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+					+ secondDoc.getUniversalID() + ")...");
 			if (firstDateJ.equals(secondDateJ)) {
-				retVal_ += "first is the same date/time as second";
+				sb.append("first is the same date/time as second");
 			} else {
-				retVal_ += "first is NOT the same date/time as second";
+				sb.append("first is NOT the same date/time as second");
 			}
 		} catch (NotesException e) {
 			// doSomething
@@ -219,11 +219,11 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeEqualsIgnoreDateTest() {
-		String retVal_ = "";
+	public void dateTimeEqualsIgnoreDateTest() {
+		StringBuilder sb = new StringBuilder();
 		View threads = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
@@ -252,12 +252,12 @@ public class OldDateTimeBean implements Serializable {
 			c2.set(Calendar.DAY_OF_MONTH, 1);
 			c2.set(Calendar.MONTH, 0);
 			c2.set(Calendar.YEAR, 2000);
-			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...";
+			sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+					+ secondDoc.getUniversalID() + ")...");
 			if (c1.equals(c2)) {
-				retVal_ += "first is the same time as second";
+				sb.append("first is the same time as second");
 			} else {
-				retVal_ += "first is NOT the same time as second";
+				sb.append("first is NOT the same time as second");
 			}
 		} catch (NotesException e) {
 			// doSomething
@@ -272,11 +272,11 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public String getDateTimeEqualsIgnoreTimeTest() {
-		String retVal_ = "";
+	public void dateTimeEqualsIgnoreTimeTest() {
+		StringBuilder sb = new StringBuilder();
 		View threads = null;
 		Document firstDoc = null;
 		Document secondDoc = null;
@@ -307,12 +307,12 @@ public class OldDateTimeBean implements Serializable {
 			c2.set(Calendar.MINUTE, 0);
 			c2.set(Calendar.SECOND, 0);
 			c2.set(Calendar.MILLISECOND, 0);
-			retVal_ = "Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
-					+ secondDoc.getUniversalID() + ")...";
+			sb.append("Comparing " + firstDt + " (" + firstDoc.getUniversalID() + ") with " + secondDt + " ("
+					+ secondDoc.getUniversalID() + ")...");
 			if (c1.equals(c2)) {
-				retVal_ += "first is the same date as second";
+				sb.append("first is the same date as second");
 			} else {
-				retVal_ += "first is NOT the same date as second";
+				sb.append("first is NOT the same date as second");
 			}
 		} catch (NotesException e) {
 			// doSomething
@@ -327,11 +327,10 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		return retVal_;
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
-	public java.util.Date getProcessedDate() {
-		java.util.Date result = null;
+	public void getProcessedDate() {
 		View threads = null;
 		try {
 			Session s = ExtLibUtil.getCurrentSession();
@@ -346,7 +345,7 @@ public class OldDateTimeBean implements Serializable {
 						if (o instanceof lotus.domino.DateTime) {
 							lotus.domino.DateTime datetime = (lotus.domino.DateTime) o;
 							try {
-								result = datetime.toJavaDate();
+								ExtLibUtil.getViewScope().put("javaTest", datetime.toJavaDate());
 							} catch (lotus.domino.NotesException ne1) {
 								ne1.printStackTrace();
 							} finally {
@@ -368,6 +367,5 @@ public class OldDateTimeBean implements Serializable {
 		} catch (lotus.domino.NotesException ne) {
 			ne.printStackTrace(); // Again, probably not what you actually want to do
 		}
-		return result;
 	}
 }

@@ -55,7 +55,7 @@ d.initDeleteDocuments();
 d.initUsers(200);
 d.initDiscussionDocuments(100, 10, 5);
 d.initStates();
-//d.initAllTypes();
+d.initAllTypes();
 d.run();
 
 var msg = "Created Sample Data Set";
@@ -79,7 +79,7 @@ d.initDeleteDocuments()
 d.initUsers(10000)
 d.initDiscussionDocuments(1000, 10, 5)
 d.initStates()
-//d.initAllTypes()
+d.initAllTypes()
 d.run()
 
 var msg = "Created Sample Data Set";

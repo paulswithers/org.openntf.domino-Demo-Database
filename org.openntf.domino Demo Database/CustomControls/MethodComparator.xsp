@@ -10,13 +10,13 @@
 		<xp:tr style="background-color:#E8FAEE">
 			<xp:td style="width:50%;text-align:left;">
 				<xp:section header="Standard Code">
-					<xp:text id="compar1" escape="false" value="#{dataComparator.lotusMethodText}">
+					<xp:text id="compar1" escape="false" value="#{javascript:dataComparator.getLotusMethodText(compositeData.methodName)}">
 					</xp:text>
 				</xp:section>
 			</xp:td>
 			<xp:td style="width:50%;text-align:left;">
 				<xp:section header="OpenNTF Domino Code">
-					<xp:text id="compar2" escape="false" value="#{dataComparator.ourMethodText}">
+					<xp:text id="compar2" escape="false" value="#{javascript:dataComparator.getOurMethodText(compositeData.methodName)}">
 					</xp:text>
 				</xp:section>
 			</xp:td>

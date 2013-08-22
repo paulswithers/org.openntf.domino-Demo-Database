@@ -65,7 +65,7 @@ public class DataInitializerOpenNTF {
 
 	public void run() throws IOException {
 		try {
-			Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opendatabase");
+			Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
 			if (deleteAllDoc) {
 				deleteAllDocuments(db);
 			}

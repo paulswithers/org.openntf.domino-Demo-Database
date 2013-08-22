@@ -65,7 +65,7 @@ public class DataInitializerOpenNTF {
 
 	public void run() throws IOException {
 		try {
-			Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "opendatabase");
+			Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
 			if (deleteAllDoc) {
 				deleteAllDocuments(db);
 			}
@@ -160,13 +160,13 @@ public class DataInitializerOpenNTF {
 
 	void createUser(Database db, String id, String firstName, String lastName, String city, String state, String email) {
 		Document doc = db.createDocument();
-		doc.replaceItemValue("Form", "Contact");
-		doc.replaceItemValue("Id", id);
-		doc.replaceItemValue("FirstName", firstName);
-		doc.replaceItemValue("LastName", lastName);
-		doc.replaceItemValue("City", city);
-		doc.replaceItemValue("State", state);
-		doc.replaceItemValue("email", email);
+		doc.put("Form", "Contact");
+		doc.put("Id", id);
+		doc.put("FirstName", firstName);
+		doc.put("LastName", lastName);
+		doc.put("City", city);
+		doc.put("State", state);
+		doc.put("email", email);
 		doc.save();
 	}
 
@@ -209,9 +209,9 @@ public class DataInitializerOpenNTF {
 
 	void createState(Database db, String key, String name) {
 		Document doc = db.createDocument();
-		doc.replaceItemValue("Form", "State");
-		doc.replaceItemValue("Key", key);
-		doc.replaceItemValue("Name", name);
+		doc.put("Form", "State");
+		doc.put("Key", key);
+		doc.put("Name", name);
 		doc.save();
 	}
 
@@ -261,7 +261,7 @@ public class DataInitializerOpenNTF {
 			pos[pos.length - 1] = j + 1;
 
 			Document doc = db.createDocument();
-			doc.replaceItemValue("Form", "Discussion");
+			doc.put("Form", "Discussion");
 			StringBuilder b = new StringBuilder();
 			for (int i = 0; i < pos.length; i++) {
 				if (i > 0) {
@@ -285,10 +285,10 @@ public class DataInitializerOpenNTF {
 			int x = Math.min((int) (Math.random() * (users.size())), users.size());
 			String author = users.get(x);
 
-			doc.replaceItemValue("Title", title);
-			doc.replaceItemValue("Body", body);
-			doc.replaceItemValue("Author", author);
-			doc.replaceItemValue("Date", date);
+			doc.put("Title", title);
+			doc.put("Body", body);
+			doc.put("Author", author);
+			doc.put("Date", date);
 			if (parent != null) {
 				doc.makeResponse(parent);
 			}
@@ -330,60 +330,60 @@ public class DataInitializerOpenNTF {
 		Session session = db.getParent();
 		String sIndex = Integer.toString(index);
 		Document doc = db.createDocument();
-		doc.replaceItemValue("Form", "AllTypes");
+		doc.put("Form", "AllTypes");
 
-		doc.replaceItemValue("fldIcon", index);
-		doc.replaceItemValue("fldText", "text_" + sIndex);
-		doc.replaceItemValue("fldNumber", index * 100);
-		doc.replaceItemValue("fldDate", createDate(2010, Calendar.JANUARY, index));
-		doc.replaceItemValue("fldTime", createTime(session, 5, 1, index));
-		doc.replaceItemValue("fldDateTime", createDateTime(2011, 2, index, 8, 9, index));
-		doc.replaceItemValue("fldDateTimeRange", createDateTimeRange(session, 2012, 3, index, 8, 9, index));
-		doc.replaceItemValue("fldDialogList", "dlg_" + sIndex);
+		doc.put("fldIcon", index);
+		doc.put("fldText", "text_" + sIndex);
+		doc.put("fldNumber", index * 100);
+		doc.put("fldDate", createDate(2012, Calendar.JANUARY, index));
+		doc.put("fldTime", createTime(session, 5, 1, index));
+		doc.put("fldDateTime", createDateTime(2011, 2, index, 8, 9, index));
+		doc.put("fldDateTimeRange", createDateTimeRange(session, 2012, 3, index, 8, 9, index));
+		doc.put("fldDialogList", "dlg_" + sIndex);
 
 		ArrayList<String> mx = new ArrayList<String>();
 		mx.add("text_" + sIndex + "_1");
 		mx.add("text_" + sIndex + "_2");
 		mx.add("text_" + sIndex + "_3");
-		doc.replaceItemValue("fldText2", mx);
+		doc.put("fldText2", mx);
 
 		ArrayList<Object> mn = new ArrayList<Object>();
 		mn.add(index * 100 + 1);
 		mn.add(index * 100 + 2);
 		mn.add(index * 100 + 3);
-		doc.replaceItemValue("fldNumber2", mn);
+		doc.put("fldNumber2", mn);
 
 		ArrayList<Date> md = new ArrayList<Date>();
 		md.add(createDate(2010, Calendar.JANUARY, index));
 		md.add(createDate(2010, Calendar.FEBRUARY, index));
 		md.add(createDate(2010, Calendar.MARCH, index));
-		doc.replaceItemValue("fldDate2", md);
+		doc.put("fldDate2", md);
 
 		Vector<Date> mt = new Vector<Date>();
 		mt.add(createTime(session, 6, 1, index));
 		mt.add(createTime(session, 6, 2, index));
 		mt.add(createTime(session, 6, 3, index));
-		doc.replaceItemValue("fldTime2", mt);
+		doc.put("fldTime2", mt);
 
 		Vector<Date> mdt = new Vector<Date>();
 		mdt.add(createDateTime(2011, 1, index, 6, 1, index));
 		mdt.add(createDateTime(2011, 2, index, 6, 2, index));
 		mdt.add(createDateTime(2011, 3, index, 6, 3, index));
-		doc.replaceItemValue("fldDateTime2", mdt);
+		doc.put("fldDateTime2", mdt);
 
 		if (false) { // DateTime range do not work with multiple values?
 			Vector<DateRange> mrg = new Vector<DateRange>();
 			mrg.add(createDateTimeRange(session, 2012, 2, index, 4, 1, index));
 			mrg.add(createDateTimeRange(session, 2012, 3, index, 5, 1, index));
 			mrg.add(createDateTimeRange(session, 2012, 4, index, 6, 1, index));
-			doc.replaceItemValue("fldDateTimeRange2", mrg);
+			doc.put("fldDateTimeRange2", mrg);
 		}
 
 		ArrayList<Object> mdg = new ArrayList<Object>();
 		mdg.add("dlgx_" + sIndex + "_1");
 		mdg.add("dlgx_" + sIndex + "_1");
 		mdg.add("dlgx_" + sIndex + "_1");
-		doc.replaceItemValue("fldDialogList2", mdg);
+		doc.put("fldDialogList2", mdg);
 
 		doc.save();
 	}

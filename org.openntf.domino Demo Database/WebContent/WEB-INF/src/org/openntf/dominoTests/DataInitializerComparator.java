@@ -31,8 +31,11 @@ public class DataInitializerComparator implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	@SuppressWarnings("unused")
 	private Object dataInitializerMethods;
+	@SuppressWarnings("unused")
 	private String lotusMethodText;
+	@SuppressWarnings("unused")
 	private String ourMethodText;
 
 	public DataInitializerComparator() {
@@ -53,7 +56,7 @@ public class DataInitializerComparator implements Serializable {
 		return retVal_.toArray();
 	}
 
-	public String getLotusMethodText() {
+	public String getLotusMethodText(String methodName) {
 		String retVal_ = "";
 		try {
 			InputStream in = Utils.class.getResourceAsStream((String) ExtLibUtil.resolveVariable(FacesContext
@@ -62,7 +65,7 @@ public class DataInitializerComparator implements Serializable {
 			cu = JavaParser.parse(in);
 			// visit and print the methods names
 			ExtendedDumpVisitor dv = new ExtendedDumpVisitor();
-			dv.setSearchMethodName((String) ExtLibUtil.getViewScope().get("methodName"));
+			dv.setSearchMethodName(methodName);
 			dv.visit(cu, null);
 			retVal_ = dv.getSource();
 		} catch (Throwable e) {
@@ -71,7 +74,7 @@ public class DataInitializerComparator implements Serializable {
 		return retVal_;
 	}
 
-	public String getOurMethodText() {
+	public String getOurMethodText(String methodName) {
 		String retVal_ = "";
 		try {
 			InputStream in = Utils.class.getResourceAsStream((String) ExtLibUtil.resolveVariable(FacesContext
@@ -80,7 +83,7 @@ public class DataInitializerComparator implements Serializable {
 			cu = JavaParser.parse(in);
 			// visit and print the methods names
 			ExtendedDumpVisitor dv = new ExtendedDumpVisitor();
-			dv.setSearchMethodName((String) ExtLibUtil.getViewScope().get("methodName"));
+			dv.setSearchMethodName(methodName);
 			dv.visit(cu, null);
 			retVal_ = dv.getSource();
 		} catch (Throwable e) {

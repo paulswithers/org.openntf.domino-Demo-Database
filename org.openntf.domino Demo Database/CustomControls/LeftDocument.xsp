@@ -19,13 +19,19 @@
 			</xe:pageTreeNode>
 
 			<xe:separatorTreeNode></xe:separatorTreeNode>
-			<xe:pageTreeNode label="DateTime" page="/DateTime.xsp">
+			<xe:pageTreeNode label="All Tests" page="/DateTime.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="View" page="/ViewEntry.xsp">
+			<xe:pageTreeNode label="IsBefore" page="/DateTime_IsBefore.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Document" page="/DocumentMap.xsp">
+			<xe:pageTreeNode label="IsAfter" page="/DateTime_IsAfter.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Exceptions" page="/Exception.xsp">
+			<xe:pageTreeNode label="Equals" page="/DateTime_Equals.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Equals Ignore Date" page="/DateTime_EqualsIgnoreDate.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Equals Ignore Time" page="/DateTime_EqualsIgnoreTime.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Get Date Field" page="/DateTime_GetDate.xsp">
 			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>

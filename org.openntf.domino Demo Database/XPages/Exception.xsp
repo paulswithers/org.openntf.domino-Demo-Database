@@ -14,12 +14,17 @@
 		permissions and limitations under the License
 	-->
 
-	<xc:ccLayoutOneUI>
+	<xp:this.resources>
+		<xp:dojoModule name="extlib.dijit.Loading"></xp:dojoModule>
+	</xp:this.resources>
+
+	<xc:ccLayoutOneUI selected="home">
 		<xp:this.facets>
-			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
-			<xc:mainArea xp:key="facet_1" title="DateTime" javaMethodName="dateTimeEqualsIgnoreTimeTest">
+			<xc:LeftCore xp:key="LeftColumn"></xc:LeftCore>
+			<xc:mainArea xp:key="facet_1" title="Exception" javaMethodName="">
 				<xc:this.description>
-					<![CDATA[Demonstrates DateTime.equalsIgnoreTime(DateTime) - i.e. take two dates and check if the DATES are the same, ignoring the TIME portion]]>
+					<![CDATA[This demonstrates the exception handling. Messages are logged to the console, IBM_TECHNICAL_SUPPORT 
+					folder in a file org.openntf.log.X.Y.txt and to OpenLog.]]>
 				</xc:this.description>
 				<xp:this.facets>
 					<xp:button value="Run SSJS Tests" id="button1"
@@ -27,34 +32,20 @@
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="partial" refreshId="SSJSDiv">
 									<xp:this.action><![CDATA[#{javascript:try {
-	var now = new java.util.Date();
-	var date1:org.openntf.domino.DateTime = session.createDateTime(now);
-	var date2:org.openntf.domino.DateTime = session.createDateTime(now);
-	date1.adjustMinute(2);
-	retVal = "Running SSJS date1.equalsIgnoreTime(date2)<br/>";
-	if (date1.equalsIgnoreTime(date2)) {
-		retVal += @Text(date1) + " is the same DATE as " + @Text(date2) + "<br/>";
-	} else {
-		retVal += @Text(date1) + " is NOT the same DATE as " + @Text(date2) + "<br/>";
-	}
-	date1.adjustDay(1);
-	retVal += "<br/><br/>Running SSJS date1.equalsIgnoreTime(date2)<br/>";
-	if (date1.equalsIgnoreTime(date2)) {
-		retVal += @Text(date1) + " is the same DATE as " + @Text(date2) + "<br/>";
-	} else {
-		retVal += @Text(date1) + " is NOT the same DATE as " + @Text(date2) + "<br/>";
-	}
-	viewScope.put("SSJSTest",retVal);
-} catch (e) {
+	importPackage(org.openntf.domino.utils);
+	DominoUtils.handleException(new java.lang.Throwable("Here is an error."));
+	@InfoMessage("Done");
+} catch(e) {
 	@ErrorMessage(e.toString());
 }}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>
-					<xp:button value="Run Java Tests" id="button3"
+					<xp:button value="Run Java Tests" id="button4"
 						xp:key="javaButton">
 						<xp:eventHandler event="onclick" submit="true"
-							refreshMode="partial" refreshId="JavaDiv"
-							action="#{javascript:openNTFDateTimeBean.dateTimeEqualsIgnoreTimeTest()}">
+							refreshMode="partial" refreshId="JavaDiv">
+							<xp:this.action><![CDATA[#{javascript:org.openntf.dominoTests.Utils.exceptionTest();
+@InfoMessage("Done")}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>
 				</xp:this.facets>

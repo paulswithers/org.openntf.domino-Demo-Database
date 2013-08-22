@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:ccLayoutOneUI>
+		<xp:this.facets>
+			<xc:mainArea xp:key="facet_1" title="Document">
+				<xc:this.description><![CDATA[Here is some Description]]></xc:this.description>
+			</xc:mainArea>
+			<xc:LeftDocument xp:key="LeftColumn"></xc:LeftDocument>
+		</xp:this.facets>
+	</xc:ccLayoutOneUI>
+</xp:view>

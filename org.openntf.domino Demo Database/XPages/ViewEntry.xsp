@@ -14,31 +14,20 @@
 		permissions and limitations under the License
 	-->
 
-	<!-- TODO -->
-	<xp:this.beforePageLoad><![CDATA[#{javascript:viewScope.put("methodName","getProcessView");}]]></xp:this.beforePageLoad>
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftView xp:key="LeftColumn"></xc:LeftView>
-			
-			<xp:div xp:key="facet_1" style="text-align:center" id="panel1">
-				<xp:text tagName="h1" value="ViewEntry"></xp:text>
-				<hr></hr>
-				<xp:div styleClass="lotusInfoBox">
-					<xp:text escape="false">
-						<xp:this.value><![CDATA[Navigating through NotesViewEntries of a View.]]>
-						</xp:this.value>
-					</xp:text>
-				</xp:div>
-				<xe:djTabContainer id="djTabContainer1" style="width:100%;height:700px"
-					doLayout="true" tabStrip="true">
-					<xe:djTabPane id="ssjs" title="SSJS">
-						<xp:div id="SSJSDiv">
-							<xp:messages id="messages1"></xp:messages>
-							<xp:button value="Run SSJS Tests" id="button2">
-								<xp:eventHandler event="onclick" submit="true"
-									refreshMode="partial" refreshId="SSJSDiv">
+			<xc:mainArea xp:key="facet_1" title="View" javaMethodName="processView">
+				<xc:this.description>
+					<![CDATA[Navigating through NotesViewEntries of a View.]]>
+				</xc:this.description>
+				<xp:this.facets>
+					<xp:button value="Run SSJS Tests" id="button1"
+						xp:key="SSJSButton">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="SSJSDiv">
 									<xp:this.action><![CDATA[#{javascript:try {
-	var statesView:org.openntf.domino.View = opendatabase.getView("allStates");
+	var statesView:org.openntf.domino.View = database.getView("allStates");
 	var sb = new java.lang.StringBuilder();
 	for (entry in statesView.getAllEntries()) {
 		sb.append(entry.getNoteID() + "<br/>"); // Do whatever it is you actually want to get done
@@ -47,26 +36,17 @@
 } catch(e) {
 	e.printStackTrace();
 }}]]></xp:this.action>
-								</xp:eventHandler>
-							</xp:button>
-							<xp:br></xp:br>
-							<xp:text id="SSJS_Response" value="#{SSJSTest}" escape="false">
-							</xp:text>
-						</xp:div>
-					</xe:djTabPane>
-					<xe:djTabPane id="java" title="Java">
-						<xp:div id="JavaDiv">
-							<xp:text id="computedField1" value="#{openNTFViewBean.processView}"
-								escape="false">
-							</xp:text>
-						</xp:div>
-					</xe:djTabPane>
-					<xe:djTabPane id="javaCompare" title="Java Comparator">
-						<xc:MethodComparator objectName="View"></xc:MethodComparator>
-					</xe:djTabPane>
-				</xe:djTabContainer>
-			</xp:div>
-
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="Run Java Tests" id="button3"
+						xp:key="javaButton">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="JavaDiv"
+							action="#{javascript:openNTFViewBean.processView()}">
+						</xp:eventHandler>
+					</xp:button>
+				</xp:this.facets>
+			</xc:mainArea>
 		</xp:this.facets>
 	</xc:ccLayoutOneUI>
 </xp:view>
