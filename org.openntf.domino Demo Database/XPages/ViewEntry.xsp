@@ -45,6 +45,13 @@
 							action="#{javascript:openNTFViewBean.processView()}">
 						</xp:eventHandler>
 					</xp:button>
+					<xp:button value="Run Old Java Tests" id="button2"
+						xp:key="oldJavaButton">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="oldJavaDiv"
+							action="#{javascript:oldViewBean.processView()}">
+						</xp:eventHandler>
+					</xp:button>
 				</xp:this.facets>
 			</xc:mainArea>
 		</xp:this.facets>

@@ -106,7 +106,7 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
 	}
 
 	public void dateTimeIsAfterTest() {
@@ -174,7 +174,7 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
 	}
 
 	public void dateTimeEqualsTest() {
@@ -219,7 +219,7 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
 	}
 
 	public void dateTimeEqualsIgnoreDateTest() {
@@ -272,7 +272,7 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
 	}
 
 	public void dateTimeEqualsIgnoreTimeTest() {
@@ -327,7 +327,7 @@ public class OldDateTimeBean implements Serializable {
 				// doSomething
 			}
 		}
-		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
 	}
 
 	public void getProcessedDate() {
@@ -337,6 +337,8 @@ public class OldDateTimeBean implements Serializable {
 			Database currDb = s.getCurrentDatabase();
 			threads = currDb.getView("AllContacts");
 			Document doc = threads.getFirstDocument();
+			DateTime dt = s.createDateTime(new Date());
+			doc.replaceItemValue("testDate", dt);
 			if (doc.hasItem("testDate")) {
 				java.util.Vector<?> vector = doc.getItemValue("testDate");
 				if (vector != null && !vector.isEmpty()) {
@@ -345,7 +347,7 @@ public class OldDateTimeBean implements Serializable {
 						if (o instanceof lotus.domino.DateTime) {
 							lotus.domino.DateTime datetime = (lotus.domino.DateTime) o;
 							try {
-								ExtLibUtil.getViewScope().put("javaTest", datetime.toJavaDate());
+								ExtLibUtil.getViewScope().put("oldJavaTest", datetime.toJavaDate());
 							} catch (lotus.domino.NotesException ne1) {
 								ne1.printStackTrace();
 							} finally {
@@ -362,7 +364,7 @@ public class OldDateTimeBean implements Serializable {
 				}
 			} else {
 				// Deal with the absence of a processDate field
-				doc.getItemValue("testDate"); // This will return a Vector with a String of "" if the item isn't present.
+				ExtLibUtil.getViewScope().put("oldJavaTest", doc.getItemValue("testDate")); // This will return a Vector with a String of "" if the item isn't present.
 			}
 		} catch (lotus.domino.NotesException ne) {
 			ne.printStackTrace(); // Again, probably not what you actually want to do

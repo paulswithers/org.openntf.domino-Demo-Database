@@ -41,8 +41,18 @@
 					</xp:text>
 				</xp:div>
 			</xe:djTabPane>
+			<xe:djTabPane id="djTabPane2" title="Old Java">
+			<xe:this.loaded><![CDATA[${javascript:compositeData.javaMethodName!=null && compositeData.javaMethodName!=""}]]></xe:this.loaded>
+				<xp:div id="oldJavaDiv">
+					<xp:messages id="messages3"></xp:messages>
+					<xp:callback facetName="oldJavaButton" id="callback3"></xp:callback>
+					<xp:br></xp:br>
+					<xp:text id="computedField2" value="#{oldJavaTest}" escape="false">
+					</xp:text>
+				</xp:div>
+			</xe:djTabPane>
 			<xe:djTabPane id="javaCompare" title="Java Comparator">
-				<xe:this.loaded><![CDATA[${javascript:compositeData.javaMethodName != ""}]]></xe:this.loaded>
+				<xe:this.loaded><![CDATA[${javascript:compositeData.javaMethodName!=null && compositeData.javaMethodName!=""}]]></xe:this.loaded>
 				<xc:MethodComparator objectName="#{compositeData.title}"
 					methodName="#{compositeData.javaMethodName}">
 				</xc:MethodComparator>

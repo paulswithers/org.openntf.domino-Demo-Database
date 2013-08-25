@@ -219,6 +219,8 @@ public class NewDateTimeBean implements Serializable {
 		Database currDb = s.getCurrentDatabase();
 		View threads = currDb.getView("AllContacts");
 		Document doc = threads.getFirstDocument();
+		DateTime dt = s.createDateTime(new Date());
+		doc.put("testDate", dt);
 		ExtLibUtil.getViewScope().put("javaTest", doc.get("testDate"));
 	}
 }

@@ -29,6 +29,10 @@ public class OldViewBean implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	public OldViewBean() {
+
+	}
+
 	public void processView() {
 		Database db = null;
 		View view = null;
@@ -62,7 +66,7 @@ public class OldViewBean implements Serializable {
 
 			}
 		}
-		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
 	}
 
 }

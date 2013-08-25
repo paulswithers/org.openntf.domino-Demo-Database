@@ -30,7 +30,9 @@ This code uses the Map extension of Document datasource, but you can also use ge
 									<xp:this.action><![CDATA[#{javascript:try {
 	var threads:org.openntf.domino.View = database.getView("AllContacts");
 	var doc:org.openntf.domino.Document = threads.getFirstDocument();
-	var retVal = doc.get("testDate");
+	var date1:org.openntf.domino.DateTime = session.createDateTime(new java.util.Date());
+	doc.put("testDate",date1);
+	var retVal = doc.get("testDate").toJavaDate();
 	viewScope.put("SSJSTest",retVal);
 } catch (e) {
 	@ErrorMessage(e.toString());
@@ -42,6 +44,13 @@ This code uses the Map extension of Document datasource, but you can also use ge
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="partial" refreshId="JavaDiv"
 							action="#{javascript:openNTFDateTimeBean.getProcessedDate()}">
+						</xp:eventHandler>
+					</xp:button>
+					<xp:button value="Run Old Java Tests" id="button2"
+						xp:key="oldJavaButton">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="oldJavaDiv"
+							action="#{javascript:oldDateTimeBean.getProcessedDate()}">
 						</xp:eventHandler>
 					</xp:button>
 				</xp:this.facets>

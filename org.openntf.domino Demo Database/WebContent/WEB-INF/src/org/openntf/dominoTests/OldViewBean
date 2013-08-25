@@ -62,7 +62,7 @@ public class OldViewBean implements Serializable {
 
 			}
 		}
-		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
 	}
 
 }

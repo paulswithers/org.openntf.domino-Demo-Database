@@ -48,14 +48,14 @@
 							<xp:td style="width:50%">
 								<xp:section header="Ext Lib Code">
 									<xp:text id="compar1" escape="false"
-										value="#{dataComparator.lotusMethodText}">
+										value="#{javascript:dataComparator.getLotusMethodText(viewScope.methodName)}">
 									</xp:text>
 								</xp:section>
 							</xp:td>
 							<xp:td style="width:50%">
 								<xp:section header="OpenNTF Domino Code">
 									<xp:text id="compar2" escape="false"
-										value="#{dataComparator.ourMethodText}">
+										value="#{javascript:dataComparator.getOurMethodText(viewScope.methodName)}">
 									</xp:text>
 								</xp:section>
 							</xp:td>

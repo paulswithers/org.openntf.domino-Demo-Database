@@ -20,8 +20,28 @@
     <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
   <managed-bean>
+    <managed-bean-name>oldDateTimeBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.OldDateTimeBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
     <managed-bean-name>openNTFViewBean</managed-bean-name>
     <managed-bean-class>org.openntf.dominoTests.NewViewBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>oldViewBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.OldViewBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>openNTFDocumentBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.NewDocumentBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
+    <managed-bean-name>oldDocumentBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.OldDocumentBean</managed-bean-class>
     <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
   <managed-bean>

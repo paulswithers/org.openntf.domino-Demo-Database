@@ -19,7 +19,7 @@
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
-			<xc:mainArea xp:key="facet_1" title="DateTime" javaMethodName="">
+			<xc:mainArea xp:key="facet_1" title="DateTime">
 				<xc:this.description><![CDATA[Demonstrates DateTime.equals(DateTime)]]></xc:this.description>
 				<xp:this.facets>
 					<xp:button value="Run SSJS Tests" id="button1" xp:key="SSJSButton">

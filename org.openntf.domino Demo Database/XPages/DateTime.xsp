@@ -18,7 +18,7 @@
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftDateTime xp:key="LeftColumn"></xc:LeftDateTime>
-			<xc:mainArea xp:key="facet_1" title="DateTime" javaMethodName="">
+			<xc:mainArea xp:key="facet_1" title="DateTime">
 				<xp:this.description><![CDATA[Demonstrates new methods on DateTime class]]>
 						</xp:this.description>
 				<xp:this.facets>

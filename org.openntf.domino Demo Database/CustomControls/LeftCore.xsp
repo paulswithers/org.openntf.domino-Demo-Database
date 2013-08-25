@@ -23,7 +23,7 @@
 			</xe:pageTreeNode>
 			<xe:pageTreeNode label="View" page="/ViewEntry.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Document" page="/DocumentMap.xsp">
+			<xe:pageTreeNode label="Document" page="/Document_CreatedDateOld.xsp">
 			</xe:pageTreeNode>
 			<xe:pageTreeNode label="Exceptions" page="/Exception.xsp">
 			</xe:pageTreeNode>

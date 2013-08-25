@@ -19,19 +19,21 @@
 			</xe:pageTreeNode>
 
 			<xe:separatorTreeNode></xe:separatorTreeNode>
-			<xe:pageTreeNode label="All Tests" page="/DateTime.xsp">
+			<xe:pageTreeNode label="getCreated" page="/Document_CreatedDateOld.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="IsBefore" page="/DateTime_IsBefore.xsp">
+			<xe:pageTreeNode label="getCreatedDate" page="/Document_CreatedDate.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="IsAfter" page="/DateTime_IsAfter.xsp">
+			<xe:pageTreeNode label="Other Dates" page="/Document_OtherDates.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Equals" page="/DateTime_Equals.xsp">
+			<xe:pageTreeNode label="Document as Map 1" page="/Document_Map1.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Equals Ignore Date" page="/DateTime_EqualsIgnoreDate.xsp">
+			<xe:pageTreeNode label="Document as Map 2" page="/Document_Map2.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Equals Ignore Time" page="/DateTime_EqualsIgnoreTime.xsp">
+			<xe:pageTreeNode label="Form Name" page="/Document_FormName.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Get Date Field" page="/DateTime_GetDate.xsp">
+			<xe:pageTreeNode label="Form" page="/Document_Form.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="ReplaceItemValue + Summary" page="/Document_ReplaceItemValueSummary.xsp">
 			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
