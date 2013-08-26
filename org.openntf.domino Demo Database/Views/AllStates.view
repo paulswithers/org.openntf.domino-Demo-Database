@@ -1,10 +1,10 @@
 <?xml version='1.0' encoding='utf-8'?>
 <note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'>
-<noteinfo noteid='ea6' unid='FEA0083EA0CB6F5080257B420041B070' sequence='5'>
+<noteinfo noteid='ea6' unid='FEA0083EA0CB6F5080257B420041B070' sequence='6'>
 <created><datetime dst='true'>20130403T125730,08+01</datetime></created>
-<modified><datetime dst='true'>20130520T222314,16+01</datetime></modified>
-<revised><datetime dst='true'>20130520T222314,15+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20130520T222314,16+01</datetime></lastaccessed>
+<modified><datetime dst='true'>20130826T213855,96+01</datetime></modified>
+<revised><datetime dst='true'>20130826T213855,95+01</datetime></revised>
+<lastaccessed><datetime dst='true'>20130826T213855,96+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125730,24+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
@@ -17,7 +17,7 @@ AFN0YXRlAAoCBAAEAAMABwAMAAUACTNTNFMA
 </formula></item>
 <item name='$Collation' summary='true'>
 <rawitemdata type='2'>
-BgAAAABE
+EAABAABEgGYAAAADAEtleQ==
 </rawitemdata></item>
 <item name='$Collation1' summary='true'>
 <rawitemdata type='2'>
@@ -37,7 +37,7 @@ EQABAABEgWYAAAAEAE5hbWU=
 </rawitemdata></item>
 <item name='$ViewFormat' summary='true' sign='true'>
 <rawitemdata type='5'>
-AQACAAoACAAAAFZDAAMDAAMAAAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAwQABAAAAAAAoAAB
+AQACAAoACAAAAFZDAQMDAAMAAAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAwQABAAAAAAAoAAB
 AAAKAAAAAAAAAAAAAgIAAABLZXlLZXlOYW1lTmFtZSYAAQAAAAEBAAkBAAAKAQEOCgAAAQCtKwEA
 AQABAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAA
 AFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABCAAAAAAABAP//

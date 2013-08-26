@@ -19,7 +19,11 @@
 			</xe:pageTreeNode>
 
 			<xe:separatorTreeNode></xe:separatorTreeNode>
-			<xe:pageTreeNode label="View Navigation" page="/ViewEntry.xsp">
+			<xe:pageTreeNode label="View Navigation" page="/View_ViewEntry.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Get All Entries By Key (Object)" page="/View_GetAllEntriesByKey.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Get All Documents By Key (Object)" page="/View_GetAllDocumentsByKey.xsp">
 			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>

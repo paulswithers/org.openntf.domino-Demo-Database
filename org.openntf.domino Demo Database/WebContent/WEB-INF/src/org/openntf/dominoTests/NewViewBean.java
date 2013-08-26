@@ -14,12 +14,16 @@ package org.openntf.dominoTests;
 */
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 import javax.faces.context.FacesContext;
 
 import org.openntf.domino.Database;
+import org.openntf.domino.Document;
+import org.openntf.domino.DocumentCollection;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
+import org.openntf.domino.ViewEntryCollection;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
@@ -36,6 +40,32 @@ public class NewViewBean implements Serializable {
 		View view = db.getView("allStates");
 		for (ViewEntry currentEntry : view.getAllEntries()) {
 			sb.append(currentEntry.getNoteID() + "<br/>"); // Do whatever it is you actually want to get done
+		}
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+	}
+
+	public void getAllEntriesByKey() {
+		StringBuilder sb = new StringBuilder();
+		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		View view = db.getView("allContactsByState");
+		ArrayList<String> key = new ArrayList<String>();
+		key.add("CA");
+		ViewEntryCollection ec = view.getAllEntriesByKey(key, true);
+		for (ViewEntry entry : ec) {
+			sb.append(entry.getColumnValues().get(7) + "..."); // Do whatever it is you actually want to get done
+		}
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+	}
+
+	public void getAllDocumentsByKey() {
+		StringBuilder sb = new StringBuilder();
+		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		View view = db.getView("allContactsByState");
+		ArrayList<String> key = new ArrayList<String>();
+		key.add("CA");
+		DocumentCollection dc = view.getAllDocumentsByKey(key, true);
+		for (Document doc : dc) {
+			sb.append(doc.get("FirstName") + " " + doc.get("LastName") + "..."); // Do whatever it is you actually want to get done
 		}
 		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}

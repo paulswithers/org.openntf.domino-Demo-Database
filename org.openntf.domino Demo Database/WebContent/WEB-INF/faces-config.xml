@@ -45,6 +45,11 @@
     <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
   <managed-bean>
+    <managed-bean-name>openNTFHelperBean</managed-bean-name>
+    <managed-bean-class>org.openntf.dominoTests.NewHelperBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
+  <managed-bean>
     <managed-bean-name>dataComparator</managed-bean-name>
     <managed-bean-class>org.openntf.dominoTests.DataInitializerComparator</managed-bean-class>
     <managed-bean-scope>view</managed-bean-scope>

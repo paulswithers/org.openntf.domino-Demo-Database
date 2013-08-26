@@ -18,15 +18,7 @@
 			<xe:pageTreeNode label="Home" page="/Home.xsp">
 			</xe:pageTreeNode>
 			<xe:separatorTreeNode></xe:separatorTreeNode>
-			<xe:pageTreeNode label="DateTime" page="/DateTime.xsp">
-			</xe:pageTreeNode>
-			<xe:pageTreeNode label="View" page="/View_ViewEntry.xsp">
-			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Document" page="/Document_CreatedDateOld.xsp">
-			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Helpers" page="/Helper_SyncHelper.xsp">
-			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Exceptions" page="/Exception.xsp">
+			<xe:pageTreeNode label="SyncHelper" page="/Helper_SyncHelper.xsp">
 			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>

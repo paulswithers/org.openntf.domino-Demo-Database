@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:ccLayoutOneUI>
+		<xp:this.facets>
+			<xc:LeftHelper xp:key="LeftColumn"></xc:LeftHelper>
+			<xc:mainArea xp:key="facet_1" title="Helper">
+				<xc:this.description><![CDATA[Demonstrates syncDatabases Helper method.<br/><br/>Note, this will sync to OpenNTFDominoTmp database on the current server. Ensure that database exists.]]></xc:this.description>
+				<xp:this.facets>
+					<xp:button value="Run Java Tests" id="button3"
+						xp:key="javaButton">
+						<xp:eventHandler event="onclick" submit="true"
+							refreshMode="partial" refreshId="JavaDiv"
+							action="#{javascript:openNTFHelperBean.syncDatabases()}">
+						</xp:eventHandler>
+					</xp:button>
+				</xp:this.facets>
+			</xc:mainArea>
+		</xp:this.facets>
+	</xc:ccLayoutOneUI>
+</xp:view>
