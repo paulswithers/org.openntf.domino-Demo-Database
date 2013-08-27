@@ -17,16 +17,17 @@
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftView xp:key="LeftColumn"></xc:LeftView>
-			<xc:mainArea xp:key="facet_1" title="View" javaMethodName="processView">
+			<xc:mainArea xp:key="facet_1" title="View"
+				javaMethodName="getAllEntriesByKey">
 				<xc:this.description>
-					<![CDATA[Navigating through NotesViewEntries of a View.]]>
+					<![CDATA[Outputting contents from a NotesViewEntryCollection.]]>
 				</xc:this.description>
 				<xp:this.facets>
 					<xp:button value="Run SSJS Tests" id="button1"
 						xp:key="SSJSButton">
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="partial" refreshId="SSJSDiv">
-									<xp:this.action><![CDATA[#{javascript:try {
+							<xp:this.action><![CDATA[#{javascript:try {
 	var statesView:org.openntf.domino.View = database.getView("allContactsByState");
 	var sb = new java.lang.StringBuilder();
 	var key:java.util.ArrayList = new java.util.ArrayList();

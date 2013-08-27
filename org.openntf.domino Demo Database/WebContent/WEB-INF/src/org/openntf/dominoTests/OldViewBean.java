@@ -14,8 +14,11 @@ package org.openntf.dominoTests;
 */
 
 import java.io.Serializable;
+import java.util.Vector;
 
 import lotus.domino.Database;
+import lotus.domino.Document;
+import lotus.domino.DocumentCollection;
 import lotus.domino.View;
 import lotus.domino.ViewEntry;
 import lotus.domino.ViewEntryCollection;
@@ -49,7 +52,7 @@ public class OldViewBean implements Serializable {
 			while (currentEntry != null) {
 				nextEntry = collection.getNextEntry(currentEntry);
 				try {
-					sb.append(currentEntry.getNoteID() + "<br/>"); // Do whatever it is you actually want to get done
+					sb.append(currentEntry.getNoteID() + "..."); // Do whatever it is you actually want to get done
 				} catch (lotus.domino.NotesException ne1) {
 					ne1.printStackTrace();
 				} finally {
@@ -62,6 +65,162 @@ public class OldViewBean implements Serializable {
 		} finally {
 			try {
 				collection.recycle();
+			} catch (lotus.domino.NotesException ne) {
+
+			}
+		}
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
+	}
+
+	public void getAllEntriesByKey() {
+		Database db = null;
+		View view = null;
+		ViewEntryCollection ec = null;
+		ViewEntry entry = null;
+		ViewEntry nextEntry = null;
+		StringBuilder sb = new StringBuilder();
+		try {
+			db = ExtLibUtil.getCurrentDatabase();
+			view = db.getView("allContactsByState");
+			view.setAutoUpdate(false);
+			Vector<String> key = new Vector<String>();
+			key.add("CA");
+			ec = view.getAllEntriesByKey(key, true);
+			entry = ec.getFirstEntry();
+			while (entry != null) {
+				nextEntry = ec.getNextEntry();
+				try {
+					sb.append(entry.getColumnValues().get(7) + "...");
+				} catch (lotus.domino.NotesException ne1) {
+					ne1.printStackTrace();
+				} finally {
+					entry.recycle();
+				}
+				entry = nextEntry;
+			}
+		} catch (lotus.domino.NotesException ne) {
+			ne.printStackTrace();
+		} finally {
+			try {
+				ec.recycle();
+			} catch (lotus.domino.NotesException ne) {
+
+			}
+		}
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
+	}
+
+	public void getAllDocumentsByKey() {
+		Database db = null;
+		View view = null;
+		DocumentCollection dc = null;
+		Document doc = null;
+		Document nextDoc = null;
+		StringBuilder sb = new StringBuilder();
+		try {
+			db = ExtLibUtil.getCurrentDatabase();
+			view = db.getView("allContactsByState");
+			view.setAutoUpdate(false);
+			Vector<String> key = new Vector<String>();
+			key.add("CA");
+			dc = view.getAllDocumentsByKey(key, true);
+			doc = dc.getFirstDocument();
+			while (doc != null) {
+				nextDoc = dc.getNextDocument();
+				try {
+					sb.append(doc.getItemValueString("FirstName") + " " + doc.getItemValueString("LastName") + "...");
+				} catch (lotus.domino.NotesException ne1) {
+					ne1.printStackTrace();
+				} finally {
+					doc.recycle();
+				}
+				doc = nextDoc;
+			}
+		} catch (lotus.domino.NotesException ne) {
+			ne.printStackTrace();
+		} finally {
+			try {
+				dc.recycle();
+			} catch (lotus.domino.NotesException ne) {
+
+			}
+		}
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
+	}
+
+	public void getAllDocumentsByKeyNoMatch() {
+		Database db = null;
+		View view = null;
+		DocumentCollection dc = null;
+		Document doc = null;
+		Document nextDoc = null;
+		StringBuilder sb = new StringBuilder();
+		try {
+			db = ExtLibUtil.getCurrentDatabase();
+			view = db.getView("allContactsByState");
+			view.setAutoUpdate(false);
+			Vector<String> key = new Vector<String>();
+			key.add("CX");
+			dc = view.getAllDocumentsByKey(key, true);
+			sb.append("Getting values...");
+			doc = dc.getFirstDocument();
+			while (doc != null) {
+				nextDoc = dc.getNextDocument();
+				try {
+					sb.append(doc.getItemValueString("FirstName") + " " + doc.getItemValueString("LastName") + "...");
+				} catch (lotus.domino.NotesException ne1) {
+					ne1.printStackTrace();
+				} finally {
+					doc.recycle();
+				}
+				doc = nextDoc;
+			}
+			sb.append("Done");
+		} catch (lotus.domino.NotesException ne) {
+			ne.printStackTrace();
+		} finally {
+			try {
+				dc.recycle();
+			} catch (lotus.domino.NotesException ne) {
+
+			}
+		}
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
+	}
+
+	public void getAllEntriesByKeyNoMatch() {
+		Database db = null;
+		View view = null;
+		ViewEntryCollection ec = null;
+		ViewEntry entry = null;
+		ViewEntry nextEntry = null;
+		StringBuilder sb = new StringBuilder();
+		try {
+			db = ExtLibUtil.getCurrentDatabase();
+			view = db.getView("allContactsByState");
+			view.setAutoUpdate(false);
+			Vector<String> key = new Vector<String>();
+			key.add("CA");
+			ec = view.getAllEntriesByKey(key, true);
+			sb.append("Getting values...");
+			entry = ec.getFirstEntry();
+			while (entry != null) {
+				nextEntry = ec.getNextEntry();
+				try {
+					sb.append(entry.getColumnValues().get(7) + "...");
+				} catch (lotus.domino.NotesException ne1) {
+					ne1.printStackTrace();
+				} finally {
+					entry.recycle();
+				}
+				entry = nextEntry;
+			}
+			sb.append("Done");
+		} catch (lotus.domino.NotesException ne) {
+			ne.printStackTrace();
+		} finally {
+			try {
+				ec.recycle();
 			} catch (lotus.domino.NotesException ne) {
 
 			}

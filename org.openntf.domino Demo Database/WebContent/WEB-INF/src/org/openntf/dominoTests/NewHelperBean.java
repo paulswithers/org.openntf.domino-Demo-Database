@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import org.openntf.domino.Database;
 import org.openntf.domino.DocumentCollection;
-import org.openntf.domino.NoteCollection;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.helpers.DocumentSyncHelper;
@@ -29,20 +28,9 @@ public class NewHelperBean implements Serializable {
 		syncMap.put("Name", "StateName");
 		syncMap.put("@Now", "LastSync");
 		DocumentSyncHelper helper = new DocumentSyncHelper(DocumentSyncHelper.Strategy.CREATE_AND_REPLACE, syncMap,
-				currDb.getServer(), currDb.getFilePath(), "AllContactsByState", "State");
+				currDb.getServer(), currDb.getFilePath(), "AllContactsByState", "Key");
 		View states = currDb.getView("AllStates");
-		View allThreads = currDb.getView("AllThreadsByAuthor");
-		DocumentCollection result = allThreads.getAllDocumentsByKey("BLAHNO", true);
-		NoteCollection nc = currDb.createNoteCollection(false);
-		nc.setSelectDocuments(true);
-		nc.setSelectionFormula(states.getSelectionFormula());
-		nc.buildCollection();
-		int[] nids = nc.getNoteIDs();
-		for (int nid : nids) {
-			result.merge(nid);
-		}
-		//DocumentCollection sourceCollection = states.getAllDocuments();
-		System.out.println(result.getCount());
-		helper.process(result);
+		DocumentCollection sourceCollection = states.getAllDocuments();
+		helper.process(sourceCollection);
 	}
 }

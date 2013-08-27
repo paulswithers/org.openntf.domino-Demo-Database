@@ -39,7 +39,7 @@ public class NewViewBean implements Serializable {
 		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
 		View view = db.getView("allStates");
 		for (ViewEntry currentEntry : view.getAllEntries()) {
-			sb.append(currentEntry.getNoteID() + "<br/>"); // Do whatever it is you actually want to get done
+			sb.append(currentEntry.getNoteID() + "..."); // Do whatever it is you actually want to get done
 		}
 		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
@@ -52,7 +52,7 @@ public class NewViewBean implements Serializable {
 		key.add("CA");
 		ViewEntryCollection ec = view.getAllEntriesByKey(key, true);
 		for (ViewEntry entry : ec) {
-			sb.append(entry.getColumnValues().get(7) + "..."); // Do whatever it is you actually want to get done
+			sb.append(entry.getColumnValues().get(7) + "...");
 		}
 		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
@@ -65,8 +65,38 @@ public class NewViewBean implements Serializable {
 		key.add("CA");
 		DocumentCollection dc = view.getAllDocumentsByKey(key, true);
 		for (Document doc : dc) {
-			sb.append(doc.get("FirstName") + " " + doc.get("LastName") + "..."); // Do whatever it is you actually want to get done
+			sb.append(doc.get("FirstName") + " " + doc.get("LastName") + "...");
 		}
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+	}
+
+	public void getAllDocumentsByKeyNoMatch() {
+		StringBuilder sb = new StringBuilder();
+		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		View view = db.getView("allContactsByState");
+		ArrayList<String> key = new ArrayList<String>();
+		key.add("CX");
+		DocumentCollection dc = view.getAllDocumentsByKey(key, true);
+		sb.append("Getting values...");
+		for (Document doc : dc) {
+			sb.append(doc.get("FirstName") + " " + doc.get("LastName") + "...");
+		}
+		sb.append("Done");
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+	}
+
+	public void getAllEntriesByKeyNoMatch() {
+		StringBuilder sb = new StringBuilder();
+		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		View view = db.getView("allContactsByState");
+		ArrayList<String> key = new ArrayList<String>();
+		key.add("CX");
+		ViewEntryCollection ec = view.getAllEntriesByKey(key, true);
+		sb.append("Getting values...");
+		for (ViewEntry entry : ec) {
+			sb.append(entry.getColumnValues().get(7) + "...");
+		}
+		sb.append("Done");
 		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 

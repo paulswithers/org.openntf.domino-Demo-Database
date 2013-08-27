@@ -25,6 +25,10 @@
 			</xe:pageTreeNode>
 			<xe:pageTreeNode label="Get All Documents By Key (Object)" page="/View_GetAllDocumentsByKey.xsp">
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Get All Entries By Key (No Match)" page="/View_GetAllEntriesByKeyNoMatch.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Get All Documents By Key (No Match)" page="/View_GetAllDocumentsByKeyNoMatch.xsp">
+			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
 
