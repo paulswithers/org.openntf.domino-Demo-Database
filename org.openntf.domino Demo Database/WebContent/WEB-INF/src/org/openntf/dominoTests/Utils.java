@@ -25,9 +25,12 @@ import name.fraser.neil.plaintext.diff_match_patch.Diff;
 import org.openntf.domino.Database;
 import org.openntf.domino.DateTime;
 import org.openntf.domino.Document;
+import org.openntf.domino.DocumentCollection;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
+import org.openntf.domino.helpers.DocumentScanner;
+import org.openntf.domino.transactions.DatabaseTransaction;
 import org.openntf.domino.utils.DominoUtils;
 import org.openntf.domino.utils.Factory;
 
@@ -129,6 +132,63 @@ public class Utils {
 
 	public static void exceptionTest() {
 		DominoUtils.handleException(new Throwable("Here is a Java error"));
+	}
+
+	public static void transactionTest(boolean successOrFail) {
+		StringBuilder sb = new StringBuilder();
+		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		DatabaseTransaction txn = db.startTransaction();
+		try {
+			String selVal = (String) ExtLibUtil.getViewScope().get("selectedState");
+			boolean toggle = true;
+			int count = 0;
+			if ("".equals(selVal)) {
+				ExtLibUtil.getViewScope().put("javaTest", "First select a value");
+				return;
+			}
+			sb.append("Starting update with " + selVal);
+			View view = db.getView("allStates");
+			Document state = view.getDocumentByKey(selVal, true);
+			state.replaceItemValue("txnTest", new Date());
+			sb.append("...Updated State pending committal, value is " + state.get("txnTest").toString());
+			View contacts = db.getView("AllContactsByState");
+			DocumentCollection dc = contacts.getAllDocumentsByKey(selVal, true);
+			for (Document doc : dc) {
+				if (toggle) {
+					doc.replaceItemValue("txnTest", new Date());
+					count += 1;
+				}
+				toggle = !toggle;
+			}
+			sb.append("...Updated " + Integer.toString(count) + " Contacts pending committal.");
+			if (successOrFail) {
+				txn.commit();
+				sb.append("...Committed");
+				ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+			} else {
+				throw new Exception("Now roll back");
+			}
+		} catch (Exception e) {
+			sb.append("Rolling back");
+			txn.rollback();
+			ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		}
+	}
+
+	public static void contactScannerMap() {
+		DocumentScanner scanner = new DocumentScanner();
+		scanner.setIgnoreDollar(true);
+
+		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		View contacts = db.getView("AllContacts");
+		for (ViewEntry ent : contacts.getAllEntries()) {
+			scanner.processDocument(ent.getDocument());
+		}
+
+		ExtLibUtil.getViewScope().put("scannerFieldTokenMap", scanner.getFieldTokenMap());
+		ExtLibUtil.getViewScope().put("scannerFieldValueMap", scanner.getFieldValueMap());
+		ExtLibUtil.getViewScope().put("scannerFieldTypeMap", scanner.getFieldTypeMap());
+		ExtLibUtil.getViewScope().put("scannerTokenFreqMap", scanner.getTokenFreqMap());
 	}
 
 	public static String getVersion() {

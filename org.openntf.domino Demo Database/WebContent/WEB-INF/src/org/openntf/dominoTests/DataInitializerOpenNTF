@@ -159,14 +159,8 @@ public class DataInitializerOpenNTF {
 	}
 
 	void createUser(Database db, String id, String firstName, String lastName, String city, String state, String email) {
-		Document doc = db.createDocument();
-		doc.put("Form", "Contact");
-		doc.put("Id", id);
-		doc.put("FirstName", firstName);
-		doc.put("LastName", lastName);
-		doc.put("City", city);
-		doc.put("State", state);
-		doc.put("email", email);
+		Document doc = db.createDocument("Form", "Contact", "Id", id, "FirstName", firstName, "LastName", lastName,
+				"City", city, "State", state, "email", email);
 		doc.save();
 	}
 
@@ -208,10 +202,7 @@ public class DataInitializerOpenNTF {
 	}
 
 	void createState(Database db, String key, String name) {
-		Document doc = db.createDocument();
-		doc.put("Form", "State");
-		doc.put("Key", key);
-		doc.put("Name", name);
+		Document doc = db.createDocument("Form", "State", "Key", key, "Name", name);
 		doc.save();
 	}
 
@@ -261,7 +252,7 @@ public class DataInitializerOpenNTF {
 			pos[pos.length - 1] = j + 1;
 
 			Document doc = db.createDocument();
-			doc.put("Form", "Discussion");
+			doc.replaceItemValue("Form", "Discussion");
 			StringBuilder b = new StringBuilder();
 			for (int i = 0; i < pos.length; i++) {
 				if (i > 0) {
@@ -285,10 +276,10 @@ public class DataInitializerOpenNTF {
 			int x = Math.min((int) (Math.random() * (users.size())), users.size());
 			String author = users.get(x);
 
-			doc.put("Title", title);
-			doc.put("Body", body);
-			doc.put("Author", author);
-			doc.put("Date", date);
+			doc.replaceItemValue("Title", title);
+			doc.replaceItemValue("Body", body);
+			doc.replaceItemValue("Author", author);
+			doc.replaceItemValue("Date", date);
 			if (parent != null) {
 				doc.makeResponse(parent);
 			}

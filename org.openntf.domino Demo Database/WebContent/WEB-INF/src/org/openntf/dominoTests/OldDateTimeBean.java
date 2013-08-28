@@ -56,14 +56,14 @@ public class OldDateTimeBean implements Serializable {
 			ViewNavigator vNav = threadsByDate.createViewNav();
 			vNav.setEntryOptions(lotus.domino.ViewNavigator.VN_ENTRYOPT_NOCOLUMNVALUES);
 			Random randomGenerator = new Random();
-			int randomInt = randomGenerator.nextInt(35);
+			int randomInt = randomGenerator.nextInt(20);
 			ViewEntry firstEnt = vNav.getNth(randomInt);
 			while (!firstEnt.isDocument()) {
 				ViewEntry tmpEnt = vNav.getNext();
 				firstEnt.recycle();
 				firstEnt = tmpEnt;
 			}
-			randomInt = randomGenerator.nextInt(35);
+			randomInt = randomGenerator.nextInt(20);
 			ViewEntry secondEnt = vNav.getNth(randomInt);
 			while (!secondEnt.isDocument()) {
 				ViewEntry tmpEnt = vNav.getNext();
@@ -124,14 +124,14 @@ public class OldDateTimeBean implements Serializable {
 			ViewNavigator vNav = threadsByDate.createViewNav();
 			vNav.setEntryOptions(lotus.domino.ViewNavigator.VN_ENTRYOPT_NOCOLUMNVALUES);
 			Random randomGenerator = new Random();
-			int randomInt = randomGenerator.nextInt(35);
+			int randomInt = randomGenerator.nextInt(20);
 			ViewEntry firstEnt = vNav.getNth(randomInt);
 			while (!firstEnt.isDocument()) {
 				ViewEntry tmpEnt = vNav.getNext();
 				firstEnt.recycle();
 				firstEnt = tmpEnt;
 			}
-			randomInt = randomGenerator.nextInt(35);
+			randomInt = randomGenerator.nextInt(20);
 			ViewEntry secondEnt = vNav.getNth(randomInt);
 			while (!secondEnt.isDocument()) {
 				ViewEntry tmpEnt = vNav.getNext();

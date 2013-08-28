@@ -70,4 +70,34 @@ public class NewViewBean implements Serializable {
 		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
 	}
 
+	public void getAllDocumentsByKeyNoMatch() {
+		StringBuilder sb = new StringBuilder();
+		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		View view = db.getView("allContactsByState");
+		ArrayList<String> key = new ArrayList<String>();
+		key.add("CX");
+		DocumentCollection dc = view.getAllDocumentsByKey(key, true);
+		sb.append("Getting values...");
+		for (Document doc : dc) {
+			sb.append(doc.get("FirstName") + " " + doc.get("LastName") + "...");
+		}
+		sb.append("Done");
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+	}
+
+	public void getAllEntriesByKeyNoMatch() {
+		StringBuilder sb = new StringBuilder();
+		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		View view = db.getView("allContactsByState");
+		ArrayList<String> key = new ArrayList<String>();
+		key.add("CX");
+		ViewEntryCollection ec = view.getAllEntriesByKey(key, true);
+		sb.append("Getting values...");
+		for (ViewEntry entry : ec) {
+			sb.append(entry.getColumnValues().get(7) + "...");
+		}
+		sb.append("Done");
+		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+	}
+
 }

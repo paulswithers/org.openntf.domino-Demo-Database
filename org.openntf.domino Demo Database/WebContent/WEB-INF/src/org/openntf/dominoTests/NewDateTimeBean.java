@@ -66,12 +66,12 @@ public class NewDateTimeBean implements Serializable {
 		ViewNavigator vNav = threadsByDate.createViewNav();
 		vNav.setEntryOptions(org.openntf.domino.ViewNavigator.VN_ENTRYOPT_NOCOLUMNVALUES);
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(35);
+		int randomInt = randomGenerator.nextInt(20);
 		ViewEntry firstEnt = vNav.getNth(randomInt);
 		while (!firstEnt.isDocument()) {
 			firstEnt = vNav.getNext();
 		}
-		randomInt = randomGenerator.nextInt(35);
+		randomInt = randomGenerator.nextInt(20);
 		ViewEntry secondEnt = vNav.getNth(randomInt);
 		while (!secondEnt.isDocument()) {
 			secondEnt = vNav.getNext();
@@ -108,12 +108,12 @@ public class NewDateTimeBean implements Serializable {
 		ViewNavigator vNav = threadsByDate.createViewNav();
 		vNav.setEntryOptions(org.openntf.domino.ViewNavigator.VN_ENTRYOPT_NOCOLUMNVALUES);
 		Random randomGenerator = new Random();
-		int randomInt = randomGenerator.nextInt(35);
+		int randomInt = randomGenerator.nextInt(20);
 		ViewEntry firstEnt = vNav.getNth(randomInt);
 		while (!firstEnt.isDocument()) {
 			firstEnt = vNav.getNext();
 		}
-		randomInt = randomGenerator.nextInt(35);
+		randomInt = randomGenerator.nextInt(20);
 		ViewEntry secondEnt = vNav.getNth(randomInt);
 		while (!secondEnt.isDocument()) {
 			secondEnt = vNav.getNext();
@@ -221,6 +221,6 @@ public class NewDateTimeBean implements Serializable {
 		Document doc = threads.getFirstDocument();
 		DateTime dt = s.createDateTime(new Date());
 		doc.put("testDate", dt);
-		ExtLibUtil.getViewScope().put("javaTest", doc.get("testDate"));
+		ExtLibUtil.getViewScope().put("javaTest", doc.get("testDate").toString());
 	}
 }

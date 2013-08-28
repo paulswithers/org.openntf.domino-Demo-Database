@@ -19,6 +19,10 @@
 			</xe:pageTreeNode>
 
 			<xe:separatorTreeNode></xe:separatorTreeNode>
+			<xe:pageTreeNode label="Create Document (Map)" page="/Document_Create_Map.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Create Document (Key/Value Pairs)" page="/Document_Create_Pairs.xsp">
+			</xe:pageTreeNode>
 			<xe:pageTreeNode label="getCreated" page="/Document_CreatedDateOld.xsp">
 			</xe:pageTreeNode>
 			<xe:pageTreeNode label="getCreatedDate" page="/Document_CreatedDate.xsp">

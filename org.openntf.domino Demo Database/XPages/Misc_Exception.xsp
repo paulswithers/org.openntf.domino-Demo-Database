@@ -20,7 +20,7 @@
 
 	<xc:ccLayoutOneUI selected="home">
 		<xp:this.facets>
-			<xc:LeftCore xp:key="LeftColumn"></xc:LeftCore>
+			<xc:LeftHelper xp:key="LeftColumn"></xc:LeftHelper>
 			<xc:mainArea xp:key="facet_1" title="Exception">
 				<xc:this.description>
 					<![CDATA[This demonstrates the exception handling. Messages are logged to the console, IBM_TECHNICAL_SUPPORT 

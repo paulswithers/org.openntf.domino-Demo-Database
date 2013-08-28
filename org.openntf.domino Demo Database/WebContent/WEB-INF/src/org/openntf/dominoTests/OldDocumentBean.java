@@ -145,4 +145,38 @@ public class OldDocumentBean implements Serializable {
 			//handle Exception
 		}
 	}
+
+	public void createNathan() {
+		try {
+			Database currDb = ExtLibUtil.getCurrentDatabase();
+			Document contact = currDb.createDocument();
+			contact.replaceItemValue("Form", "Contact");
+			contact.replaceItemValue("FirstName", "Nathan");
+			contact.replaceItemValue("LastName", "Freeman");
+			contact.replaceItemValue("Email", "godOfAwesome@worldOfAwesome.net");
+			contact.replaceItemValue("City", "Washington");
+			contact.replaceItemValue("State", "WA");
+			contact.save();
+			ExtLibUtil.getViewScope().put("oldJavaTest", contact.getNoteID());
+		} catch (NotesException e) {
+			//handle Exception
+		}
+	}
+
+	public void createPaul() {
+		try {
+			Database currDb = ExtLibUtil.getCurrentDatabase();
+			Document contact = currDb.createDocument();
+			contact.replaceItemValue("Form", "Contact");
+			contact.replaceItemValue("FirstName", "Paul");
+			contact.replaceItemValue("LastName", "Withers");
+			contact.replaceItemValue("Email", "lordOfPrettyGood@worldOfAwesome.net");
+			contact.replaceItemValue("City", "Washington");
+			contact.replaceItemValue("State", "WA");
+			contact.save();
+			ExtLibUtil.getViewScope().put("oldJavaTest", contact.getNoteID());
+		} catch (NotesException e) {
+			//handle Exception
+		}
+	}
 }

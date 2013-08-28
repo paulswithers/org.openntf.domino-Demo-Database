@@ -16,6 +16,7 @@ package org.openntf.dominoTests;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.openntf.domino.Database;
 import org.openntf.domino.DateTime;
@@ -49,6 +50,7 @@ public class NewDocumentBean implements Serializable {
 		} else {
 			doc.put("documentToggle", null);
 		}
+		doc.save(true, false);
 		ExtLibUtil.getViewScope().put("javaTest", doc.get("documentToggle"));
 	}
 
@@ -141,5 +143,29 @@ public class NewDocumentBean implements Serializable {
 		sb.append("Here is a value");
 		Item itm = (Item) doc.replaceItemValue("summaryField", sb, true);
 		ExtLibUtil.getViewScope().put("javaTest", doc.get("summaryField") + " " + Boolean.toString(itm.isSummary()));
+	}
+
+	public void createNathan() {
+		Session s = Factory.getSession();
+		Database currDb = s.getCurrentDatabase();
+		Document contact = currDb.createDocument("Form", "Contact", "FirstName", "Nathan", "LastName", "Freeman",
+				"Email", "godOfAwesome@worldOfAwesome.net", "City", "Washington", "State", "WA");
+		contact.save();
+		ExtLibUtil.getViewScope().put("javaTest", contact.getNoteID());
+	}
+
+	public void createPaul() {
+		Session s = Factory.getSession();
+		Database currDb = s.getCurrentDatabase();
+		HashMap<String, Object> fieldsMap = new HashMap<String, Object>();
+		fieldsMap.put("Form", "Contact");
+		fieldsMap.put("FirstName", "Paul");
+		fieldsMap.put("LastName", "Withers");
+		fieldsMap.put("Email", "lordOfPrettyGood@worldOfAwesome.net");
+		fieldsMap.put("City", "Washington");
+		fieldsMap.put("State", "WA");
+		Document contact = currDb.createDocument(fieldsMap);
+		contact.save();
+		ExtLibUtil.getViewScope().put("javaTest", contact.getNoteID());
 	}
 }

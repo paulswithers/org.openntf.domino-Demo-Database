@@ -148,4 +148,84 @@ public class OldViewBean implements Serializable {
 		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
 	}
 
+	public void getAllDocumentsByKeyNoMatch() {
+		Database db = null;
+		View view = null;
+		DocumentCollection dc = null;
+		Document doc = null;
+		Document nextDoc = null;
+		StringBuilder sb = new StringBuilder();
+		try {
+			db = ExtLibUtil.getCurrentDatabase();
+			view = db.getView("allContactsByState");
+			view.setAutoUpdate(false);
+			Vector<String> key = new Vector<String>();
+			key.add("CX");
+			dc = view.getAllDocumentsByKey(key, true);
+			sb.append("Getting values...");
+			doc = dc.getFirstDocument();
+			while (doc != null) {
+				nextDoc = dc.getNextDocument();
+				try {
+					sb.append(doc.getItemValueString("FirstName") + " " + doc.getItemValueString("LastName") + "...");
+				} catch (lotus.domino.NotesException ne1) {
+					ne1.printStackTrace();
+				} finally {
+					doc.recycle();
+				}
+				doc = nextDoc;
+			}
+			sb.append("Done");
+		} catch (lotus.domino.NotesException ne) {
+			ne.printStackTrace();
+		} finally {
+			try {
+				dc.recycle();
+			} catch (lotus.domino.NotesException ne) {
+
+			}
+		}
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
+	}
+
+	public void getAllEntriesByKeyNoMatch() {
+		Database db = null;
+		View view = null;
+		ViewEntryCollection ec = null;
+		ViewEntry entry = null;
+		ViewEntry nextEntry = null;
+		StringBuilder sb = new StringBuilder();
+		try {
+			db = ExtLibUtil.getCurrentDatabase();
+			view = db.getView("allContactsByState");
+			view.setAutoUpdate(false);
+			Vector<String> key = new Vector<String>();
+			key.add("CX");
+			ec = view.getAllEntriesByKey(key, true);
+			sb.append("Getting values...");
+			entry = ec.getFirstEntry();
+			while (entry != null) {
+				nextEntry = ec.getNextEntry();
+				try {
+					sb.append(entry.getColumnValues().get(7) + "...");
+				} catch (lotus.domino.NotesException ne1) {
+					ne1.printStackTrace();
+				} finally {
+					entry.recycle();
+				}
+				entry = nextEntry;
+			}
+			sb.append("Done");
+		} catch (lotus.domino.NotesException ne) {
+			ne.printStackTrace();
+		} finally {
+			try {
+				ec.recycle();
+			} catch (lotus.domino.NotesException ne) {
+
+			}
+		}
+		ExtLibUtil.getViewScope().put("oldJavaTest", sb.toString());
+	}
+
 }

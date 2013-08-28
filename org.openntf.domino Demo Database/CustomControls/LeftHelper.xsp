@@ -18,7 +18,16 @@
 			<xe:pageTreeNode label="Home" page="/Home.xsp">
 			</xe:pageTreeNode>
 			<xe:separatorTreeNode></xe:separatorTreeNode>
-			<xe:pageTreeNode label="SyncHelper" page="/Helper_SyncHelper.xsp">
+			<xe:pageTreeNode label="SyncHelper" page="/Misc_SyncHelper.xsp">
+			</xe:pageTreeNode>
+			<xe:separatorTreeNode></xe:separatorTreeNode>
+			<xe:pageTreeNode label="Transaction" page="/Misc_Transaction.xsp">
+			</xe:pageTreeNode>
+			<xe:separatorTreeNode></xe:separatorTreeNode>
+			<xe:pageTreeNode label="Exception" page="/Misc_Exception.xsp">
+			</xe:pageTreeNode>
+			<xe:separatorTreeNode></xe:separatorTreeNode>
+			<xe:pageTreeNode label="Document Scanner" page="/Misc_DocumentScanner.xsp">
 			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>

@@ -16,51 +16,45 @@
 	<xc:ccLayoutOneUI>
 		<xp:this.facets>
 			<xc:LeftDocument xp:key="LeftColumn"></xc:LeftDocument>
-			<xc:mainArea xp:key="facet_1" title="Document">
+			<xc:mainArea xp:key="facet_1" title="Document"
+				javaMethodName="createNathan">
 				<xp:this.facets>
 					<xp:button value="Run Java Tests" id="button2"
 						xp:key="javaButton">
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="partial" refreshId="JavaDiv">
-							<xp:this.action><![CDATA[#{javascript:openNTFDocumentBean.containsCheckItems()}]]></xp:this.action>
+							<xp:this.action><![CDATA[#{javascript:openNTFDocumentBean.createNathan()}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>
 					<xp:button value="Run Old Java Tests" id="button3"
 						xp:key="oldJavaButton">
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="partial" refreshId="oldJavaDiv">
-							<xp:this.action><![CDATA[#{javascript:oldDocumentBean.containsCheckItems()}]]></xp:this.action>
+							<xp:this.action><![CDATA[#{javascript:oldDocumentBean.createNathan()}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>
 					<xp:button value="Run SSJS Tests" id="button1"
 						xp:key="SSJSButton">
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="complete">
-							<xp:this.action><![CDATA[#{javascript:contacts = database.getView("AllContacts");
-		var items = new java.util.ArrayList();
-		items.add("FirstName");
-		items.add("LastName");
-		items.add("City");
-		var count = 0;
-		for (ent in contacts.getAllEntries()) {
-			if (ent.getDocument().containsValue("Aurora", items)) {
-				count += 1;
-			}
-		}
-		var sb = @Text(count) + " documents contained a value 'Aurora'";
-		sb += "..............";
-		testDoc = contacts.getFirstDocument();
-		if (testDoc.containsKey("Form")) {
-			sb += "First doc contains key Form";
-		} else {
-			sb += "First doc does not contain key Form";
-		}
-viewScope.put("SSJSTest", sb);}]]></xp:this.action>
+							<xp:this.action><![CDATA[#{javascript:try {
+	var contact=database.createDocument(
+	"Form", "Contact",
+	"FirstName", "Nathan",
+	"LastName","Freeman",
+	"Email", "godOfAwesome@worldOfAwesome.net",
+	"City", "Washington",
+	"State", "WA");
+	viewScope.put("SSJSTest", contact.getNoteID());
+} catch(e) {
+	@ErrorMessage(e.toString());
+}}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>
 				</xp:this.facets>
-				<xc:this.description><![CDATA[This demonstrates using Map methods containsKey and containsValue to interact with a NotesDocument.<br/><br/>
-Note .clear() is deliberately unsupported. Note .put("myItem",null) will remove the Item.]]></xc:this.description>
+				<xc:this.description><![CDATA[This demonstrates database.createDocument(Object... keyValuePairs).<br/><br/>
+				This fails from SSJS because the method signature is designed for 1...n Objects, but SSJS versions cannot 
+				automatically be created for all possible numbers of parameters.]]></xc:this.description>
 			</xc:mainArea>
 		</xp:this.facets>
 	</xc:ccLayoutOneUI>

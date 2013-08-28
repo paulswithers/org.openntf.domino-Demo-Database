@@ -50,17 +50,20 @@
 							<xp:button value="Create Sample Data Set" id="button5">
 								<xp:eventHandler event="onclick" submit="true"
 									refreshMode="complete">
-									<xp:this.action><![CDATA[#{javascript:var d = new extlib.DataInitializerOpenNTF();
-d.initDeleteDocuments();
-d.initUsers(200);
-d.initDiscussionDocuments(100, 10, 5);
-d.initStates();
-d.initAllTypes();
-d.run();
+									<xp:this.action><![CDATA[#{javascript:try {
+	var d = new extlib.DataInitializerOpenNTF();
+	d.initDeleteDocuments();
+	d.initUsers(200);
+	d.initDiscussionDocuments(100, 10, 5);
+	d.initStates();
+	d.initAllTypes();
+	d.run();
 
-var msg = "Created Sample Data Set";
-@WarningMessage(msg);
-}]]></xp:this.action>
+	var msg = "Created Sample Data Set";
+	@WarningMessage(msg);
+} catch(e) {
+	@ErrorMessage(e.toString());
+}}]]></xp:this.action>
 									<xp:this.script><![CDATA[XSP.animateLoading('#{id:panel6}')]]></xp:this.script>
 								</xp:eventHandler>
 							</xp:button>

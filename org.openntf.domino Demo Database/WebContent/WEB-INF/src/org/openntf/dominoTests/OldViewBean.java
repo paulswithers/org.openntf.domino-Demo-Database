@@ -200,7 +200,7 @@ public class OldViewBean implements Serializable {
 			view = db.getView("allContactsByState");
 			view.setAutoUpdate(false);
 			Vector<String> key = new Vector<String>();
-			key.add("CA");
+			key.add("CX");
 			ec = view.getAllEntriesByKey(key, true);
 			sb.append("Getting values...");
 			entry = ec.getFirstEntry();

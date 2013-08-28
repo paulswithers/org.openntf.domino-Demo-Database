@@ -9,6 +9,8 @@ import org.openntf.domino.View;
 import org.openntf.domino.helpers.DocumentSyncHelper;
 import org.openntf.domino.utils.Factory;
 
+import com.ibm.xsp.extlib.util.ExtLibUtil;
+
 public class NewHelperBean implements Serializable {
 
 	/**
@@ -32,5 +34,6 @@ public class NewHelperBean implements Serializable {
 		View states = currDb.getView("AllStates");
 		DocumentCollection sourceCollection = states.getAllDocuments();
 		helper.process(sourceCollection);
+		ExtLibUtil.getViewScope().put("javaTest", "Done");
 	}
 }
