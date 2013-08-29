@@ -153,7 +153,7 @@ public class OldDocumentBean implements Serializable {
 			contact.replaceItemValue("Form", "Contact");
 			contact.replaceItemValue("FirstName", "Nathan");
 			contact.replaceItemValue("LastName", "Freeman");
-			contact.replaceItemValue("Email", "godOfAwesome@worldOfAwesome.net");
+			contact.replaceItemValue("Email", "godOfAwesome@worldOfAweso.me");
 			contact.replaceItemValue("City", "Washington");
 			contact.replaceItemValue("State", "WA");
 			contact.save();
@@ -170,7 +170,7 @@ public class OldDocumentBean implements Serializable {
 			contact.replaceItemValue("Form", "Contact");
 			contact.replaceItemValue("FirstName", "Paul");
 			contact.replaceItemValue("LastName", "Withers");
-			contact.replaceItemValue("Email", "lordOfPrettyGood@worldOfAwesome.net");
+			contact.replaceItemValue("Email", "lordOfPrettyGood@worldOfAweso.me");
 			contact.replaceItemValue("City", "Washington");
 			contact.replaceItemValue("State", "WA");
 			contact.save();

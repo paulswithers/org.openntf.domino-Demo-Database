@@ -153,7 +153,7 @@ public class NewDocumentBean implements Serializable {
 		Database currDb = s.getCurrentDatabase();
 		Utils.addAllListeners(currDb);
 		Document contact = currDb.createDocument("Form", "Contact", "FirstName", "Nathan", "LastName", "Freeman",
-				"Email", "godOfAwesome@worldOfAwesome.net", "City", "Washington", "State", "WA");
+				"Email", "godOfAwesome@worldOfAweso.me", "City", "Washington", "State", "WA");
 		contact.save();
 		ExtLibUtil.getViewScope().put("javaTest", contact.getNoteID());
 	}
@@ -166,7 +166,7 @@ public class NewDocumentBean implements Serializable {
 		fieldsMap.put("Form", "Contact");
 		fieldsMap.put("FirstName", "Paul");
 		fieldsMap.put("LastName", "Withers");
-		fieldsMap.put("Email", "lordOfPrettyGood@worldOfAwesome.net");
+		fieldsMap.put("Email", "lordOfPrettyGood@worldOfAweso.me");
 		fieldsMap.put("City", "Washington");
 		fieldsMap.put("State", "WA");
 		Document contact = currDb.createDocument(fieldsMap);

@@ -42,7 +42,7 @@
 	fieldsMap.put("Form", "Contact");
 	fieldsMap.put("FirstName", "Paul");
 	fieldsMap.put("LastName","Withers");
-	fieldsMap.put("Email", "lordOfPrettyGood@worldOfAwesome.net");
+	fieldsMap.put("Email", "lordOfPrettyGood@worldOfAweso.me");
 	fieldsMap.put("City", "Washington");
 	fieldsMap.put("State", "WA");
 	var map2:java.util.Map = new java.util.Map(fieldsMap);

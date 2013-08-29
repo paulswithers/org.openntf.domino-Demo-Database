@@ -42,7 +42,7 @@
 	"Form", "Contact",
 	"FirstName", "Nathan",
 	"LastName","Freeman",
-	"Email", "godOfAwesome@worldOfAwesome.net",
+	"Email", "godOfAwesome@worldOfAweso.me",
 	"City", "Washington",
 	"State", "WA");
 	viewScope.put("SSJSTest", contact.getNoteID());

@@ -194,8 +194,7 @@ public class Utils {
 	}
 
 	public static void addAllListeners(Database currDb) {
-		currDb.addListener(new TestDocumentUpdateListener());
-		currDb.addListener(new TestDocumentCreateListener());
+		currDb.addListener(new TestDocumentListener());
 	}
 
 	public static String getVersion() {
