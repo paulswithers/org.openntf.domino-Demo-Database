@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'>
+<view name='AllEMails' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'
+ showinmenu='false' noreplace='true' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
 <noteinfo noteid='e9a' unid='A238C44C6EABE14E80257B420041B06D' sequence='5'>
 <created><datetime dst='true'>20130403T125730,05+01</datetime></created>
 <modified><datetime dst='true'>20130520T222314,28+01</datetime></modified>
@@ -7,35 +15,17 @@
 <lastaccessed><datetime dst='true'>20130520T222314,28+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125730,18+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
-<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>AllEMails</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-iAACADAABABOYW1lBQAJAEZpcnN0TmFtZQABAAEAIAAiAgUACABMYXN0TmFtZSICAwAFACYAIgAE
-AAUABAAJAAQARU1haWxOYW1lJENvbmZsaWN0JFJFRgQABAAAACAABQAEAEZvcm0BAAcAQ29udGFj
-dAAKAgQABAADAAcADAAFAAkzUzRTAA==
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-EgABAABEgGYAAAAFAEVNYWls
-</rawitemdata></item>
-<item name='$ViewFormat' summary='true' sign='true'>
-<rawitemdata type='5'>
-AQACAA0ACAAAAFZDAQAFAAUAAAAAAPEAAQAACgAAAAAAAAAAAAICAAAAVkMAAAQABAA+AAAA3AAB
-AAAKAAAAAAAAAAAAAgIAAABFTWFpbEVNYWlsTmFtZU5hbWU+AAIAMAAEAE5hbWUFAAkARmlyc3RO
-YW1lAAEAAQAgACICBQAIAExhc3ROYW1lIgIDAAcADAAFAAkwUzBFACYAAQAAAAEBAAkBAAAKAQEO
-CgAAAQCtKwEAAQABAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAA
-AAAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABC
-AAAAAAABAP///wAFAP///wABAAAAAAAAAAAAAAAAAAEA////AAEA////AAAAAQAAAAAAAQAAAAAA
-AQAAAAAAAAAIAAAAAAABAA==
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text/></item>
-<item name='$Flags'><text>PY</text></item>
-<item name='$WebFlags'><text>A</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
+<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby><code event='selection'><formula
+>SELECT ((Form = "Contact"))</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='EMail' width='30.1250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='EMail'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Name' width='27.5000' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Name'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>FirstName+" "+LastName</formula></code></column>
 <item name='$SelQuery' sign='true'>
 <rawitemdata type='f'>
 gQYAAAAAif8TAAAAAAABAAcAQ29udGFjdAA=
-</rawitemdata></item></note>
+</rawitemdata></item></view>
 

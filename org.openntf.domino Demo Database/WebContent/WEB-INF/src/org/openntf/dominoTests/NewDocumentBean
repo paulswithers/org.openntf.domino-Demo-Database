@@ -43,6 +43,7 @@ public class NewDocumentBean implements Serializable {
 	public void doGetPut() {
 		Session s = Factory.getSession();
 		Database currDb = s.getCurrentDatabase();
+		Utils.addAllListeners(currDb);
 		View threads = currDb.getView("AllContacts");
 		Document doc = threads.getFirstDocument();
 		if (!doc.hasItem("documentToggle")) {
@@ -138,16 +139,19 @@ public class NewDocumentBean implements Serializable {
 		Session s = Factory.getSession();
 		Database currDb = s.getCurrentDatabase();
 		View contacts = currDb.getView("AllContacts");
+		Utils.addAllListeners(currDb);
 		Document doc = contacts.getFirstDocument();
 		StringBuilder sb = new StringBuilder();
 		sb.append("Here is a value");
 		Item itm = (Item) doc.replaceItemValue("summaryField", sb, true);
+		doc.save(true, false);
 		ExtLibUtil.getViewScope().put("javaTest", doc.get("summaryField") + " " + Boolean.toString(itm.isSummary()));
 	}
 
 	public void createNathan() {
 		Session s = Factory.getSession();
 		Database currDb = s.getCurrentDatabase();
+		Utils.addAllListeners(currDb);
 		Document contact = currDb.createDocument("Form", "Contact", "FirstName", "Nathan", "LastName", "Freeman",
 				"Email", "godOfAwesome@worldOfAwesome.net", "City", "Washington", "State", "WA");
 		contact.save();
@@ -157,6 +161,7 @@ public class NewDocumentBean implements Serializable {
 	public void createPaul() {
 		Session s = Factory.getSession();
 		Database currDb = s.getCurrentDatabase();
+		Utils.addAllListeners(currDb);
 		HashMap<String, Object> fieldsMap = new HashMap<String, Object>();
 		fieldsMap.put("Form", "Contact");
 		fieldsMap.put("FirstName", "Paul");

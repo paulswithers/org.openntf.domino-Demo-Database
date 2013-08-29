@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'>
+<view name='AllStates' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'
+ showinmenu='false' noreplace='true' publicaccess='false' designerversion='8.5.3'
+ unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator' headers='beveled'
+ opencollapsed='false' showresponsehierarchy='true' showmargin='true' shrinkrows='false'
+ extendlastcolumn='false' showhierarchies='false' unreadcolor='black' rowlinecount='1'
+ headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
+ boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
 <noteinfo noteid='ea6' unid='FEA0083EA0CB6F5080257B420041B070' sequence='6'>
 <created><datetime dst='true'>20130403T125730,08+01</datetime></created>
 <modified><datetime dst='true'>20130826T213855,96+01</datetime></modified>
@@ -7,49 +15,17 @@
 <lastaccessed><datetime dst='true'>20130826T213855,96+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125730,24+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
-<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>AllStates</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-VAAFACQAIAAEAAMABAAJAAQAS2V5TmFtZSRDb25mbGljdCRSRUYEAAQAAAAeAAUABABGb3JtAQAF
-AFN0YXRlAAoCBAAEAAMABwAMAAUACTNTNFMA
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-EAABAABEgGYAAAADAEtleQ==
-</rawitemdata></item>
-<item name='$Collation1' summary='true'>
-<rawitemdata type='2'>
-EAABAABEgGYAAAADAEtleQ==
-</rawitemdata></item>
-<item name='$Collation2' summary='true'>
-<rawitemdata type='2'>
-EAABAABEgWYAAAADAEtleQ==
-</rawitemdata></item>
-<item name='$Collation3' summary='true'>
-<rawitemdata type='2'>
-EQABAABEgGYAAAAEAE5hbWU=
-</rawitemdata></item>
-<item name='$Collation4' summary='true'>
-<rawitemdata type='2'>
-EQABAABEgWYAAAAEAE5hbWU=
-</rawitemdata></item>
-<item name='$ViewFormat' summary='true' sign='true'>
-<rawitemdata type='5'>
-AQACAAoACAAAAFZDAQMDAAMAAAAAAFAAAQAACgAAAAAAAAAAAAICAAAAVkMAAwQABAAAAAAAoAAB
-AAAKAAAAAAAAAAAAAgIAAABLZXlLZXlOYW1lTmFtZSYAAQAAAAEBAAkBAAAKAQEOCgAAAQCtKwEA
-AQABAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAA
-AFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABCAAAAAAABAP//
-/wAFAP///wABAAAAAAAAAAAAAAAAAAEA////AAEA////AAAAAQAAAAAAAQAAAAAAAQAAAAAAAAAI
-AAAAAAABAA==
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text/></item>
-<item name='$Flags'><text>PY</text></item>
-<item name='$WebFlags'><text>A</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
+<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby><code event='selection'><formula
+>SELECT ((Form = "State"))</formula></code>
+<column sort='ascending' resort='both' hidedetailrows='false' itemname='Key'
+ width='10' resizable='true' separatemultiplevalues='false' sortnoaccent='false'
+ sortnocase='true' showaslinks='false'><columnheader title='Key'><font size='9pt'
+ style='bold'/></columnheader></column>
+<column resort='both' hidedetailrows='false' itemname='Name' width='20' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Name'><font size='9pt' style='bold'/></columnheader></column>
 <item name='$SelQuery' sign='true'>
 <rawitemdata type='f'>
 gQYAAAAAif8RAAAAAAABAAUAU3RhdGUA
-</rawitemdata></item></note>
+</rawitemdata></item></view>
 

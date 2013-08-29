@@ -217,10 +217,12 @@ public class NewDateTimeBean implements Serializable {
 	public void getProcessedDate() {
 		Session s = Factory.fromLotus(ExtLibUtil.getCurrentSession(), org.openntf.domino.Session.class, null);
 		Database currDb = s.getCurrentDatabase();
+		Utils.addAllListeners(currDb);
 		View threads = currDb.getView("AllContacts");
 		Document doc = threads.getFirstDocument();
 		DateTime dt = s.createDateTime(new Date());
 		doc.put("testDate", dt);
+		doc.save(true, false);
 		ExtLibUtil.getViewScope().put("javaTest", doc.get("testDate").toString());
 	}
 }

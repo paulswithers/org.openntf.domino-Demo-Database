@@ -339,6 +339,7 @@ public class OldDateTimeBean implements Serializable {
 			Document doc = threads.getFirstDocument();
 			DateTime dt = s.createDateTime(new Date());
 			doc.replaceItemValue("testDate", dt);
+			doc.save(true, false);
 			if (doc.hasItem("testDate")) {
 				java.util.Vector<?> vector = doc.getItemValue("testDate");
 				if (vector != null && !vector.isEmpty()) {

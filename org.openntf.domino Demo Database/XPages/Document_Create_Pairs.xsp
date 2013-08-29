@@ -52,7 +52,7 @@
 						</xp:eventHandler>
 					</xp:button>
 				</xp:this.facets>
-				<xc:this.description><![CDATA[This demonstrates database.createDocument(Object... keyValuePairs).<br/><br/>
+				<xc:this.description><![CDATA[This demonstrates database.createDocument(Object... keyValuePairs), creating a Contact for Nathan Freeman.<br/><br/>
 				This fails from SSJS because the method signature is designed for 1...n Objects, but SSJS versions cannot 
 				automatically be created for all possible numbers of parameters.]]></xc:this.description>
 			</xc:mainArea>

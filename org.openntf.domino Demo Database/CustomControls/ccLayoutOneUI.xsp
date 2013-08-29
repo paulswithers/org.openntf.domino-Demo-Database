@@ -20,15 +20,16 @@
 	</xp:this.resources>
 
 	<xe:applicationLayout id="applicationLayout1">
-		<xp:this.facets>
+		<xp:this.facets>			
 			<xp:callback facetName="LeftColumn" id="callback2"
 				xp:key="LeftColumn">
 			</xp:callback>
 		</xp:this.facets>
 		<xp:callback facetName="facet_1" id="callback1"></xp:callback>
 		<xe:this.configuration>
-			<xe:oneuiApplication footer="false" legal="false"
-				titleBarName="org.openntf.domino Demo Database - jar version ${javascript:importPackage(org.openntf.dominoTests);Utils.getVersion();}" placeBar="false">
+			<xe:oneuiApplication legal="false"
+				titleBarName="org.openntf.domino Demo Database - jar version ${javascript:importPackage(org.openntf.dominoTests);Utils.getVersion();}"
+				placeBar="false" footer="false">
 			</xe:oneuiApplication>
 		</xe:this.configuration>
 	</xe:applicationLayout>

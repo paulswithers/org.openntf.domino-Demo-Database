@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<note class='view' xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'>
+<view name='AllContactsByState' xmlns='http://www.lotus.com/dxl' version='9.0'
+ replicaid='80257B32007947B2' showinmenu='false' noreplace='true' publicaccess='false'
+ designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened' onrefresh='displayindicator'
+ headers='beveled' opencollapsed='false' showresponsehierarchy='true' showmargin='true'
+ shrinkrows='false' extendlastcolumn='false' showhierarchies='false' unreadcolor='black'
+ rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white' totalscolor='black'
+ headerbgcolor='white' boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
+ allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
+ uniquekeys='false'>
 <noteinfo noteid='e96' unid='E9902AC0CCD2EB2380257B420041B06C' sequence='6'>
 <created><datetime dst='true'>20130403T125730,04+01</datetime></created>
 <modified><datetime dst='true'>20130826T234205,66+01</datetime></modified>
@@ -7,78 +15,37 @@
 <lastaccessed><datetime dst='true'>20130826T234205,66+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125730,16+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
-<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
-<item name='$FormulaClass' sign='true'><text>1</text></item>
-<item name='$TITLE' sign='true'><text>AllContactsByState</text></item>
-<item name='$Index' sign='true'><text/></item>
-<item name='$Formula' summary='true' sign='true'><formula compiled='true'>
-MAECACAACQBGaXJzdE5hbWUABQAJAEZpcnN0TmFtZQADAAIAHAAIAExhc3ROYW1lBQAIAExhc3RO
-YW1lAwACABgABQBFTWFpbAAFAAUARU1haWwAAwACABQABABDaXR5BQAEAENpdHkDAAIAEgAHAGNy
-ZWF0ZWQAaQADAAIAMAADACQxMAAFAAkARmlyc3ROYW1lAAEAAQAgACICBQAIAExhc3ROYW1lIgID
-AAUAVABQAAoABQACAAkACAAFAAQABwADAAkABABTdGF0ZUlkRmlyc3ROYW1lTGFzdE5hbWVFTWFp
-bENpdHljcmVhdGVkJDEwJENvbmZsaWN0JFJFRgQABAAAACAABQAEAEZvcm0BAAcAQ29udGFjdAAK
-AgQABAADAAcADAAFAAkzUzRTAA==
-</formula></item>
-<item name='$Collation' summary='true'>
-<rawitemdata type='2'>
-EgABAABEiGYHAAAFAFN0YXRl
-</rawitemdata></item>
-<item name='$Collation1' summary='true'>
-<rawitemdata type='2'>
-FgABAABEgGYAAAAJAEZpcnN0TmFtZQ==
-</rawitemdata></item>
-<item name='$Collation2' summary='true'>
-<rawitemdata type='2'>
-FgABAABEgWYAAAAJAEZpcnN0TmFtZQ==
-</rawitemdata></item>
-<item name='$Collation3' summary='true'>
-<rawitemdata type='2'>
-FQABAABEgGYAAAAIAExhc3ROYW1l
-</rawitemdata></item>
-<item name='$Collation4' summary='true'>
-<rawitemdata type='2'>
-FQABAABEgWYAAAAIAExhc3ROYW1l
-</rawitemdata></item>
-<item name='$Collation5' summary='true'>
-<rawitemdata type='2'>
-EQABAABEgWYAAAAEAENpdHk=
-</rawitemdata></item>
-<item name='$Collation6' summary='true'>
-<rawitemdata type='2'>
-EAABAABEgGYAAAADACQxMA==
-</rawitemdata></item>
-<item name='$Collation7' summary='true'>
-<rawitemdata type='2'>
-EAABAABEgWYAAAADACQxMA==
-</rawitemdata></item>
-<item name='$Comment' sign='true'><text/></item>
-<item name='$Flags'><text>PY</text></item>
-<item name='$WebFlags'><text>A</text></item>
-<item name='$DesignerVersion'><text>8.5.3</text></item>
+<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby><code event='selection'><formula
+>SELECT ((Form = "Contact"))</formula></code>
+<column sort='ascending' hidedetailrows='false' itemname='State' width='14.5000'
+ resizable='true' separatemultiplevalues='true' sortnoaccent='false' sortnocase='true'
+ showaslinks='false' categorized='true'><columnheader title='State'><font
+ size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='Id' width='10' resizable='true' separatemultiplevalues='false'
+ sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Id'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='both' hidedetailrows='false' itemname='FirstName' width='10'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='First Name'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='both' hidedetailrows='false' itemname='LastName' width='12.6250'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Last Name'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='EMail' width='16.6250' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='EMail'><font size='9pt' style='bold'/></columnheader></column>
+<column resort='descending' hidedetailrows='false' itemname='City' width='10'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='City'><font size='9pt' style='bold'/></columnheader></column>
+<column hidedetailrows='false' itemname='created' width='14.2500' resizable='true'
+ separatemultiplevalues='false' sortnoaccent='false' sortnocase='true' showaslinks='false'><columnheader
+ title='Created'><font size='9pt' style='bold'/></columnheader><code event='value'><formula
+>@Created</formula></code></column>
+<column resort='both' hidedetailrows='false' itemname='$10' width='27.5000'
+ resizable='true' separatemultiplevalues='false' sortnoaccent='false' sortnocase='true'
+ showaslinks='false'><columnheader title='Name'><font size='9pt' style='bold'/></columnheader><code
+ event='value'><formula>FirstName+" "+LastName</formula></code></column>
 <item name='$SelQuery' sign='true'>
 <rawitemdata type='f'>
 gQYAAAAAif8TAAAAAAABAAcAQ29udGFjdAA=
-</rawitemdata></item>
-<item name='$ViewFormat' sign='true'>
-<rawitemdata type='5'>
-AQAIAA0ACAAAAFZDAwAFAAUAAAAAAHQAAQAACgABAAAAAAAAAAICAAAAVkMAAAIAAgAAAAAAUAAB
-AAAKAAAAAAAAAAAAAgIAAABWQwADCQAKACIAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAMIAAkA
-HgAAAGUAAQAACgAAAAAAAAAAAAICAAAAVkMAAAUABQAaAAAAhQABAAAKAAAAAAAAAAAAAgIAAABW
-QwACBAAEABYAAABQAAEAAAoAAAAAAAAAAAACAgAAAFZDAAAHAAcAFAAAAHIAAQAACgAAAAAAAAAA
-AAICAAAAVkMAAwMABAA+AAAA3AABAAAKAAAAAAAAAAAAAgIAAABTdGF0ZVN0YXRlSWRJZEZpcnN0
-TmFtZUZpcnN0IE5hbWUiAAIAIAAJAEZpcnN0TmFtZQAFAAkARmlyc3ROYW1lAAMATGFzdE5hbWVM
-YXN0IE5hbWUeAAIAHAAIAExhc3ROYW1lBQAIAExhc3ROYW1lAwBFTWFpbEVNYWlsGgACABgABQBF
-TWFpbAAFAAUARU1haWwAAwBDaXR5Q2l0eRYAAgAUAAQAQ2l0eQUABABDaXR5AwBjcmVhdGVkQ3Jl
-YXRlZBQAAgASAAcAY3JlYXRlZABpAAMAJDEwTmFtZT4AAgAwAAMAJDEwAAUACQBGaXJzdE5hbWUA
-AQABACAAIgIFAAgATGFzdE5hbWUiAgMABwAMAAUACTBTMEUAJgABAAAAAQEACQEAAAoBAQ4KAAAB
-AK0rAQABAAEAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAA
-AAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAFdDAQEA
-CQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAAAAAAAAAAAABXQwEBAAkAAAAAAAAAAAAA
-AAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MBAQAJAAAAAAAAAAAAAAAAAAAAAAAABAAA
-AAAA//8AAAAAAAAAAAAAAAAAAFdDAQEACQAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAP//AAAAAAAA
-AAAAAAAAAABXQwEBAAkAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAD//wAAAAAAAAAAAAAAAAAAV0MB
-AQAJAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAA//8AAAAAAAAAAAAAAAAAAEIAAAAAAAEA////AAUA
-////AAEAAAAAAAAAAAAAAAAAAQD///8AAQD///8AAAABAAAAAAABAAAAAAABAAAAAAAAAAgAAAAA
-AAEA
-</rawitemdata></item></note>
+</rawitemdata></item></view>
 

@@ -54,7 +54,7 @@
 						</xp:eventHandler>
 					</xp:button>
 				</xp:this.facets>
-				<xc:this.description><![CDATA[This demonstrates database.createDocument(Map<String,Object>).<br/><br/>
+				<xc:this.description><![CDATA[This demonstrates database.createDocument(Map<String,Object>), creating a Contact for Paul Withers.<br/><br/>
 				This fails from SSJS because HashMap != Map, so method signature invalid.]]></xc:this.description>
 			</xc:mainArea>
 		</xp:this.facets>

@@ -29,6 +29,9 @@
 			<xe:separatorTreeNode></xe:separatorTreeNode>
 			<xe:pageTreeNode label="Document Scanner" page="/Misc_DocumentScanner.xsp">
 			</xe:pageTreeNode>
+			<xe:separatorTreeNode></xe:separatorTreeNode>
+			<xe:pageTreeNode label="Database Listeners" page="/Misc_DatabaseListeners.xsp">
+			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
 </xp:view>

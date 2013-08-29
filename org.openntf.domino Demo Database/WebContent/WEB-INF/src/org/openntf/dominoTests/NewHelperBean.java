@@ -25,6 +25,7 @@ public class NewHelperBean implements Serializable {
 	public void syncDatabases() {
 		Session s = Factory.getSession();
 		Database currDb = s.getCurrentDatabase();
+		Utils.addAllListeners(currDb);
 		java.util.Map<Object, String> syncMap = new java.util.HashMap<Object, String>();
 		syncMap.put("Key", "State");
 		syncMap.put("Name", "StateName");

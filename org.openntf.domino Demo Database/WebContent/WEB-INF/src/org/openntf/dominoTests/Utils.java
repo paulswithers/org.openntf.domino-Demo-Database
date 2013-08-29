@@ -114,6 +114,7 @@ public class Utils {
 			retVal += "<br/>Starting OpenNTF version..." + date.toString();
 			Session currSess = (Session) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "session");
 			Database currDb = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+			Utils.addAllListeners(currDb);
 			View contactsView = currDb.getView("AllContacts");
 			for (ViewEntry ent : contactsView.getAllEntries()) {
 				DateTime dt = currSess.createDateTime(new Date());
@@ -137,6 +138,7 @@ public class Utils {
 	public static void transactionTest(boolean successOrFail) {
 		StringBuilder sb = new StringBuilder();
 		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+		Utils.addAllListeners(db);
 		DatabaseTransaction txn = db.startTransaction();
 		try {
 			String selVal = (String) ExtLibUtil.getViewScope().get("selectedState");
@@ -189,6 +191,11 @@ public class Utils {
 		ExtLibUtil.getViewScope().put("scannerFieldValueMap", scanner.getFieldValueMap());
 		ExtLibUtil.getViewScope().put("scannerFieldTypeMap", scanner.getFieldTypeMap());
 		ExtLibUtil.getViewScope().put("scannerTokenFreqMap", scanner.getTokenFreqMap());
+	}
+
+	public static void addAllListeners(Database currDb) {
+		currDb.addListener(new TestDocumentUpdateListener());
+		currDb.addListener(new TestDocumentCreateListener());
 	}
 
 	public static String getVersion() {
