@@ -38,7 +38,7 @@
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="complete">
 							<xp:this.action><![CDATA[#{javascript:contacts = database.getView("AllContacts");
-	var doc = contacts.getFirstDocument();
+var doc = contacts.getFirstDocument();
 viewScope.put("SSJSTest", doc.getFormName());}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>

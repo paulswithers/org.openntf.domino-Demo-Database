@@ -38,13 +38,14 @@
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="complete">
 							<xp:this.action><![CDATA[#{javascript:try {
-	var contact=database.createDocument(
-	"Form", "Contact",
-	"FirstName", "Nathan",
-	"LastName","Freeman",
-	"Email", "godOfAwesome@worldOfAweso.me",
-	"City", "Washington",
-	"State", "WA");
+	var contact:org.openntf.domino.Document=database.createDocument({
+	Form: "Contact",
+	FirstName: "Nathan",
+	LastName:"Freeman",
+	Email: "godOfAwesome@worldOfAweso.me",
+	City: "Washington",
+	State: "WA"});
+	contact.save(true,false);
 	viewScope.put("SSJSTest", contact.getNoteID());
 } catch(e) {
 	@ErrorMessage(e.toString());
@@ -53,8 +54,8 @@
 					</xp:button>
 				</xp:this.facets>
 				<xc:this.description><![CDATA[This demonstrates database.createDocument(Object... keyValuePairs), creating a Contact for Nathan Freeman.<br/><br/>
-				This fails from SSJS because the method signature is designed for 1...n Objects, but SSJS versions cannot 
-				automatically be created for all possible numbers of parameters.]]></xc:this.description>
+				Java and SSJS handle objects differently. For SSJS we pass a JSON object, which actually calls createDocument(Map).
+				For Java it passes string key/value pairs.]]></xc:this.description>
 			</xc:mainArea>
 		</xp:this.facets>
 	</xc:ccLayoutOneUI>

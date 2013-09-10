@@ -44,18 +44,21 @@
 	fieldsMap.put("LastName","Withers");
 	fieldsMap.put("Email", "lordOfPrettyGood@worldOfAweso.me");
 	fieldsMap.put("City", "Washington");
-	fieldsMap.put("State", "WA");
-	var map2:java.util.Map = new java.util.Map(fieldsMap);
+	fieldsMap.put("State", "WAWA");
+	var map2:java.util.HashMap = new java.util.HashMap(fieldsMap);
+	print ("1");
 	var contact=database.createDocument(map2);
+	print ("2");
+	contact.save(true,false);
 	viewScope.put("SSJSTest", contact.getNoteID());
 } catch(e) {
+	print ("error");
 	@ErrorMessage(e.toString());
 }}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>
 				</xp:this.facets>
-				<xc:this.description><![CDATA[This demonstrates database.createDocument(Map<String,Object>), creating a Contact for Paul Withers.<br/><br/>
-				This fails from SSJS because HashMap != Map, so method signature invalid.]]></xc:this.description>
+				<xc:this.description><![CDATA[This demonstrates database.createDocument(Map<String,Object>), creating a Contact for Paul Withers.]]></xc:this.description>
 			</xc:mainArea>
 		</xp:this.facets>
 	</xc:ccLayoutOneUI>
