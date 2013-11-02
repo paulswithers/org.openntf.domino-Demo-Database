@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="80257B32007947B2" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="9b2a" sequence="10" unid="08ABAA72E292F1A680257BD300776AC4">
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257B32007947B2" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="9b2a" sequence="15" unid="08ABAA72E292F1A680257BD300776AC4">
 <created><datetime dst="true">20130826T224421,16+01</datetime></created>
-<modified><datetime dst="true">20130826T225634,12+01</datetime></modified>
-<revised><datetime dst="true">20130826T225634,11+01</datetime></revised>
-<lastaccessed><datetime dst="true">20130826T225634,12+01</datetime></lastaccessed>
+<modified><datetime dst="true">20130827T230301,77+01</datetime></modified>
+<revised><datetime dst="true">20130827T230301,76+01</datetime></revised>
+<lastaccessed><datetime dst="true">20130827T230301,77+01</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20130826T224421,18+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>

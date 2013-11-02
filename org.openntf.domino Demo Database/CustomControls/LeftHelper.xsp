@@ -26,6 +26,10 @@
 			<xe:separatorTreeNode></xe:separatorTreeNode>
 			<xe:pageTreeNode label="Exception" page="/Misc_Exception.xsp">
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="OpenLog for XPages" page="/Misc_Exception_OpenLog.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Simple Email" page="/Misc_SimpleEmailHelper.xsp">
+			</xe:pageTreeNode>
 			<xe:separatorTreeNode></xe:separatorTreeNode>
 			<xe:pageTreeNode label="Document Scanner" page="/Misc_DocumentScanner.xsp">
 			</xe:pageTreeNode>

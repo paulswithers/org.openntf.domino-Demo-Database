@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="80257B32007947B2" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="9b12" sequence="11" unid="3FEDC89C3BFB3D5280257BD200758DE8">
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257B32007947B2" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="9b12" sequence="18" unid="3FEDC89C3BFB3D5280257BD200758DE8">
 <created><datetime dst="true">20130825T222400,40+01</datetime></created>
-<modified><datetime dst="true">20130825T224120,56+01</datetime></modified>
-<revised><datetime dst="true">20130825T224120,55+01</datetime></revised>
-<lastaccessed><datetime dst="true">20130825T224120,56+01</datetime></lastaccessed>
+<modified><datetime dst="true">20130910T195703,54+01</datetime></modified>
+<revised><datetime dst="true">20130910T195703,53+01</datetime></revised>
+<lastaccessed><datetime dst="true">20130910T195703,54+01</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20130825T222400,43+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
@@ -12,9 +12,9 @@
 
 
 
+<item name="$DesignerVersion"><text>8.5</text></item>
 
 
 <item name="$FileNames" sign="true"><text>Document_ReplaceItemValueSummary.xsp</text></item>
-<item name="$DesignerVersion"><text>8.5</text></item>
 
 </note>

@@ -33,6 +33,7 @@ import org.openntf.domino.helpers.DocumentScanner;
 import org.openntf.domino.transactions.DatabaseTransaction;
 import org.openntf.domino.utils.DominoUtils;
 import org.openntf.domino.utils.Factory;
+import org.openntf.domino.xsp.XspOpenLogUtil;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
@@ -135,6 +136,10 @@ public class Utils {
 		DominoUtils.handleException(new Throwable("Here is a Java error"));
 	}
 
+	public static void openLogTest() {
+		XspOpenLogUtil.logError(new Throwable("This is a test of XspOpenLogUtil"));
+	}
+
 	public static void transactionTest(boolean successOrFail) {
 		StringBuilder sb = new StringBuilder();
 		Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
@@ -198,6 +203,6 @@ public class Utils {
 	}
 
 	public static String getVersion() {
-		return Factory.VERSION;
+		return Factory.getVersion();
 	}
 }

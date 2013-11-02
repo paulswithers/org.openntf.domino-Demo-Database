@@ -6,6 +6,7 @@ import org.openntf.domino.Database;
 import org.openntf.domino.DocumentCollection;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
+import org.openntf.domino.email.DominoEmail;
 import org.openntf.domino.helpers.DocumentSyncHelper;
 import org.openntf.domino.utils.Factory;
 
@@ -36,5 +37,11 @@ public class NewHelperBean implements Serializable {
 		DocumentCollection sourceCollection = states.getAllDocuments();
 		helper.process(sourceCollection);
 		ExtLibUtil.getViewScope().put("javaTest", "Done");
+	}
+
+	public void sendSimpleEmail() {
+		DominoEmail myEmail = new DominoEmail();
+		myEmail.createSimpleEmail("pwithers@intec.co.uk", "", "", "OpenNTF Domino API Email",
+				"this is an email from the OpenNTF Domino API", "");
 	}
 }

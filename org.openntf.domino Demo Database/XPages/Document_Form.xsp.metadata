@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" replicaid="80257B32007947B2" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="9b0e" sequence="10" unid="3E219A48C970E36980257BD20071BB4C">
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257B32007947B2" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="9b0e" sequence="11" unid="3E219A48C970E36980257BD20071BB4C">
 <created><datetime dst="true">20130825T214215,16+01</datetime></created>
-<modified><datetime dst="true">20130825T221349,34+01</datetime></modified>
-<revised><datetime dst="true">20130825T221349,33+01</datetime></revised>
-<lastaccessed><datetime dst="true">20130825T221349,34+01</datetime></lastaccessed>
+<modified><datetime dst="true">20130828T224637,62+01</datetime></modified>
+<revised><datetime dst="true">20130828T224637,61+01</datetime></revised>
+<lastaccessed><datetime dst="true">20130828T224637,62+01</datetime></lastaccessed>
 <addedtofile><datetime dst="true">20130825T214215,18+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
@@ -15,6 +15,6 @@
 
 
 
-<item name="$FileNames" sign="true"><text>Document_Form.xsp</text></item>
 
-</note>
+
+<item name="$FileNames" sign="true"><text>Document_Form.xsp</text></item></note>

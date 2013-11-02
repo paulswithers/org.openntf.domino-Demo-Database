@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="80257B32007947B2" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="9b92" sequence="12" unid="66761DA445D44EFD80257BE4003FF3B8">
+<created><datetime dst="true">20130912T123831,60+01</datetime></created>
+<modified><datetime dst="true">20130920T232700,82+01</datetime></modified>
+<revised><datetime dst="true">20130920T232700,81+01</datetime></revised>
+<lastaccessed><datetime dst="true">20130920T232700,82+01</datetime></lastaccessed>
+<addedtofile><datetime dst="true">20130912T123831,63+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
+<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
+<item name="$Flags"><text>gC~4K</text></item>
+<item name="$TITLE" sign="true"><text>Misc_Exception_OpenLog.xsp</text></item>
+<item name="$DesignerVersion"><text>8.5</text></item>
+
+
+
+<item name="$FileNames" sign="true"><text>Misc_Exception_OpenLog.xsp</text></item>
+
+
+
+</note>
