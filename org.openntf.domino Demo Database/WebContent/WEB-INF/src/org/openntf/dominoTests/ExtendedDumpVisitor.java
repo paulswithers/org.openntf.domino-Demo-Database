@@ -1,20 +1,20 @@
 package org.openntf.dominoTests;
 
 /*
- 	Copyright 2013 Paul Withers Licensed under the Apache License, Version 2.0
-	(the "License"); you may not use this file except in compliance with the
-	License. You may obtain a copy of the License at
+ Copyright 2013 Paul Withers Licensed under the Apache License, Version 2.0
+ (the "License"); you may not use this file except in compliance with the
+ License. You may obtain a copy of the License at
 
-	http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
-	or agreed to in writing, software distributed under the License is distributed
-	on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
-	express or implied. See the License for the specific language governing
-	permissions and limitations under the License
-	
-	Extended from examples in the JavaParser classes in the Google japa project
-	http://code.google.com/p/javaparser/source/browse/trunk/JavaParser/src/japa/parser/ast/visitor/?r=93
-	
-*/
+ http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law
+ or agreed to in writing, software distributed under the License is distributed
+ on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either
+ express or implied. See the License for the specific language governing
+ permissions and limitations under the License
+
+ Extended from examples in the JavaParser classes in the Google japa project
+ http://code.google.com/p/javaparser/source/browse/trunk/JavaParser/src/japa/parser/ast/visitor/?r=93
+
+ */
 
 import japa.parser.ast.BlockComment;
 import japa.parser.ast.CompilationUnit;
@@ -145,7 +145,7 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 		}
 
 		public void printLn() {
-			buf.append("<br/>");
+			buf.append("\n");
 			indented = false;
 		}
 
@@ -212,28 +212,28 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 
 	private void printMembers(List<BodyDeclaration> members, Object arg) {
 		for (BodyDeclaration member : members) {
-			//			printer.printLn();
+			// printer.printLn();
 			member.accept(this, arg);
-			//			printer.printLn();
+			// printer.printLn();
 		}
 	}
 
 	private void printMemberAnnotations(List<AnnotationExpr> annotations, Object arg) {
-		//	        if (annotations != null) {
-		//	            for (AnnotationExpr a : annotations) {
-		//	                a.accept(this, arg);
-		//	                printer.printLn();
-		//	            }
-		//	        }
+		// if (annotations != null) {
+		// for (AnnotationExpr a : annotations) {
+		// a.accept(this, arg);
+		// printer.printLn();
+		// }
+		// }
 	}
 
 	private void printAnnotations(List<AnnotationExpr> annotations, Object arg) {
-		//	        if (annotations != null) {
-		//	            for (AnnotationExpr a : annotations) {
-		//	                a.accept(this, arg);
-		//	                printer.print(" ");
-		//	            }
-		//	        }
+		// if (annotations != null) {
+		// for (AnnotationExpr a : annotations) {
+		// a.accept(this, arg);
+		// printer.print(" ");
+		// }
+		// }
 	}
 
 	private void printTypeArgs(List<Type> args, Object arg) {
@@ -279,9 +279,9 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 	}
 
 	private void printJavadoc(JavadocComment javadoc, Object arg) {
-		//	        if (javadoc != null) {
-		//	            javadoc.accept(this, arg);
-		//	        }
+		// if (javadoc != null) {
+		// javadoc.accept(this, arg);
+		// }
 	}
 
 	public void visit(CompilationUnit n, Object arg) {
@@ -306,11 +306,11 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 	}
 
 	public void visit(PackageDeclaration n, Object arg) {
-		//	        printAnnotations(n.getAnnotations(), arg);
-		//	        printer.print("package ");
-		//	        n.getName().accept(this, arg);
-		//	        printer.printLn(";");
-		//	        printer.printLn();
+		// printAnnotations(n.getAnnotations(), arg);
+		// printer.print("package ");
+		// n.getName().accept(this, arg);
+		// printer.printLn(";");
+		// printer.printLn();
 	}
 
 	public void visit(NameExpr n, Object arg) {
@@ -324,61 +324,61 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 	}
 
 	public void visit(ImportDeclaration n, Object arg) {
-		//	        printer.print("import ");
-		//	        if (n.isStatic()) {
-		//	            printer.print("static ");
-		//	        }
-		//	        n.getName().accept(this, arg);
-		//	        if (n.isAsterisk()) {
-		//	            printer.print(".*");
-		//	        }
-		//	        printer.printLn(";");
+		// printer.print("import ");
+		// if (n.isStatic()) {
+		// printer.print("static ");
+		// }
+		// n.getName().accept(this, arg);
+		// if (n.isAsterisk()) {
+		// printer.print(".*");
+		// }
+		// printer.printLn(";");
 	}
 
 	public void visit(ClassOrInterfaceDeclaration n, Object arg) {
-		//		printJavadoc(n.getJavaDoc(), arg);
-		//		printMemberAnnotations(n.getAnnotations(), arg);
-		//		printModifiers(n.getModifiers());
+		// printJavadoc(n.getJavaDoc(), arg);
+		// printMemberAnnotations(n.getAnnotations(), arg);
+		// printModifiers(n.getModifiers());
 
-		//		if (n.isInterface()) {
-		//			printer.print("interface ");
-		//		} else {
-		//			printer.print("class ");
-		//		}
+		// if (n.isInterface()) {
+		// printer.print("interface ");
+		// } else {
+		// printer.print("class ");
+		// }
 		//
-		//		printer.print(n.getName());
+		// printer.print(n.getName());
 		//
-		//		printTypeParameters(n.getTypeParameters(), arg);
+		// printTypeParameters(n.getTypeParameters(), arg);
 		//
-		//		if (n.getExtends() != null) {
-		//			printer.print(" extends ");
-		//			for (Iterator<ClassOrInterfaceType> i = n.getExtends().iterator(); i.hasNext();) {
-		//				ClassOrInterfaceType c = i.next();
-		//				c.accept(this, arg);
-		//				if (i.hasNext()) {
-		//					printer.print(", ");
-		//				}
-		//			}
-		//		}
+		// if (n.getExtends() != null) {
+		// printer.print(" extends ");
+		// for (Iterator<ClassOrInterfaceType> i = n.getExtends().iterator(); i.hasNext();) {
+		// ClassOrInterfaceType c = i.next();
+		// c.accept(this, arg);
+		// if (i.hasNext()) {
+		// printer.print(", ");
+		// }
+		// }
+		// }
 		//
-		//		if (n.getImplements() != null) {
-		//			printer.print(" implements ");
-		//			for (Iterator<ClassOrInterfaceType> i = n.getImplements().iterator(); i.hasNext();) {
-		//				ClassOrInterfaceType c = i.next();
-		//				c.accept(this, arg);
-		//				if (i.hasNext()) {
-		//					printer.print(", ");
-		//				}
-		//			}
-		//		}
+		// if (n.getImplements() != null) {
+		// printer.print(" implements ");
+		// for (Iterator<ClassOrInterfaceType> i = n.getImplements().iterator(); i.hasNext();) {
+		// ClassOrInterfaceType c = i.next();
+		// c.accept(this, arg);
+		// if (i.hasNext()) {
+		// printer.print(", ");
+		// }
+		// }
+		// }
 		//
-		//		printer.printLn(" {");
-		//		printer.indent();
+		// printer.printLn(" {");
+		// printer.indent();
 		if (n.getMembers() != null) {
 			printMembers(n.getMembers(), arg);
 		}
-		//		printer.unindent();
-		//		printer.print("}");
+		// printer.unindent();
+		// printer.print("}");
 	}
 
 	public void visit(EmptyTypeDeclaration n, Object arg) {
@@ -464,21 +464,21 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 	}
 
 	public void visit(FieldDeclaration n, Object arg) {
-		//		printJavadoc(n.getJavaDoc(), arg);
-		//		printMemberAnnotations(n.getAnnotations(), arg);
-		//		printModifiers(n.getModifiers());
-		//		n.getType().accept(this, arg);
+		// printJavadoc(n.getJavaDoc(), arg);
+		// printMemberAnnotations(n.getAnnotations(), arg);
+		// printModifiers(n.getModifiers());
+		// n.getType().accept(this, arg);
 		//
-		//		printer.print(" ");
-		//		for (Iterator<VariableDeclarator> i = n.getVariables().iterator(); i.hasNext();) {
-		//			VariableDeclarator var = i.next();
-		//			var.accept(this, arg);
-		//			if (i.hasNext()) {
-		//				printer.print(", ");
-		//			}
-		//		}
+		// printer.print(" ");
+		// for (Iterator<VariableDeclarator> i = n.getVariables().iterator(); i.hasNext();) {
+		// VariableDeclarator var = i.next();
+		// var.accept(this, arg);
+		// if (i.hasNext()) {
+		// printer.print(", ");
+		// }
+		// }
 		//
-		//		printer.print(";");
+		// printer.print(";");
 	}
 
 	public void visit(VariableDeclarator n, Object arg) {
@@ -817,45 +817,45 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 	}
 
 	public void visit(ConstructorDeclaration n, Object arg) {
-		//		printJavadoc(n.getJavaDoc(), arg);
-		//		printMemberAnnotations(n.getAnnotations(), arg);
-		//		printModifiers(n.getModifiers());
+		// printJavadoc(n.getJavaDoc(), arg);
+		// printMemberAnnotations(n.getAnnotations(), arg);
+		// printModifiers(n.getModifiers());
 		//
-		//		printTypeParameters(n.getTypeParameters(), arg);
-		//		if (n.getTypeParameters() != null) {
-		//			printer.print(" ");
-		//		}
-		//		printer.print(n.getName());
+		// printTypeParameters(n.getTypeParameters(), arg);
+		// if (n.getTypeParameters() != null) {
+		// printer.print(" ");
+		// }
+		// printer.print(n.getName());
 		//
-		//		printer.print("(");
-		//		if (n.getParameters() != null) {
-		//			for (Iterator<Parameter> i = n.getParameters().iterator(); i.hasNext();) {
-		//				Parameter p = i.next();
-		//				p.accept(this, arg);
-		//				if (i.hasNext()) {
-		//					printer.print(", ");
-		//				}
-		//			}
-		//		}
-		//		printer.print(")");
+		// printer.print("(");
+		// if (n.getParameters() != null) {
+		// for (Iterator<Parameter> i = n.getParameters().iterator(); i.hasNext();) {
+		// Parameter p = i.next();
+		// p.accept(this, arg);
+		// if (i.hasNext()) {
+		// printer.print(", ");
+		// }
+		// }
+		// }
+		// printer.print(")");
 		//
-		//		if (n.getThrows() != null) {
-		//			printer.print(" throws ");
-		//			for (Iterator<NameExpr> i = n.getThrows().iterator(); i.hasNext();) {
-		//				NameExpr name = i.next();
-		//				name.accept(this, arg);
-		//				if (i.hasNext()) {
-		//					printer.print(", ");
-		//				}
-		//			}
-		//		}
-		//		printer.print(" ");
-		//		n.getBlock().accept(this, arg);
+		// if (n.getThrows() != null) {
+		// printer.print(" throws ");
+		// for (Iterator<NameExpr> i = n.getThrows().iterator(); i.hasNext();) {
+		// NameExpr name = i.next();
+		// name.accept(this, arg);
+		// if (i.hasNext()) {
+		// printer.print(", ");
+		// }
+		// }
+		// }
+		// printer.print(" ");
+		// n.getBlock().accept(this, arg);
 	}
 
 	public void visit(MethodDeclaration n, Object arg) {
-		//	        printJavadoc(n.getJavaDoc(), arg);
-		//		printMemberAnnotations(n.getAnnotations(), arg);
+		// printJavadoc(n.getJavaDoc(), arg);
+		// printMemberAnnotations(n.getAnnotations(), arg);
 		if (n.getName().equals(getSearchMethodName())) {
 			printModifiers(n.getModifiers());
 
