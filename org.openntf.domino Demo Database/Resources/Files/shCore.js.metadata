@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8A0032CA16" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="38a" sequence="1" unid="0A0939C6FD441F97C1257C18003792BA">
+<created><datetime>20131103T110700,42+01</datetime></created>
+<modified><datetime>20131103T110700,44+01</datetime></modified>
+<revised><datetime>20131103T110700,43+01</datetime></revised>
+<lastaccessed><datetime>20131103T110700,44+01</datetime></lastaccessed>
+<addedtofile><datetime>20131103T110700,44+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Martin Jinoch/O=MAPSYS/C=CZ</name></updatedby>
+<wassignedby><name>CN=Martin Jinoch/O=MAPSYS/C=CZ</name></wassignedby>
+<item name="$TITLE"><text>shCore.js</text></item>
+<item name="$Flags"><text>345CgQ</text></item>
+<item name="$FlagsExt"><text>D</text></item>
+
+<item name="$FileModDT" sign="true"><datetime dst="true">20100702T125900,00+02</datetime></item>
+
+<item name="$FileNames" sign="true"><text>shCore.js</text></item>
+<item name="$DesignerVersion"><text>8.5.3</text></item></note>
