@@ -1,33 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xp:view xmlns:xp="http://www.ibm.com/xsp/core">
+<xp:view
+	xmlns:xp="http://www.ibm.com/xsp/core"
+	dojoParseOnLoad="true">
+	<script type="text/javascript" src="./shCore.js"></script>
+	<script type="text/javascript" src="./shBrushJava.js"></script>
 	<xp:this.dataContexts>
-		<xp:dataContext var="lotusClassName" value="Old${compositeData.objectName}Bean">
+		<xp:dataContext
+			var="lotusClassName"
+			value="Old${compositeData.objectName}Bean">
 		</xp:dataContext>
-		<xp:dataContext var="ourClassName" value="New${compositeData.objectName}Bean">
+		<xp:dataContext
+			var="ourClassName"
+			value="New${compositeData.objectName}Bean">
 		</xp:dataContext>
 	</xp:this.dataContexts>
-	<xp:table id="table1" styleClass="lotusFormTable">
-		<xp:tr style="background-color:#E8FAEE">
+	<xp:this.resources>
+		<xp:script
+			src="/sh.js"
+			clientSide="true">
+		</xp:script>
+		<xp:styleSheet href="/shCoreDefault.css"></xp:styleSheet>
+	</xp:this.resources>
+	<xp:table
+		id="table1"
+		styleClass="lotusFormTable">
+		<xp:tr>
 			<xp:td style="width:50%;text-align:left;">
 				<xp:section header="Standard Code">
-					<xp:text id="compar1" escape="false" value="#{javascript:dataComparator.getLotusMethodText(compositeData.methodName)}">
+					<xp:text
+						tagName="pre"
+						styleClass="brush:java;"
+						id="compar1"
+						escape="false"
+						value="#{javascript:dataComparator.getLotusMethodText(compositeData.methodName)}">
 					</xp:text>
 				</xp:section>
 			</xp:td>
 			<xp:td style="width:50%;text-align:left;">
 				<xp:section header="OpenNTF Domino Code">
-					<xp:text id="compar2" escape="false" value="#{javascript:dataComparator.getOurMethodText(compositeData.methodName)}">
+					<xp:text
+						tagName="pre"
+						styleClass="brush:java;"
+						id="compar2"
+						escape="false"
+						value="#{javascript:dataComparator.getOurMethodText(compositeData.methodName)}">
 					</xp:text>
 				</xp:section>
 			</xp:td>
 		</xp:tr>
 		<xp:tr>
-			<xp:td colspan="2" style="padding-left:20px;background-color:#F8F8F8">
-				<xp:text tagName="h2" value="Domino/OpenNTF Comparison"></xp:text>
-				<xp:text escape="false">
-					<xp:this.value><![CDATA[#{javascript:importPackage(org.openntf.dominoTests);
-Utils.runComparison(getComponent("compar1").getValue(),getComponent("compar2").getValue());}]]></xp:this.value>
+			<xp:td
+				colspan="2"
+				style="padding-left:20px;background-color:#F8F8F8">
+				<xp:text
+					tagName="h2"
+					value="Domino/OpenNTF Comparison">
 				</xp:text>
+					<xp:text
+						tagName="pre"
+						escape="false">
+						<xp:this.value><![CDATA[#{javascript:importPackage(org.openntf.dominoTests);
+Utils.runComparison(getComponent("compar1").getValue(),getComponent("compar2").getValue());}]]></xp:this.value>
+					</xp:text>
 			</xp:td>
 		</xp:tr>
 	</xp:table>
