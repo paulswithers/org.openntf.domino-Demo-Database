@@ -100,7 +100,9 @@ public class DataInitializer {
 
 	void deleteAllDocuments() throws NotesException {
 		Database db = ExtLibUtil.getCurrentDatabase();
-		db.getAllDocuments().removeAll(true);
+		if (db.getAllDocuments().getCount() > 0) {
+			db.getAllDocuments().removeAll(true);
+		}
 	}
 
 	// ===================================================================
@@ -176,15 +178,15 @@ public class DataInitializer {
 			}
 		}
 		b.append("@");
-		//		for(int i=0; i<city.length(); i++) {
-		//			char c = Character.toLowerCase(city.charAt(i));
-		//			if(c>='a' && c<='z') {
-		//				b.append(c);
-		//			} else if(c==',') { // State...
-		//				break;
-		//			}
-		//		}
-		//		b.append(".");
+		// for(int i=0; i<city.length(); i++) {
+		// char c = Character.toLowerCase(city.charAt(i));
+		// if(c>='a' && c<='z') {
+		// b.append(c);
+		// } else if(c==',') { // State...
+		// break;
+		// }
+		// }
+		// b.append(".");
 		b.append("renovations.com");
 		return b.toString();
 	}
