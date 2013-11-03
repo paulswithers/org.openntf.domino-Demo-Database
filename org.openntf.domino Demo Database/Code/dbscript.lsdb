@@ -1,15 +1,19 @@
 <?xml version='1.0' encoding='utf-8'?>
-<databasescript xmlns='http://www.lotus.com/dxl' version='9.0' replicaid='80257B32007947B2'
- designerversion='8.5.3'>
-<noteinfo noteid='9b32' unid='B7A10458ECFDBFEE80257BD4006FA7AD' sequence='3'>
+<note class='filter' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
+ replicaid='C1257B8A0032CA16'>
+<noteinfo noteid='1ee' unid='B7A10458ECFDBFEE80257BD4006FA7AD' sequence='5'>
 <created><datetime dst='true'>20130827T211934,21+01</datetime></created>
-<modified><datetime dst='true'>20130827T211936,03+01</datetime></modified>
-<revised><datetime dst='true'>20130827T211936,02+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20130827T211936,03+01</datetime></lastaccessed>
-<addedtofile><datetime dst='true'>20130827T211934,24+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
-<wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby><code event='options'><lotusscript
->%REM
+<modified><datetime>20131103T105549,78+01</datetime></modified>
+<revised><datetime>20131102T185325,63+01</datetime></revised>
+<lastaccessed><datetime>20131103T105549,78+01</datetime></lastaccessed>
+<addedtofile><datetime>20131103T105549,78+01</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=Martin Jinoch/O=MAPSYS/C=CZ</name></updatedby>
+<wassignedby><name>CN=Martin Jinoch/O=MAPSYS/C=CZ</name></wassignedby>
+<item name='$TITLE' sign='true'><text>Database Script</text></item>
+<item name='$PublicAccess'><text>1</text></item>
+<item name='$DesignerVersion'><text>8.5.3</text></item>
+<item name='$DBScript' summary='false' sign='true'><text>'++LotusScript Development Environment:2:5:(Options):0:66
+%REM
 	Database Script Database Script
 	Created Aug 27, 2013 by admin/Intec-PW
 	Description: Comments for Database Script
@@ -17,5 +21,39 @@
 Option Declare
 
 
-</lotusscript></code><code event='declarations'><lotusscript/></code></databasescript>
+'++LotusScript Development Environment:2:5:(Forward):0:1
+
+'++LotusScript Development Environment:2:5:(Declarations):0:2
+
+'++LotusScript Development Environment:2:2:BindEvents:1:129
+Private Sub BindEvents ( Byval ObjectName_ As String )
+	Static Source As NOTESUIDATABASE
+	Set Source = Bind(Objectname_)
+End Sub<break/></text></item>
+<item name='$DBScript_O' sign='true'>
+<rawitemdata type='14'>
+AQAAAkxTT0IDABQIZW4AAAQABQAUAAQAAABYAQwBAAAAAAAArAC4AAAAAAAAAIgAGAA4AP//pABU
+AAAAAAAAAAEAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAABAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAEAAAC4ALgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAALgAuAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAEABQBMb3R1cyBQcm9kdWN0AAAAVjAuMAAAAAAAAAAAAAAAAAAA
+AAAEAAAAFAAAAAAAAABYAQAADAEAAAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAAAA
+AAQAAABXMzJJJQMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAwAQAQAAAAAkAAkAJABEAEIAUwBDAFIASQBQAFQAAABsAAMATgBFAFcAAACAAAYARABFAEwA
+RQBUAEUAAAAAAP//CgBJAE4ASQBUAEkAQQBMAEkAWgBFAAAAAAD//wkAVABFAFIATQBJAE4AQQBU
+AEUAAADUAAYATwBCAEoARQBDAFQAAAAAAMAAAAAAAAAA//8KAEIASQBOAEQARQBWAEUATgBUAFMA
+AAAAAP//CwBPAEIASgBFAEMAVABOAEEATQBFAF8AAAD//wYAUwBPAFUAUgBDAEUAAAAAAPgADwBO
+AE8AVABFAFMAVQBJAEQAQQBUAEEAQgBBAFMARQAAAP//BgAlAEwAUwBYAFUASQAAAAAABQBcAQAA
+AAARZyNwCAAAAAAAAACMAAAAAAAAAAIAAACcAEgBAAAAAAAAAAAAAAAAAAAAAJwAnAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAEgBSAEAAAAAAAAAAAEAAAACAAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAEASAEAAKgABggA
+AAAAGgAAAPwA//8AAAAAEAAAAAAAAADYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMVEyntLmkQv10A3QERhrcAAAAAAAAA
+AAAAAAAAAAAAZAAAAAAAAAAAAAAAAAAAAAIArAAAAAAAAAAAAAoAAQD//wAAAwAgAAAAAADEAAkC
+AAC4AAQAGAAAAAAAHQAAGhEAW0gBSZwAyrgAphoSAB0CAAAAEQAUAAAAAAD//wEAAwAKAAAADACM
+AA4ACgAAAA==
+</rawitemdata></item>
+<item name='$Flags'><text>t34Q</text></item></note>
 
