@@ -2,8 +2,12 @@
 <xp:view
 	xmlns:xp="http://www.ibm.com/xsp/core"
 	dojoParseOnLoad="true">
-	<script type="text/javascript" src="./shCore.js"></script>
-	<script type="text/javascript" src="./shBrushJava.js"></script>
+	<script
+		type="text/javascript"
+		src="./sunlight-min.js"></script>
+	<script
+		type="text/javascript"
+		src="./sunlight.java-min.js"></script>
 	<xp:this.dataContexts>
 		<xp:dataContext
 			var="lotusClassName"
@@ -15,32 +19,33 @@
 		</xp:dataContext>
 	</xp:this.dataContexts>
 	<xp:this.resources>
-		<xp:script
-			src="/sh.js"
-			clientSide="true">
-		</xp:script>
-		<xp:styleSheet href="/shCoreDefault.css"></xp:styleSheet>
+		<xp:styleSheet
+			href="./sunlight.default.css"></xp:styleSheet>
 	</xp:this.resources>
 	<xp:table
 		id="table1"
 		styleClass="lotusFormTable">
 		<xp:tr>
-			<xp:td style="width:50%;text-align:left;">
-				<xp:section header="Standard Code">
+			<xp:td
+				style="width:50%;text-align:left;">
+				<xp:section
+					header="Standard Code">
 					<xp:text
 						tagName="pre"
-						styleClass="brush:java;"
+						styleClass="sunlight-highlight-java"
 						id="compar1"
 						escape="false"
 						value="#{javascript:dataComparator.getLotusMethodText(compositeData.methodName)}">
 					</xp:text>
 				</xp:section>
 			</xp:td>
-			<xp:td style="width:50%;text-align:left;">
-				<xp:section header="OpenNTF Domino Code">
+			<xp:td
+				style="width:50%;text-align:left;">
+				<xp:section
+					header="OpenNTF Domino Code">
 					<xp:text
 						tagName="pre"
-						styleClass="brush:java;"
+						styleClass="sunlight-highlight-java"
 						id="compar2"
 						escape="false"
 						value="#{javascript:dataComparator.getOurMethodText(compositeData.methodName)}">
@@ -56,13 +61,15 @@
 					tagName="h2"
 					value="Domino/OpenNTF Comparison">
 				</xp:text>
-					<xp:text
-						tagName="pre"
-						escape="false">
-						<xp:this.value><![CDATA[#{javascript:importPackage(org.openntf.dominoTests);
+				<xp:text
+					tagName="pre"
+					escape="false">
+					<xp:this.value><![CDATA[#{javascript:importPackage(org.openntf.dominoTests);
 Utils.runComparison(getComponent("compar1").getValue(),getComponent("compar2").getValue());}]]></xp:this.value>
-					</xp:text>
+				</xp:text>
 			</xp:td>
 		</xp:tr>
 	</xp:table>
+	<script
+		type="text/javascript">Sunlight.highlightAll({lineNumbers: false});</script>
 </xp:view>

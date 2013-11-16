@@ -238,7 +238,7 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 
 	private void printTypeArgs(List<Type> args, Object arg) {
 		if (args != null) {
-			printer.print("<");
+			printer.print("&lt;");
 			for (Iterator<Type> i = args.iterator(); i.hasNext();) {
 				Type t = i.next();
 				t.accept(this, arg);
@@ -246,7 +246,7 @@ public class ExtendedDumpVisitor implements VoidVisitor<Object> {
 					printer.print(", ");
 				}
 			}
-			printer.print(">");
+			printer.print("&gt;");
 		}
 	}
 
