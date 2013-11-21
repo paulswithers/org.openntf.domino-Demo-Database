@@ -20,14 +20,14 @@
 	</xp:this.dataContexts>
 	<xp:this.resources>
 		<xp:styleSheet
-			href="./sunlight.default.css"></xp:styleSheet>
+			href="/sunlight.default.css"></xp:styleSheet>
 	</xp:this.resources>
 	<xp:table
 		id="table1"
 		styleClass="lotusFormTable">
 		<xp:tr>
 			<xp:td
-				style="width:50%;text-align:left;">
+				style="width:50%;text-align:left;max-width:300px;">
 				<xp:section
 					header="Standard Code">
 					<xp:text
@@ -40,7 +40,7 @@
 				</xp:section>
 			</xp:td>
 			<xp:td
-				style="width:50%;text-align:left;">
+				style="width:50%;text-align:left;max-width:300px;display:table-cell;">
 				<xp:section
 					header="OpenNTF Domino Code">
 					<xp:text
@@ -63,7 +63,7 @@
 				</xp:text>
 				<xp:text
 					tagName="pre"
-					escape="false">
+					escape="false" style="font-size:0.9em;">
 					<xp:this.value><![CDATA[#{javascript:importPackage(org.openntf.dominoTests);
 Utils.runComparison(getComponent("compar1").getValue(),getComponent("compar2").getValue());}]]></xp:this.value>
 				</xp:text>

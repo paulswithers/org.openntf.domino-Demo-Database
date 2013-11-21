@@ -1,18 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?><note class="form" maintenanceversion="1.0" replicaid="C1257B8A0032CA16" version="9.0" xmlns="http://www.lotus.com/dxl">
-<noteinfo noteid="4ba" sequence="2" unid="7F0D292E32080A5BC1257C25004F18B8">
-<created><datetime>20131116T152356,72+01</datetime></created>
-<modified><datetime>20131116T152356,77+01</datetime></modified>
-<revised><datetime>20131116T152356,76+01</datetime></revised>
-<lastaccessed><datetime>20131116T152356,77+01</datetime></lastaccessed>
-<addedtofile><datetime>20131116T152356,73+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=Martin Jinoch/O=MAPSYS/C=CZ</name></updatedby>
-<wassignedby><name>CN=Martin Jinoch/O=MAPSYS/C=CZ</name></wassignedby>
-<item name="$TITLE"><text>sunlight.default.css</text></item>
-<item name="$Flags"><text>34C=Q</text></item>
-<item name="$FlagsExt"><text>D</text></item>
-
-<item name="$FileModDT" sign="true"><datetime>20131105T085421,00+01</datetime></item>
-
-<item name="$FileNames" sign="true"><text>sunlight.default.css</text></item>
-<item name="$DesignerVersion"><text>8.5.3</text></item>
-<item name="$MimeCharSet"><text>Cp1250</text></item></note>
+<?xml version="1.0" encoding="UTF-8"?><stylesheetresource charset="Windows-1252" designerversion="8.5.3" maintenanceversion="1.0" name="sunlight.default.css" publicaccess="false" replicaid="80257B32007947B2" version="9.0" xmlns="http://www.lotus.com/dxl">
+<noteinfo noteid="9bd6" sequence="6" unid="139B28DABA1CCE5B80257C2A004AB49B">
+<created><datetime>20131121T133558,99+00</datetime></created>
+<modified><datetime>20131121T134353,20+00</datetime></modified>
+<revised><datetime>20131121T134353,19+00</datetime></revised>
+<lastaccessed><datetime>20131121T134353,20+00</datetime></lastaccessed>
+<addedtofile><datetime>20131121T133559,39+00</datetime></addedtofile></noteinfo>
+<updatedby><name>CN=admin/O=Intec-PW</name></updatedby></stylesheetresource>
