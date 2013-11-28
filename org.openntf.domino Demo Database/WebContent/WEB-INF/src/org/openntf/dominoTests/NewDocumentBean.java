@@ -16,15 +16,19 @@ package org.openntf.dominoTests;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.TreeMap;
 
 import org.openntf.domino.Database;
 import org.openntf.domino.DateTime;
 import org.openntf.domino.Document;
+import org.openntf.domino.DocumentCollection;
 import org.openntf.domino.Item;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
+import org.openntf.domino.helpers.Formula;
 import org.openntf.domino.utils.Factory;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
@@ -172,5 +176,55 @@ public class NewDocumentBean implements Serializable {
 		Document contact = currDb.createDocument(fieldsMap);
 		contact.save();
 		ExtLibUtil.getViewScope().put("javaTest", contact.getNoteID());
+	}
+
+	public void setDateField() {
+		Session s = Factory.getSession();
+		Database currDb = s.getCurrentDatabase();
+		View contacts = currDb.getView("AllContacts");
+		Utils.addAllListeners(currDb);
+		Document doc = contacts.getFirstDocument();
+		doc.put("javaDateField", new Date());
+		doc.save(true, false);
+		ExtLibUtil.getViewScope().put("javaTest", doc.get("javaDateField"));
+	}
+
+	public void setFormulaField() {
+		Session s = Factory.getSession();
+		Database currDb = s.getCurrentDatabase();
+		View contacts = currDb.getView("AllContacts");
+		Utils.addAllListeners(currDb);
+		Document doc = contacts.getFirstDocument();
+		Formula fm = new Formula("@DocumentUniqueID");
+		doc.put("javaFormulaField", "Document UNID is " + fm.getValue(doc));
+		doc.save(true, false);
+		ExtLibUtil.getViewScope().put("javaTest", doc.get("javaFormulaField"));
+	}
+
+	public void setDocumentCollectionField() {
+		Session s = Factory.getSession();
+		Database currDb = s.getCurrentDatabase();
+		View contacts = currDb.getView("AllContacts");
+		View contactsByState = currDb.getView("AllContactsByState");
+		Utils.addAllListeners(currDb);
+		Document doc = contacts.getFirstDocument();
+		DocumentCollection dc = contactsByState.getAllDocumentsByKey("CA", true);
+		doc.put("javaDCField", dc);
+		doc.save(true, false);
+	}
+
+	public void setMapField() {
+		Session s = Factory.getSession();
+		Database currDb = s.getCurrentDatabase();
+		View contacts = currDb.getView("AllContacts");
+		Utils.addAllListeners(currDb);
+		Document doc = contacts.getFirstDocument();
+		TreeMap<String, String> testMap = new TreeMap<String, String>();
+		testMap.put("Per", "Denmark");
+		testMap.put("John", "South Africa");
+		testMap.put("Mark", "Netherlands");
+		testMap.put("Paul", "UK");
+		doc.put("javaMapField", testMap);
+		doc.save(true, false);
 	}
 }

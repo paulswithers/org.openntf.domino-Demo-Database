@@ -38,10 +38,10 @@
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="complete">
 							<xp:this.action><![CDATA[#{javascript:contacts = database.getView("AllContacts");
-	var doc = contacts.getFirstDocument();
-	var obj:Object = new Object("This is a test");
-	doc.replaceItemValue("summarySSJSField",obj,true);
-	doc.save(true,false);
+var doc = contacts.getFirstDocument();
+var obj:Object = new Object("This is a test");
+doc.replaceItemValue("summarySSJSField",obj,true);
+doc.save(true,false);
 viewScope.put("SSJSTest", doc.get("summarySSJSField") + " " + doc.getFirstItem("summarySSJSField").isSummary());}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>

@@ -39,6 +39,14 @@
 			</xe:pageTreeNode>
 			<xe:pageTreeNode label="ReplaceItemValue + Summary" page="/Document_ReplaceItemValueSummary.xsp">
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Date Field" page="/Document_FieldDate.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Formula Field" page="/Document_FieldFormula.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="DocumentCollection Field" page="/Document_FieldDocumentCollection.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Map Field" page="/Document_FieldMap.xsp">
+			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
 </xp:view>
