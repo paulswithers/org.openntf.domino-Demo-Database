@@ -10,3 +10,10 @@ table {
 table td{
 	vertical-align:	top;
 }
+
+/* set font for prettyprint code blocks */
+pre.prettyprint  {
+	font-family: "Courier New", Courier, monospace !important;
+	overflow-x: auto;
+	padding: 5px;
+}
