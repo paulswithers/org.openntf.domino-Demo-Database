@@ -2,12 +2,22 @@
 <xp:view
 	xmlns:xp="http://www.ibm.com/xsp/core"
 	dojoParseOnLoad="true">
-	<script
-		type="text/javascript"
-		src="./sunlight-min.js"></script>
-	<script
-		type="text/javascript"
-		src="./sunlight.java-min.js"></script>
+	
+	<xp:this.resources>
+		<xp:styleSheet href="prettify.css"></xp:styleSheet>
+		<xp:styleSheet href="prettify-custom.css"></xp:styleSheet>
+		<xp:script
+			src="prettify.js"
+			clientSide="true">
+		</xp:script>
+	</xp:this.resources>
+	
+	<xp:scriptBlock id="scriptBlock1">
+		<xp:this.value><![CDATA[dojo.addOnLoad( function() {
+prettyPrint();
+})]]></xp:this.value>
+	</xp:scriptBlock>
+
 	<xp:this.dataContexts>
 		<xp:dataContext
 			var="lotusClassName"
@@ -18,10 +28,7 @@
 			value="New${compositeData.objectName}Bean">
 		</xp:dataContext>
 	</xp:this.dataContexts>
-	<xp:this.resources>
-		<xp:styleSheet
-			href="/sunlight.default.css"></xp:styleSheet>
-	</xp:this.resources>
+	
 	<xp:table
 		id="table1"
 		styleClass="lotusFormTable">
@@ -32,7 +39,7 @@
 					header="Standard Code">
 					<xp:text
 						tagName="pre"
-						styleClass="sunlight-highlight-java"
+						styleClass="prettyprint lang-java"
 						id="compar1"
 						escape="false"
 						value="#{javascript:dataComparator.getLotusMethodText(compositeData.methodName)}">
@@ -45,7 +52,7 @@
 					header="OpenNTF Domino Code">
 					<xp:text
 						tagName="pre"
-						styleClass="sunlight-highlight-java"
+						styleClass="prettyprint lang-java"
 						id="compar2"
 						escape="false"
 						value="#{javascript:dataComparator.getOurMethodText(compositeData.methodName)}">
@@ -70,6 +77,5 @@ Utils.runComparison(getComponent("compar1").getValue(),getComponent("compar2").g
 			</xp:td>
 		</xp:tr>
 	</xp:table>
-	<script
-		type="text/javascript">Sunlight.highlightAll({lineNumbers: false});</script>
+	
 </xp:view>
