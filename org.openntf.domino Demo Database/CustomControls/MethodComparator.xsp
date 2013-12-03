@@ -5,7 +5,6 @@
 	
 	<xp:this.resources>
 		<xp:styleSheet href="prettify.css"></xp:styleSheet>
-		<xp:styleSheet href="prettify-custom.css"></xp:styleSheet>
 		<xp:script
 			src="prettify.js"
 			clientSide="true">
