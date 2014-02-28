@@ -24,6 +24,7 @@ import org.openntf.domino.DocumentCollection;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
 import org.openntf.domino.ViewEntryCollection;
+import org.openntf.domino.utils.DominoUtils;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
@@ -98,6 +99,28 @@ public class NewViewBean implements Serializable {
 		}
 		sb.append("Done");
 		ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+	}
+
+	public void checkIsUnique() {
+		try {
+			StringBuilder sb = new StringBuilder();
+			Database db = (Database) ExtLibUtil.resolveVariable(FacesContext.getCurrentInstance(), "database");
+			Document doc = db.createDocument();
+			doc.put("FirstName", "Aaron");
+			doc.put("LastName", "Monroe");
+			View view = db.getView("AllContacts");
+			ArrayList<String> key = new ArrayList<String>();
+			key.add(doc.getItemValueString("FirstName"));
+			key.add(doc.getItemValueString("LastName"));
+			if (view.checkUnique(key, doc)) {
+				sb.append("No document yet exists with name Aaron Monroe");
+			} else {
+				sb.append("Document already exists with name Aaron Monroe");
+			}
+			ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		} catch (Throwable t) {
+			DominoUtils.handleException(t);
+		}
 	}
 
 }

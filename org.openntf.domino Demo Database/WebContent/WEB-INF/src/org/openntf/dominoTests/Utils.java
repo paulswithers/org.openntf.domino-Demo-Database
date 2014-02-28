@@ -13,8 +13,12 @@ package org.openntf.dominoTests;
 	
 */
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.LinkedHashMap;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.TreeSet;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -29,13 +33,16 @@ import org.openntf.domino.DocumentCollection;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
+import org.openntf.domino.email.DominoEmail;
 import org.openntf.domino.helpers.DocumentScanner;
 import org.openntf.domino.transactions.DatabaseTransaction;
 import org.openntf.domino.utils.DominoUtils;
 import org.openntf.domino.utils.Factory;
 import org.openntf.domino.xsp.XspOpenLogUtil;
+import org.openntf.domino.xsp.helpers.XspUtils;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
+import com.ibm.xsp.model.domino.wrapped.DominoDocument;
 
 public class Utils {
 
@@ -202,7 +209,58 @@ public class Utils {
 		currDb.addListener(new TestDocumentListener());
 	}
 
+	public static void XSPUtilsTest(DominoDocument doc) {
+		Document beDoc = XspUtils.getBEDoc(doc);
+		String unid = beDoc.getUniversalID();
+		//String viewNoteId = XspUtils.getBEView(view).getNoteID();
+		String viewNoteId = unid;
+		ExtLibUtil.getViewScope().put("javaTest", "Document UNID is " + unid + "<br/>View NoteID is " + viewNoteId);
+	}
+
 	public static String getVersion() {
 		return Factory.getVersion();
+	}
+
+	public static void sendMail(String p_HTML) {
+		DominoEmail myEmail = new DominoEmail();
+		ArrayList<String> to = new ArrayList<String>();
+		to.add("paulswithers@hotmail.co.uk");
+		to.add("tmalone@intec.co.uk");
+		to.add("pwithers@intec.co.uk");
+		myEmail.setTo(to);
+		myEmail.addHTML(p_HTML);
+		myEmail.send();
+	}
+
+	public static TreeSet<String> getSessionAndApplicationSets() {
+		TreeSet<String> val = new TreeSet<String>();
+		Map<String, Object> sessScope = ExtLibUtil.getSessionScope();
+		Map<String, Object> appScope = ExtLibUtil.getApplicationScope();
+		for (String key : sessScope.keySet()) {
+			val.add(key);
+		}
+
+		for (String key : appScope.keySet()) {
+			val.add(key);
+		}
+		return val;
+	}
+
+	public static Map<String, String> getSessionAndApplicationMaps() {
+		LinkedHashMap<String, String> val = new LinkedHashMap<String, String>();
+		Map<String, Object> sessScope = ExtLibUtil.getSessionScope();
+		Map<String, Object> appScope = ExtLibUtil.getApplicationScope();
+		int count = 1;
+		for (String key : sessScope.keySet()) {
+			val.put(Integer.toString(count) + " - " + key, key);
+			count++;
+		}
+
+		for (String key : appScope.keySet()) {
+			val.put(Integer.toString(count) + " - " + key, key);
+			count++;
+		}
+		return val;
+
 	}
 }

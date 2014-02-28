@@ -29,6 +29,8 @@
 			</xe:pageTreeNode>
 			<xe:pageTreeNode label="Get All Documents By Key (No Match)" page="/View_GetAllDocumentsByKeyNoMatch.xsp">
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Is Unique" page="/View_IsUnique.xsp">
+			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
 

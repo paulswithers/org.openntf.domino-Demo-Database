@@ -36,6 +36,13 @@
 			<xe:separatorTreeNode></xe:separatorTreeNode>
 			<xe:pageTreeNode label="Database Listeners" page="/Misc_DatabaseListeners.xsp">
 			</xe:pageTreeNode>
+			<xe:separatorTreeNode></xe:separatorTreeNode>
+			<xe:pageTreeNode label="Name Picker" page="/Misc_NamePicker.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Value Picker" page="/Misc_ValuePickers.xsp">
+			</xe:pageTreeNode>
+			<xe:pageTreeNode label="XSPUtils" page="/Misc_XSPUtils.xsp">
+			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
 </xp:view>

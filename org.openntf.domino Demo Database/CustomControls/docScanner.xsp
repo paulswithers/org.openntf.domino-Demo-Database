@@ -9,9 +9,11 @@
 			<xp:eventHandler event="onchange" submit="true" refreshMode="partial"
 				refreshId="selectorArea">
 				<xp:this.action><![CDATA[#{javascript:var retVal=viewScope.get("scannerFieldTypeMap").get(this.getParent().getValue());
+viewScope.put("Test",viewScope.get("scannerFieldTypeMap").get("FirstName"));
 viewScope.put("fieldDataType",retVal);}]]></xp:this.action>
 			</xp:eventHandler>
 		</xp:comboBox>
+		<xp:text value="#{viewScope.Test}TEST"></xp:text>
 		<xe:djextListTextBox id="djextListTextBox1" value="#{viewScope.fieldDataType}"
 			displayLabel="true" readOnly="true">
 		</xe:djextListTextBox>

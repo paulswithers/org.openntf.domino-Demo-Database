@@ -29,6 +29,21 @@ return doc.getUniversalID();}]]></xp:this.documentId>
 						<xe:dumpObject id="dumpObject1">
 							<xe:this.value><![CDATA[#{javascript:document1.getItemValue("javaMapField")}]]></xe:this.value>
 						</xe:dumpObject>
+						<xp:br></xp:br>
+						<xp:text escape="false">
+							<xp:this.value><![CDATA[Session s = Factory.getSession();
+		Database currDb = s.getCurrentDatabase();<br/>
+		View contacts = currDb.getView("AllContacts");<br/>
+		Utils.addAllListeners(currDb);<br/>
+		Document doc = contacts.getFirstDocument();<br/>
+		TreeMap<String, String> testMap = new TreeMap<String, String>();<br/>
+		testMap.put("Per", "Denmark");<br/>
+		testMap.put("John", "South Africa");<br/>
+		testMap.put("Mark", "Netherlands");<br/>
+		testMap.put("Paul", "UK");<br/>
+		doc.put("javaMapField", testMap);<br/>
+		doc.save(true, false);]]></xp:this.value>
+						</xp:text>
 					</xp:div>
 					
 				</xp:this.facets>

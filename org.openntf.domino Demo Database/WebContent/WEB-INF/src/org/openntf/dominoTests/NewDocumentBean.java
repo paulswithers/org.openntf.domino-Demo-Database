@@ -147,7 +147,7 @@ public class NewDocumentBean implements Serializable {
 		Document doc = contacts.getFirstDocument();
 		StringBuilder sb = new StringBuilder();
 		sb.append("Here is a value");
-		Item itm = (Item) doc.replaceItemValue("summaryField", sb, true);
+		Item itm = doc.replaceItemValue("summaryField", sb, true);
 		doc.save(true, false);
 		ExtLibUtil.getViewScope().put("javaTest", doc.get("summaryField") + " " + Boolean.toString(itm.isSummary()));
 	}
@@ -226,5 +226,19 @@ public class NewDocumentBean implements Serializable {
 		testMap.put("Paul", "UK");
 		doc.put("javaMapField", testMap);
 		doc.save(true, false);
+	}
+
+	public void breakNames() {
+		try {
+			Session s = Factory.getSession();
+			Database currDb = s.getCurrentDatabase();
+			View contacts = currDb.getView("AllContacts");
+			Document doc = contacts.getFirstDocument();
+			Item testItem = doc.replaceItemValue("muppetField", 1);
+			testItem.setNames(true);
+			doc.save(true, false);
+		} catch (Throwable t) {
+			ExtLibUtil.getViewScope().put("javaTest", t.getClass().getName() + ": " + t.getLocalizedMessage());
+		}
 	}
 }

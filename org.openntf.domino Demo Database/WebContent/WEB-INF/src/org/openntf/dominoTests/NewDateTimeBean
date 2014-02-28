@@ -220,8 +220,7 @@ public class NewDateTimeBean implements Serializable {
 		Utils.addAllListeners(currDb);
 		View threads = currDb.getView("AllContacts");
 		Document doc = threads.getFirstDocument();
-		DateTime dt = s.createDateTime(new Date());
-		doc.put("testDate", dt);
+		doc.put("testDate", new Date());
 		doc.save(true, false);
 		ExtLibUtil.getViewScope().put("javaTest", doc.get("testDate").toString());
 	}

@@ -179,4 +179,18 @@ public class OldDocumentBean implements Serializable {
 			//handle Exception
 		}
 	}
+
+	public void breakNames() {
+		Database currDb = ExtLibUtil.getCurrentDatabase();
+		try {
+			View contacts = currDb.getView("AllContacts");
+			Document doc = contacts.getFirstDocument();
+			Item testItem = doc.replaceItemValue("oldMuppetField", 1);
+			testItem.setNames(true);
+			doc.save(true, false);
+			ExtLibUtil.getViewScope().put("javaTest", testItem.getType());
+		} catch (Throwable t) {
+			//
+		}
+	}
 }

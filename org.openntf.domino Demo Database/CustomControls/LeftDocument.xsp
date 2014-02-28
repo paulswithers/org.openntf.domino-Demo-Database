@@ -45,6 +45,8 @@
 			</xe:pageTreeNode>
 			<xe:pageTreeNode label="DocumentCollection Field" page="/Document_FieldDocumentCollection.xsp">
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Set Names" page="/Document_BreakNames.xsp">
+			</xe:pageTreeNode>
 			<xe:pageTreeNode label="Map Field" page="/Document_FieldMap.xsp">
 			</xe:pageTreeNode>
 		</xe:this.treeNodes>

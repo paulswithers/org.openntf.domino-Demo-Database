@@ -28,6 +28,7 @@
 				</xc:this.description>
 				<xp:this.facets>
 					<xp:div xp:key="SSJSButton">
+					<xe:dumpObject id="dumpObject1" value="#{requestScope}"></xe:dumpObject>
 					<xp:text id="Test1">
 							<xp:this.rendered><![CDATA[#{javascript:try {
 	// rendered property
