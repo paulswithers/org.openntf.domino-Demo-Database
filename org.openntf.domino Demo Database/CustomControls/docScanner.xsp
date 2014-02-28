@@ -8,12 +8,11 @@
 			</xp:selectItems>
 			<xp:eventHandler event="onchange" submit="true" refreshMode="partial"
 				refreshId="selectorArea">
-				<xp:this.action><![CDATA[#{javascript:var retVal=viewScope.get("scannerFieldTypeMap").get(this.getParent().getValue());
-viewScope.put("Test",viewScope.get("scannerFieldTypeMap").get("FirstName"));
+				<xp:this.action><![CDATA[#{javascript:var key = new org.openntf.domino.types.CaseInsensitiveString(this.getParent().getValue());
+var retVal=viewScope.get("scannerFieldTypeMap").get(key);
 viewScope.put("fieldDataType",retVal);}]]></xp:this.action>
 			</xp:eventHandler>
 		</xp:comboBox>
-		<xp:text value="#{viewScope.Test}TEST"></xp:text>
 		<xe:djextListTextBox id="djextListTextBox1" value="#{viewScope.fieldDataType}"
 			displayLabel="true" readOnly="true">
 		</xe:djextListTextBox>
@@ -38,7 +37,8 @@ viewScope.put("fieldDataType",retVal);}]]></xp:this.action>
 					<xp:inputText id="inputText1">
 						<xp:typeAhead mode="partial" minChars="1"
 							ignoreCase="true">
-							<xp:this.valueList><![CDATA[#{javascript:viewScope.get("scannerFieldValueMap").get(getComponent("fieldCombo").getValue()).toArray();}]]></xp:this.valueList>
+							<xp:this.valueList><![CDATA[#{javascript:var key = new org.openntf.domino.types.CaseInsensitiveString(getComponent("fieldCombo").getValue());
+		viewScope.get("scannerFieldValueMap").get(key).toArray();}]]></xp:this.valueList>
 						</xp:typeAhead>
 					</xp:inputText>
 				</xp:td>
@@ -53,7 +53,8 @@ viewScope.put("fieldDataType",retVal);}]]></xp:this.action>
 					<xp:inputText id="inputTokens">
 						<xp:typeAhead mode="partial" minChars="1"
 							ignoreCase="true">
-							<xp:this.valueList><![CDATA[#{javascript:viewScope.get("scannerFieldTokenMap").get(getComponent("fieldCombo").getValue()).toArray();}]]></xp:this.valueList>
+							<xp:this.valueList><![CDATA[#{javascript:var key = new org.openntf.domino.types.CaseInsensitiveString(getComponent("fieldCombo").getValue());
+		viewScope.get("scannerFieldTokenMap").get(key).toArray();}]]></xp:this.valueList>
 						</xp:typeAhead>
 						<xp:eventHandler event="onblur" submit="true"
 							refreshMode="partial" refreshId="tokenFreq">
@@ -61,7 +62,8 @@ viewScope.put("fieldDataType",retVal);}]]></xp:this.action>
 					</xp:inputText>
 					<xp:text id="tokenFreq">
 						<xp:this.value><![CDATA[#{javascript:try {
-	"Occurs " + viewScope.get("scannerTokenFreqMap").get(getComponent("inputTokens").getValue()) + " times in collection.";
+	var key = new org.openntf.domino.types.CaseInsensitiveString(getComponent("inputTokens").getValue());
+	"Occurs " + viewScope.get("scannerTokenFreqMap").get(key) + " times in collection.";
 } catch(e) {
 
 }}]]></xp:this.value>
