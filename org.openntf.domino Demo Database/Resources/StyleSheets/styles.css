@@ -10,3 +10,15 @@ table {
 table td{
 	vertical-align:	top;
 }
+
+/* set font for prettyprint code blocks */
+pre.prettyprint  {
+	font-family: monospace !important;
+	font-size: 12px;
+	overflow-x: auto;
+	padding: 5px;
+}
+
+pre.prettyprint .typ, pre.prettyprint .kwd {
+	font-weight: bold;
+}
