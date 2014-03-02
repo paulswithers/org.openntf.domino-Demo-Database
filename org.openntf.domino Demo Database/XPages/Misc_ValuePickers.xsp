@@ -11,7 +11,7 @@
 				<xp:this.facets>
 					<xp:div xp:key="SSJSButton">
 						<xp:label for="inputText1"
-							value="Value Picker picking from LinkedHashMap (so they're in the order they're added). Search gets first ftsearch match onwards.">
+							value="Value Picker picking from LinkedHashMap (so they're in the order they're added). Search gets first ftsearch match with only those results">
 						</xp:label>
 						<xp:br></xp:br>
 						<xp:inputText id="inputText1"
@@ -20,7 +20,7 @@
 						<xe:valuePicker id="valuePicker1" for="inputText1" dojoType="extlib.dijit.PickerListSearch">
 							<xe:this.dataProvider>
 								<on:mapValuePicker caseInsensitive="true"
-									searchType="ftsearch">
+									searchType="ftSearch" searchStyle="restrictToSearch">
 									<on:this.options><![CDATA[#{javascript:var val=new java.util.LinkedHashMap();
 var count = 1;
 for (key in applicationScope.keySet()) {
@@ -69,7 +69,7 @@ return val;}]]></on:this.collection>
 					</xp:div>
 					<xp:div xp:key="javaButton">
 						<xp:label for="inputText4"
-							value="Value Picker picking from LinkedHashMap (so they're in the order they're added). Search will only work with an exact match (not case-sensitive.">
+							value="Value Picker picking from LinkedHashMap (so they're in the order they're added). Search will only work with an exact match (not case-sensitive">
 						</xp:label>
 						<xp:br></xp:br>
 						<xp:inputText id="inputText4"
