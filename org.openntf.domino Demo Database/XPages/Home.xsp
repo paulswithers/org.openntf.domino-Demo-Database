@@ -23,10 +23,6 @@
 			<xc:LeftCore xp:key="LeftColumn"></xc:LeftCore>
 			<xp:div xp:key="facet_1" style="text-align:center" id="panel1">
 				<xp:text value="org.openntf.domino Demo Database" styleClass="mainTitle"></xp:text>
-				<xp:br></xp:br>
-				<xp:text styleClass="mainTitle">
-					<xp:this.value><![CDATA[jar version: ${javascript:importPackage(org.openntf.dominoTests);Utils.getVersion();}]]></xp:this.value>
-				</xp:text>
 				<xp:div styleClass="lotusInfoBox" style="clear:right;text-align:left;">
 					<xp:text escape="false">
 					<xp:this.value><![CDATA[
