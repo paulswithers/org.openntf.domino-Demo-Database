@@ -1,12 +1,16 @@
 package org.openntf.dominoTests;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openntf.domino.Database;
 import org.openntf.domino.DocumentCollection;
+import org.openntf.domino.Name;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.email.DominoEmail;
+import org.openntf.domino.helpers.DocumentSorter;
 import org.openntf.domino.helpers.DocumentSyncHelper;
 import org.openntf.domino.utils.Factory;
 
@@ -43,5 +47,22 @@ public class NewHelperBean implements Serializable {
 		DominoEmail myEmail = new DominoEmail();
 		myEmail.createSimpleEmail("pwithers@intec.co.uk", "", "", "OpenNTF Domino API Email",
 				"this is an email from the OpenNTF Domino API", "");
+	}
+
+	public void getGroups() {
+		Session currSess = Factory.getSession();
+		Name currName = currSess.createName(currSess.getEffectiveUserName());
+		ExtLibUtil.getViewScope().put("javaTest", currName.getGroups(currSess.getServerName()));
+	}
+
+	public DocumentCollection getSortedCollection() {
+		String sSearch = "FIELD Author contains \"Aaron Douglas\"";
+		org.openntf.domino.DocumentCollection dc = Factory.getSession().getCurrentDatabase().FTSearch(sSearch, 500);
+		List criteria = new ArrayList();
+		criteria.add("Date");
+		DocumentSorter sorter = new org.openntf.domino.helpers.DocumentSorter(dc, criteria);
+		DocumentCollection results = sorter.sort();
+		ExtLibUtil.getViewScope().put("javaTest", results.getCount());
+		return results;
 	}
 }

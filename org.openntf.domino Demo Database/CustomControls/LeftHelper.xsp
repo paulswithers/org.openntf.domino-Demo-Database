@@ -20,6 +20,8 @@
 			<xe:separatorTreeNode></xe:separatorTreeNode>
 			<xe:pageTreeNode label="SyncHelper" page="/Misc_SyncHelper.xsp">
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="DocumentSorter" page="/Misc_SortedCollection.xsp">
+			</xe:pageTreeNode>
 			<xe:separatorTreeNode></xe:separatorTreeNode>
 			<xe:pageTreeNode label="Transaction" page="/Misc_Transaction.xsp">
 			</xe:pageTreeNode>
