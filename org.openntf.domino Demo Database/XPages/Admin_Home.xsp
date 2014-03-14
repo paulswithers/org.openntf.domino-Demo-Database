@@ -104,16 +104,18 @@ var msg = "Created Sample Data Set";
 				<xp:br></xp:br>
 				<xp:br></xp:br>
 				<xp:button value="Delete All Documents" id="button3">
-					<xp:eventHandler event="onclick" submit="true" refreshMode="complete">
-						<xp:this.action><![CDATA[#{javascript:var d = new extlib.DataInitializer()
-d.initDeleteDocuments()
-d.run()
+					<xp:eventHandler
+						event="onclick"
+						submit="true"
+						refreshMode="complete">
+						<xp:this.action><![CDATA[#{javascript:var d = new extlib.DataInitializerOpenNTF();
+d.initDeleteDocuments();
+d.run();
 
 var msg = "Deleted all documents.";
 var info = javax.faces.application.FacesMessage.SEVERITY_INFO;
 facesContext.addMessage(this.getClientId(facesContext),
-    new javax.faces.application.FacesMessage(info, msg, msg));
-}]]></xp:this.action>
+    new javax.faces.application.FacesMessage(info, msg, msg));}]]></xp:this.action>
 					</xp:eventHandler>
 				</xp:button>
 				<xp:br></xp:br>
