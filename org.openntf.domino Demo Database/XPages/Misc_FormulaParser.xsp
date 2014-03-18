@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xp:view xmlns:xp="http://www.ibm.com/xsp/core" xmlns:xc="http://www.ibm.com/xsp/custom">
+
+	<xc:ccLayoutOneUI>
+		<xp:this.facets>
+			<xc:LeftHelper xp:key="LeftColumn"></xc:LeftHelper>
+			<xc:mainArea xp:key="facet_1" title="Formula Parser"
+				description="Allows you to parse an @Formula">
+				<xp:this.facets>
+					<xp:div xp:key="javaButton">
+						<xp:inputText id="inputText1" value="#{viewScope.javaFormula}">
+						</xp:inputText>
+						<xp:br></xp:br>
+						<xp:button value="Process Formula" id="button1">
+							<xp:eventHandler event="onclick" submit="true"
+								refreshMode="partial" refreshId="JavaDiv">
+								<xp:this.action><![CDATA[#{javascript:openNTFHelperBean.processFormula()}]]></xp:this.action>
+							</xp:eventHandler>
+						</xp:button>
+					</xp:div>
+				</xp:this.facets>
+			</xc:mainArea>
+		</xp:this.facets>
+	</xc:ccLayoutOneUI>
+</xp:view>

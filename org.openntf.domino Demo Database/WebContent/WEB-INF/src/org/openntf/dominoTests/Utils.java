@@ -30,9 +30,11 @@ import org.openntf.domino.Database;
 import org.openntf.domino.DateTime;
 import org.openntf.domino.Document;
 import org.openntf.domino.DocumentCollection;
+import org.openntf.domino.RichTextStyle;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.ViewEntry;
+import org.openntf.domino.RichTextStyle.BoldStyle;
 import org.openntf.domino.email.DominoEmail;
 import org.openntf.domino.helpers.DocumentScanner;
 import org.openntf.domino.transactions.DatabaseTransaction;
@@ -219,6 +221,12 @@ public class Utils {
 
 	public static String getVersion() {
 		return Factory.getVersion();
+	}
+
+	public static void demoJavadoc() {
+		Session s = Factory.getSession();
+		RichTextStyle rts = s.createRichTextStyle();
+		rts.setBold(BoldStyle.ISBN_9780133258936);
 	}
 
 	public static void sendMail(String p_HTML) {

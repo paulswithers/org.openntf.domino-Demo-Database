@@ -47,6 +47,8 @@
 			</xe:pageTreeNode>
 			<xe:pageTreeNode label="XSPUtils" page="/Misc_XSPUtils.xsp">
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Formula Parser" page="/Misc_FormulaParser.xsp">
+			</xe:pageTreeNode>
 		</xe:this.treeNodes>
 	</xe:navigator>
 </xp:view>

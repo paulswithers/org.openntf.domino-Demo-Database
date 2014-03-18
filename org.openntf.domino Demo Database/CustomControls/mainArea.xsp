@@ -15,7 +15,12 @@
 	-->
 
 	<xp:div style="text-align:center" id="panel1">
-		<xp:text tagName="h1" value="#{compositeData.title}"></xp:text>
+		<xp:text tagName="h1" value="#{compositeData.title}" id="link1">
+
+		<xp:eventHandler event="onclick" submit="false">
+			<xp:this.script><![CDATA[var elem=XSP.getElementById("lotusColLeft");
+			(elem.style.display=="none") ? elem.style.display="block" : elem.style.display="none";]]></xp:this.script>
+		</xp:eventHandler></xp:text>
 		<hr></hr>
 		<xp:div styleClass="lotusInfoBox">
 			<xp:text escape="false" value="#{compositeData.description}">
