@@ -1,14 +1,14 @@
 <?xml version='1.0' encoding='utf-8'?>
 <form name='AllTypes' xmlns='http://www.lotus.com/dxl' version='9.0' maintenanceversion='1.0'
  replicaid='80257B32007947B2' publicaccess='false' designerversion='8.5.3'
- fromtemplate='xpFrameWork.ntf' renderpassthrough='true'>
-<noteinfo noteid='e7a' unid='2096E3172459D5EF80257B420041A898' sequence='5'>
+ renderpassthrough='true'>
+<noteinfo noteid='e7a' unid='2096E3172459D5EF80257B420041A898' sequence='14'>
 <created><datetime dst='true'>20130403T125710,00+01</datetime></created>
-<modified><datetime dst='true'>20130520T222314,76+01</datetime></modified>
-<revised><datetime dst='true'>20130520T222314,75+01</datetime></revised>
-<lastaccessed><datetime dst='true'>20130520T222314,76+01</datetime></lastaccessed>
+<modified><datetime>20140318T090905,73+00</datetime></modified>
+<revised><datetime>20140318T090905,72+00</datetime></revised>
+<lastaccessed><datetime>20140318T090905,73+00</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125710,00+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
+<updatedby><name>CN=admin/O=Intec-PW</name><name>CN=Paul Withers/O=Intec</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby>
 <body><richtext>
 <pardef id='1'/>

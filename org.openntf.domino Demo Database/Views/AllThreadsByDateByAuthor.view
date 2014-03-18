@@ -1,21 +1,20 @@
 <?xml version='1.0' encoding='utf-8'?>
 <view name='AllThreadsByDateByAuthor' xmlns='http://www.lotus.com/dxl' version='9.0'
  maintenanceversion='1.0' replicaid='80257B32007947B2' showinmenu='false'
- noreplace='true' publicaccess='false' designerversion='8.5.3' unreadmarks='none'
- onopengoto='lastopened' onrefresh='displayindicator' headers='beveled' opencollapsed='false'
- showresponsehierarchy='true' showmargin='true' shrinkrows='false' extendlastcolumn='false'
- showhierarchies='false' unreadcolor='black' rowlinecount='1' headerlinecount='1'
- rowspacing='1' bgcolor='white' totalscolor='black' headerbgcolor='white'
- boldunreadrows='false' evaluateactions='false' allownewdocuments='false'
- allowcustomizations='true' hidemarginborder='false' marginwidth='0px' marginbgcolor='white'
- uniquekeys='false'>
-<noteinfo noteid='eb6' unid='E7FADA978BE9CD5A80257B420041B074' sequence='11'>
+ publicaccess='false' designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened'
+ onrefresh='displayindicator' headers='beveled' opencollapsed='false' showresponsehierarchy='true'
+ showmargin='true' shrinkrows='false' extendlastcolumn='false' showhierarchies='false'
+ unreadcolor='black' rowlinecount='1' headerlinecount='1' rowspacing='1' bgcolor='white'
+ totalscolor='black' headerbgcolor='white' boldunreadrows='false' evaluateactions='false'
+ allownewdocuments='false' allowcustomizations='true' hidemarginborder='false'
+ marginwidth='0px' marginbgcolor='white' uniquekeys='false'>
+<noteinfo noteid='eb6' unid='E7FADA978BE9CD5A80257B420041B074' sequence='12'>
 <created><datetime dst='true'>20130403T125730,12+01</datetime></created>
-<modified><datetime>20131121T135614,71+00</datetime></modified>
-<revised><datetime>20131121T135614,70+00</datetime></revised>
-<lastaccessed><datetime>20131121T135614,71+00</datetime></lastaccessed>
+<modified><datetime>20140318T090754,97+00</datetime></modified>
+<revised><datetime>20140318T090754,96+00</datetime></revised>
+<lastaccessed><datetime>20140318T090754,97+00</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125730,32+01</datetime></addedtofile></noteinfo>
-<updatedby><name>CN=admin/O=Intec-PW</name></updatedby>
+<updatedby><name>CN=admin/O=Intec-PW</name><name>CN=Paul Withers/O=Intec</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby><code event='selection'><formula
 >SELECT ((Form = "Discussion"))</formula></code>
 <column sort='descending' hidedetailrows='false' itemname='Date' width='18.7500'
