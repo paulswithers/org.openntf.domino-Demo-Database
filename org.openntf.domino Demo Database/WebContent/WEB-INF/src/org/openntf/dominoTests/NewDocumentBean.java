@@ -241,4 +241,27 @@ public class NewDocumentBean implements Serializable {
 			ExtLibUtil.getViewScope().put("javaTest", t.getClass().getName() + ": " + t.getLocalizedMessage());
 		}
 	}
+
+	public void testNamesAuthorsReaders() {
+		try {
+			StringBuilder sb = new StringBuilder();
+			Session s = Factory.getSession();
+			Database currDb = s.getCurrentDatabase();
+			View contacts = currDb.getView("AllContacts");
+			Document doc = contacts.getFirstDocument();
+			Item testItem = doc.replaceItemValue("readersAuthorsNamesField", s.getEffectiveUserName());
+			sb.append("Checking if Item is Readers, Names or Authors...");
+			sb.append(testItem.isReadersNamesAuthors());
+			testItem.setNames(true);
+			testItem.setAuthors(true);
+			testItem.setReaders(true);
+			sb.append("<br/>Checking if Item is Readers, Names or Authors...");
+			sb.append(testItem.isReadersNamesAuthors());
+			doc.save(true, false);
+			sb.append("<br/>Success!!");
+			ExtLibUtil.getViewScope().put("javaTest", sb.toString());
+		} catch (Throwable t) {
+
+		}
+	}
 }

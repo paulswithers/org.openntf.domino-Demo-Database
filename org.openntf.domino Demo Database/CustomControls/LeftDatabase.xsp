@@ -17,20 +17,11 @@
 		<xe:this.treeNodes>
 			<xe:pageTreeNode label="Home" page="/Home.xsp">
 			</xe:pageTreeNode>
+
 			<xe:separatorTreeNode></xe:separatorTreeNode>
-			<xe:pageTreeNode label="DateTime" page="/DateTime.xsp">
+			<xe:pageTreeNode label="Get API Path" page="/Database_ApiPath.xsp">
 			</xe:pageTreeNode>
-			<xe:pageTreeNode label="View" page="/View_ViewEntry.xsp">
-			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Database" page="/Database_ApiPath.xsp">
-			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Document" page="/Document_CreatedDateOld.xsp">
-			</xe:pageTreeNode>
-			<!-- TODO: Complete ColorObject examples wiith getHex() and setHex -->
-			<xe:pageTreeNode label="Color Object" page="/ColorObject.xsp">
-			</xe:pageTreeNode>
-			<xe:pageTreeNode label="Helpers / Misc" page="/Misc_SyncHelper.xsp">
-			</xe:pageTreeNode>
+			
 		</xe:this.treeNodes>
 	</xe:navigator>
 </xp:view>
