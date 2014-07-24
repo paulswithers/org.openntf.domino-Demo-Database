@@ -1,7 +1,6 @@
 package org.openntf.dominoTests;
 
 import java.io.Serializable;
-import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,13 +10,9 @@ import org.openntf.domino.Name;
 import org.openntf.domino.Session;
 import org.openntf.domino.View;
 import org.openntf.domino.email.DominoEmail;
-import org.openntf.domino.formula.AtFormulaParser;
-import org.openntf.domino.formula.FormulaContext;
-import org.openntf.domino.formula.ast.SimpleNode;
 import org.openntf.domino.helpers.DocumentSorter;
 import org.openntf.domino.helpers.DocumentSyncHelper;
 import org.openntf.domino.utils.Factory;
-import org.openntf.domino.xsp.XspOpenLogUtil;
 
 import com.ibm.xsp.extlib.util.ExtLibUtil;
 
@@ -50,7 +45,7 @@ public class NewHelperBean implements Serializable {
 
 	public void sendSimpleEmail() {
 		DominoEmail myEmail = new DominoEmail();
-		myEmail.createSimpleEmail("pwithers@intec.co.uk", "", "", "OpenNTF Domino API Email",
+		myEmail.createSimpleEmail("CN=Intec TestUser2/O=Intec-PW", "", "", "OpenNTF Domino API Email",
 				"this is an email from the OpenNTF Domino API", "");
 	}
 
@@ -69,22 +64,5 @@ public class NewHelperBean implements Serializable {
 		DocumentCollection results = sorter.sort();
 		ExtLibUtil.getViewScope().put("javaTest", results.getCount());
 		return results;
-	}
-
-	public void processFormula() {
-		try {
-			SimpleNode n = null;
-			List<Object> v = null;
-
-			AtFormulaParser parser = AtFormulaParser.getInstance();
-			StringReader sr = new StringReader((String) ExtLibUtil.getViewScope().get("javaFormula"));
-			parser.ReInit(sr);
-			n = parser.Parse();
-			FormulaContext ctx = new FormulaContext(null, parser.getFormatter());
-			v = n.evaluate(ctx);
-			ExtLibUtil.getViewScope().put("javaTest", v.toArray());
-		} catch (Throwable t) {
-			XspOpenLogUtil.logError(t);
-		}
 	}
 }

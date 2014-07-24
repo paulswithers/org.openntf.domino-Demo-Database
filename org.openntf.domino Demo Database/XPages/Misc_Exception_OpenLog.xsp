@@ -55,6 +55,7 @@
 						<xp:eventHandler event="onclick" submit="true"
 							refreshMode="partial" refreshId="JavaDiv">
 							<xp:this.action><![CDATA[#{javascript:org.openntf.dominoTests.Utils.openLogTest();
+org.openntf.dominoTests.Utils.openLogUtilTest();
 @InfoMessage("Done")}]]></xp:this.action>
 						</xp:eventHandler>
 					</xp:button>

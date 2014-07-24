@@ -62,8 +62,13 @@ return val;}]]></on:this.collection>
 						<xp:inputText id="inputText3"
 							value="#{viewScope.value3}">
 						</xp:inputText>
-						<xe:valuePicker id="valuePicker3" for="inputText3">
+						<xe:valuePicker id="valuePicker3" for="inputText3"
+							dialogTitle="Enum Picker">
 							<xe:this.dataProvider>
+								<on:enumValuePicker
+									enumName="org.openntf.domino.impl.Document$RemoveType"
+									sorted="true">
+								</on:enumValuePicker>
 							</xe:this.dataProvider>
 						</xe:valuePicker>
 					</xp:div>

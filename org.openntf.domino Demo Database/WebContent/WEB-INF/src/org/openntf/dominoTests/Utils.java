@@ -19,6 +19,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeSet;
+import java.util.logging.Level;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -53,6 +54,7 @@ public class Utils {
 	}
 
 	public static String doChecks(DateTime dt1, DateTime dt2) {
+		Factory.getSession().boogie();
 		StringBuilder s = new StringBuilder();
 		s.append("Comparing Date 1 " + dt1.toJavaDate().toString() + " and Date 2 " + dt2.toJavaDate().toString()
 				+ "<br/>");
@@ -147,6 +149,13 @@ public class Utils {
 
 	public static void openLogTest() {
 		XspOpenLogUtil.logError(new Throwable("This is a test of XspOpenLogUtil"));
+	}
+
+	public static void openLogUtilTest() {
+		Database db = Factory.getSession().getCurrentDatabase();
+		View view = db.getView("allStates");
+		Document doc = view.getFirstDocument();
+		XspOpenLogUtil.getXspOpenLogItem().logEvent(null, "Test message", Level.FINE, doc);
 	}
 
 	public static void transactionTest(boolean successOrFail) {

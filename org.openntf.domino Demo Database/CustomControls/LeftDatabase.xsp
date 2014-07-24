@@ -21,6 +21,8 @@
 			<xe:separatorTreeNode></xe:separatorTreeNode>
 			<xe:pageTreeNode label="Get API Path" page="/Database_ApiPath.xsp">
 			</xe:pageTreeNode>
+			<xe:pageTreeNode label="Search Loop" page="/Database_SearchLoop.xsp">
+			</xe:pageTreeNode>
 			
 		</xe:this.treeNodes>
 	</xe:navigator>

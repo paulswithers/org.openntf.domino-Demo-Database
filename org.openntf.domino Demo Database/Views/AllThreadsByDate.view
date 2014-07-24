@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <view name='AllThreadsByDate' xmlns='http://www.lotus.com/dxl' version='9.0'
- maintenanceversion='1.0' replicaid='80257B32007947B2' showinmenu='false'
+ maintenanceversion='1.1' replicaid='80257B32007947B2' showinmenu='false'
  publicaccess='false' designerversion='8.5.3' unreadmarks='none' onopengoto='lastopened'
  onrefresh='displayindicator' headers='beveled' opencollapsed='false' showresponsehierarchy='true'
  showmargin='true' shrinkrows='false' extendlastcolumn='false' showhierarchies='false'
@@ -12,7 +12,7 @@
 <created><datetime dst='true'>20130403T125730,11+01</datetime></created>
 <modified><datetime>20140318T090754,95+00</datetime></modified>
 <revised><datetime>20140318T090754,94+00</datetime></revised>
-<lastaccessed><datetime>20140318T090754,95+00</datetime></lastaccessed>
+<lastaccessed><datetime dst='true'>20140612T140438,09+01</datetime></lastaccessed>
 <addedtofile><datetime dst='true'>20130403T125730,30+01</datetime></addedtofile></noteinfo>
 <updatedby><name>CN=admin/O=Intec-PW</name><name>CN=Paul Withers/O=Intec</name></updatedby>
 <wassignedby><name>CN=admin/O=Intec-PW</name></wassignedby><code event='selection'><formula

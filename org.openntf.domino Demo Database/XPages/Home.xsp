@@ -41,6 +41,8 @@
 					instead. Note, if enabling at server-level you should check pre-existing XPages applications to ensure 
 					there are no unforeseen	implications. By default godmode is enabled for this application.<br />
 					<b>org.openntf.domino.xsp=marcel</b> turns on MIME handling<br/>
+					<b>org.openntf.domino.xsp=khan</b> turns on improvements, like making appendItemValue work as expected<br/>
+					<ul><li>"I am better"</li><li>"At what?"</li><li>"Everything"</li></ul>
 					<b>org.openntf.domino.xsp=raid</b> turns on debug-level messages<br/>
 					Multiple options are enabled by comma-delimiting, e.g. org.openntf.domino.xsp=godmode,marcel,raid<br/>
 					<br />
